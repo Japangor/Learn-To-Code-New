@@ -1,0 +1,82 @@
+<h2><strong><span style="color: #2980b9;">RMI</span></strong></h2>
+<h4><span style="color: #333333;">Remote method invocation(RMI) allow a java object to invoke method on an object running on another machine. RMI provide remote communication between java program. RMI is used for building distributed application.<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Concept of RMI application</span></strong></span></h3>
+<h4><span style="color: #333333;">A RMI application can be divided into two part,Client program and Server program. A Server program creates some remote object, make their references available for the client to invoke method on it. A Client program make request for remote objects on server and invoke method on them. Stub and Skeleton are two important object used for communication with remote object.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Stub and Skeleton</span></strong></span></h3>
+<h4><span style="color: #333333;">Stub act as a gateway for Client program. It resides on Client side and communicate with Skeleton object. It establish the connection between remote object and transmit request to it.</span></h4>
+<h4><span style="color: #333333;">1. It initiates a connection with remote Virtual Machine (JVM),<br /><br />2. It writes and transmits (marshals) the parameters to the remote Virtual Machine (JVM),<br /><br />3. It waits for the result<br /><br />4. It reads (unmarshals) the return value or exception, and<br /><br />5. It finally, returns the value to the caller.</span></h4>
+<h4><span style="color: #333333;">Skeleton object resides on server program. It is responsible for passing request from Stub to remote object<br /></span></h4>
+<h4><span style="color: #333333;">1. It reads the parameter for the remote method.<br /></span></h4>
+<h4><span style="color: #333333;">2. It invokes the method on the actual remote object, and.</span></h4>
+<h4><span style="color: #333333;">3. It writes and transmits (marshals) the result to the caller.<br /><br /></span></h4>
+<h4><span style="color: #333333;">Creating a Simple RMI application involves following steps</span></h4>
+<h4><span style="color: #333333;">1. Create the remote interface<br /><br />2. Provide the implementation of the remote interface<br /><br />3.&nbsp;Compile the implementation class and create the stub and skeleton objects using the rmic tool<br /><br />4.&nbsp;Start the registry service by rmiregistry tool<br /><br />5.&nbsp;Create and start the remote application<br /></span></h4>
+<h4><span style="color: #333333;">6.&nbsp;Create and start the client application</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Define a remote interface</span></strong></span></h3>
+<h4><span style="color: #333333;">A remote interface specifies the methods that can be invoked remotely by a client. Clients program communicate to remote interfaces, not to classes implementing it. To be a remote interface, a interface must extend the Remote interface of java.rmi package. There is only one method named add() and it declares RemoteException.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">interface</span> AddServerInterface <span style="color: #7f0055; font-weight: bold;">extends</span> Remote
+{
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">int</span> sum(<span style="color: #7f0055; font-weight: bold;">int</span> a,<span style="color: #7f0055; font-weight: bold;">int</span> b) <span style="color: #7f0055; font-weight: bold;">throws</span> <span style="color: #7f0055; font-weight: bold;">RemoteException</span>;
+}</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Implementation of remote interface</span></strong></span></h3>
+<h4><span style="color: #333333;">For implementation of remote interface, a class must either extend UnicastRemoteObject or use exportObject() method of UnicastRemoteObject class.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">server</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Adder <span style="color: #7f0055; font-weight: bold;">extends</span> UnicastRemoteObject <span style="color: #7f0055; font-weight: bold;">implements</span> AddServerInterface
+{
+ Adder()<span style="color: #7f0055; font-weight: bold;">throws</span> <span style="color: #7f0055; font-weight: bold;">RemoteException</span>
+ {
+  <span style="color: #7f0055; font-weight: bold;">super</span>();
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">int</span> sum(<span style="color: #7f0055; font-weight: bold;">int</span> a,<span style="color: #7f0055; font-weight: bold;">int</span> b)
+ {
+  <span style="color: #7f0055; font-weight: bold;">return</span> a+b; 
+ }
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Create AddServer and host rmi service</span></strong></span></h3>
+<h4><span style="color: #333333;">You need to create a server application and host rmi service Adder in it. This is done using rebind() method of java.rmi.Naming class. rebind() method take two arguments, first represent the name of the object reference and second argument is reference to instance of Adder.</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">registry</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> AddServer
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   AddServerInterface addService=<span style="color: #7f0055; font-weight: bold;">new</span> Adder();
+   <span style="color: #7f0055; font-weight: bold;">Naming</span>.rebind(<span style="color: #2a00ff;">"AddService"</span>,addService);	
+   <span style="color: #3f7f59;">//addService object is hosted with name AddService. </span>
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(e);
+  }
+ }
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Create&nbsp;client application</span></strong></span></h3>
+<h4><span style="color: #333333;">Client application contains a java program that invokes the lookup() method of the Naming class. This method accepts one argument, the rmi URL and returns a reference to an object of type AddServerInterface. All remote method invocation is done on this object.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">rmi</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Client
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   AddServerInterface st=(AddServerInterface)<span style="color: #7f0055; font-weight: bold;">Naming</span>.lookup(<span style="color: #2a00ff;">"rmi://"</span>+args[0]+<span style="color: #2a00ff;">"/AddService"</span>);
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(st.sum(25,8));
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(e);
+  }
+ }
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Create&nbsp;client application</span></strong></span></h3>
+<h4><span style="color: #333333;">Save all the above java file into a directory and name it as "rmi".</span></h4>
+<h4><span style="color: #333333;">1.&nbsp;compile all the java files<br />&nbsp; &nbsp; javac *.java</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;Start RMI registry<br />&nbsp; &nbsp;&nbsp;start rmiregistry</span></h4>
+<h4><span style="color: #333333;">3.&nbsp;Run Server file<br />&nbsp; &nbsp;&nbsp;java AddServer</span></h4>
+<h4><span style="color: #333333;">4.&nbsp;Run Client file in another command prompt abd pass local host port number at run time<br />&nbsp; &nbsp;&nbsp;java Client 127.0.0.1</span></h4>
+<p>&nbsp;</p>

@@ -1,0 +1,15 @@
+<h2><strong><span style="color: #2980b9;">Type Casting</span></strong></h2>
+<h4><span style="color: #333333;">Assigning a value of one type to a variable of another type is known as Type Casting.</span></h4>
+<h4><span style="color: #333333;">In Java, type casting is classified into two types,</span></h4>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1) Implicit (Widening)&nbsp;or Automatic type conversion</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">Automatic Type casting take place when,<br /> the two types are compatible<br /> the target type is larger than the source type<br />byte -&gt; short -&gt; int -&gt; long -&gt; float -&gt; double&nbsp;.</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;">Ex:   int i = 100;	
+      long l = i;	<span style="color: #3f7f59;">//no explicit type casting required  </span>
+      float f = l;	<span style="color: #3f7f59;">//no explicit type casting required<br /><br /></span></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2) Explicitly or Narrowing&nbsp;type conversion</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">When you are assigning a larger type value to a variable of smaller type, then you need to perform explicit type casting.<br />double -&gt; float -&gt; long -&gt; int -&gt; short -&gt; byte&nbsp;.</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;">Ex:   double d = 100.04;  
+      long l = (long)d;  <span style="color: #3f7f59;">//explicit type casting required  </span>
+      int i = (int)l;	<span style="color: #3f7f59;">//explicit type casting required<br /><br /><br /></span>
+</pre>

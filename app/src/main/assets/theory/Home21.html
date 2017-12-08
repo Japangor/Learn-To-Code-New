@@ -1,0 +1,80 @@
+<h2><strong><span style="color: #2980b9;">Accessing a Collection</span></strong></h2>
+<h4><span style="color: #333333;">To access, modify or remove any element from any collection we need to first find the element, for which we have to cycle throught the elements of the collection. There are three possible ways to cycle through the elements of any collection.</span></h4>
+<h4><span style="color: #333333;">1. Using Iterator interface</span></h4>
+<h4><span style="color: #333333;">2. Using ListIterator interface</span></h4>
+<h4><span style="color: #333333;">3. Using for-each loop</span></h4>
+<h3><span style="color: #008080;">Accessing elements using Iterator</span></h3>
+<h4><span style="color: #333333;">Iterator Interface is used to traverse a list in forward direction, enabling you to remove or modify the elements of the collection. Each collection classes provide iterator() method to return an iterator.</span></h4>
+<h4><span style="color: #333333;">Example :</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test_Iterator
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; ar = <span style="color: #7f0055; font-weight: bold;">new</span> ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  ar.add(<span style="color: #2a00ff;">"ab"</span>);
+  ar.add(<span style="color: #2a00ff;">"bc"</span>);
+  ar.add(<span style="color: #2a00ff;">"cd"</span>);
+  ar.add(<span style="color: #2a00ff;">"de"</span>);
+
+  Iterator it = ar.iterator(); <span style="color: #3f7f59;">//Declaring Iterator</span>
+  <span style="color: #7f0055; font-weight: bold;">while</span>(it.hasNext())
+  { 
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(it.next()+<span style="color: #2a00ff;">" "</span>);
+  }
+ }
+}
+Output : ab bc cd de
+</pre>
+<h3><span style="color: #008080;">Accessing element using ListIterator</span></h3>
+<h4><span style="color: #333333;">ListIterator Interface is used to traverse a list in both forward and backward direction. It is available to only those collections that implement the List Interface.</span></h4>
+<h4><span style="color: #333333;">Example :</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test_Iterator
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; ar = <span style="color: #7f0055; font-weight: bold;">new</span> ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  ar.add(<span style="color: #2a00ff;">"ab"</span>);
+  ar.add(<span style="color: #2a00ff;">"bc"</span>);
+  ar.add(<span style="color: #2a00ff;">"cd"</span>);
+  ar.add(<span style="color: #2a00ff;">"de"</span>);
+
+  ListIterator litr = ar.listIterator();
+  <span style="color: #7f0055; font-weight: bold;">while</span>(litr.hasNext()) <span style="color: #3f7f59;">//In forward direction</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(litr.next()+<span style="color: #2a00ff;">" "</span>);
+  }
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println();
+  <span style="color: #7f0055; font-weight: bold;">while</span>(litr.hasPrevious()) <span style="color: #3f7f59;">//In backward direction</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(litr.previous()+<span style="color: #2a00ff;">" "</span>);
+  }
+ }
+}
+Output :
+ab bc cd de
+de cd bc ab
+</pre>
+<h3><span style="color: #008080;">Using for-each loop</span></h3>
+<h4><span style="color: #333333;">for-each version of for loop can also be used for traversing each element of a collection. But this can only be used if we don't want to modify the contents of a collection and we don't want any reverse access. for-each loop can cycle through any collection of object that implements Iterable interface.</span></h4>
+<h4><span style="color: #333333;">Example :</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> ForEachDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  LinkedList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; ls = <span style="color: #7f0055; font-weight: bold;">new</span> LinkedList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  ls.add(<span style="color: #2a00ff;">"a"</span>);
+  ls.add(<span style="color: #2a00ff;">"b"</span>);
+  ls.add(<span style="color: #2a00ff;">"c"</span>);
+  ls.add(<span style="color: #2a00ff;">"d"</span>);
+
+  <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">String</span> str : ls)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(str+<span style="color: #2a00ff;">" "</span>); 
+  }
+ }
+}
+Output : a b c d
+</pre>

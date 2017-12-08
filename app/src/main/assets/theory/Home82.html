@@ -1,0 +1,67 @@
+<h2><strong><span style="color: #2980b9;">Creating a thread&nbsp;in Java</span></strong></h2>
+<h4><span style="color: #333333;">There are two ways to create a thread:&nbsp;</span></h4>
+<h4><span style="color: #333333;">1. By implementing the Runnable interface.<br />2. By extending the Thread class.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />1. Implementing the Runnable Interface</span></strong></span></h3>
+<h4><span style="color: #333333;">The easiest way to create a thread is to create a class that implements the runnable interface. After implementing runnable interface , the class needs to implement the run() method, which is of form,</span>&nbsp;</h4>
+<h3><span style="color: #3366ff;"><strong>public void run( )</strong></span></h3>
+<h4><span style="color: #333333;">- run() method introduces a concurrent thread into your program. This thread will end when run() returns.<br />- You must specify the code for your thread inside run() method.<br />- run() method can call other methods, can use other classes and declare variables just like any other normal method.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> MyThread <span style="color: #7f0055; font-weight: bold;">implements</span> Runnable
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run()
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"concurrent thread started running.."</span>);
+ }
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> MyThreadDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main( <span style="color: #7f0055; font-weight: bold;">String</span> args[] )
+ {
+  MyThread mt = <span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+  <span style="color: #7f0055; font-weight: bold;">Thread</span> t = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Thread</span>(mt);
+  t.start();
+ }
+}
+Output : concurrent thread started running..
+</pre>
+<h4><span style="color: #333333;">To call the run() method, start() method is used. On calling start(), a new stack is provided to the thread and run() method is called to introduce the new thread into the program.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Extending Thread class</span></strong></span></h3>
+<h4><span style="color: #333333;">This is another way to create a thread by a new class that extends Thread class and create an instance of that class. The extending class must override run() method which is the entry point of new thread.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> MyThread <span style="color: #7f0055; font-weight: bold;">extends</span> Thread
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run()
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Concurrent thread started running.."</span>);
+ }
+}
+
+classMyThreadDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main( <span style="color: #7f0055; font-weight: bold;">String</span> args[] )
+ {
+  MyThread mt = <span style="color: #7f0055; font-weight: bold;">new</span>  MyThread();
+  mt.start();
+ }
+}
+Output : concurrent thread started running..
+</pre>
+<h4><span style="color: #333333;">In this case also, as we must override the run() and then use the start() method to start and run the thread. Also, when you create MyThread class object, Thread class constructor will also be invoked, as it is the super class, hence MyThread class object acts as Thread class object.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. What if we call run() method directly without using start() method ??</span></strong></span></h3>
+<h4><span style="color: #333333;">In above program if we directly call run() method, without using start() method,</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> void main( String args[] )
+{
+ MyThread mt = <span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+ mt.run();
+}
+</pre>
+<h4><span style="color: #333333;">Doing so, the thread won't be allocated a new call stack, and it will start running in the current call stack, that is the call stack of the main thread. Hence Multithreading won't be there.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. Can we Start a thread twice ??</span></strong></span></h3>
+<h4><span style="color: #333333;">No, a thread cannot be started twice. If you try to do so, IllegalThreadStateException will be thrown,</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> void main( String args[] )
+{
+ MyThread mt = <span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+ mt.start();
+ mt.start();     <span style="color: #3f7f59;">//Exception thrown</span>
+}
+</pre>
+<h4><span style="color: #333333;">When a thread is in running state, and you try to start it again, or any method try to invoke that thread again using start() method, exception is thrown.</span></h4>

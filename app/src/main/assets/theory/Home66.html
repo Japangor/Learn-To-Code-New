@@ -1,0 +1,38 @@
+<h2><strong><span style="color: #2980b9;">Static Binding and Dynamic Binding</span></strong></h2>
+<h4><span style="color: #333333;">Connecting a method call to the method body is known as binding.</span></h4>
+<h4><span style="color: #333333;">There are two types of binding:</span></h4>
+<h4><span style="color: #333333;">1. Static binding (also known as early binding).&nbsp;<br />2.&nbsp;Dynamic binding (also known as late binding).<br /></span></h4>
+<h4><span style="color: #333333;">We can perform polymorphism in java by method overloading and method overriding.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">static binding</span></strong></span></h3>
+<h4><span style="color: #333333;">When type of the object is determined at compiled time(by the compiler), it is known as static binding.</span></h4>
+<h4><span style="color: #333333;">If there is any private, final or static method in a class, there is static binding.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Dog{  
+ <span style="color: #7f0055; font-weight: bold;">private</span> <span style="color: #7f0055; font-weight: bold;">void</span> eat(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"dog is eating..."</span>);}  
+  
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+  Dog d1=<span style="color: #7f0055; font-weight: bold;">new</span> Dog();  
+  d1.eat();  
+ }  
+}  
+Output: dog is eating...</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Dynamic&nbsp;binding</span></strong></span></h3>
+<h4><span style="color: #333333;">WhenWhen type of the object is determined at run-time, it is known as dynamic binding.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Animal{  
+ <span style='color:#7f0055; font-weight:bold; '>void</span> eat(){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"animal is eating..."</span>);}  
+}  
+  
+<span style='color:#7f0055; font-weight:bold; '>class</span> Dog <span style='color:#7f0055; font-weight:bold; '>extends</span> Animal{  
+ <span style='color:#7f0055; font-weight:bold; '>void</span> eat(){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"dog is eating..."</span>);}  
+  
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+  Animal a=<span style='color:#7f0055; font-weight:bold; '>new</span> Dog();  
+  a.eat();  
+ }  
+}  
+
+Output: dog is eating...
+</pre>
+<p>&nbsp;</p>

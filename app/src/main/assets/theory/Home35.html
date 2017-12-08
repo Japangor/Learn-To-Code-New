@@ -1,0 +1,35 @@
+<h2><strong><span style="color: #2980b9;">Difference between final, finally and finalize</span></strong></h2>
+<h4><span style="color: #333333;">There are many differences between final, finally and finalize. A list of differences between final, finally and finalize are given below :</span></h4>
+<div>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>final</strong></td>
+<td><strong>&nbsp;finally</strong></td>
+<td><strong>&nbsp;finalize</strong></td>
+</tr>
+<tr>
+<td>Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed.</td>
+<td>Finally is used to place important code, it will be executed whether exception is handled or not.</td>
+<td>Finalize is used to perform clean up processing just before object is garbage collected.</td>
+</tr>
+<tr>
+<td>Final is a keyword.&nbsp;</td>
+<td>Finally is a block.</td>
+<td>Finalize is a method.</td>
+</tr>
+<tr>
+<td>
+<p>Example:</p>
+<p>class FinalExample{ <br />public static void main(String[] args){ <br />&nbsp; &nbsp; &nbsp; &nbsp; final int x=100; <br />&nbsp; &nbsp; &nbsp; &nbsp; x=200;//Compile Time Error <br />&nbsp; &nbsp; &nbsp;}<br />}</p>
+</td>
+<td>
+<p>Example:</p>
+<p>class FinallyExample{ <br />public static void main(String[] args){ <br />try{ <br />int x=300; <br />}catch(Exception e){System.out.println(e);} <br />finally{System.out.println("finally block is executed");} <br />}<br />}</p>
+</td>
+<td>class FinalizeExample{ <br />public void finalize(){System.out.println("finalize called");} <br />public static void main(String[] args){ <br />FinalizeExample f1=new FinalizeExample(); <br />FinalizeExample f2=new FinalizeExample(); <br />f1=null; <br />f2=null; <br />System.gc(); <br />}<br />}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>

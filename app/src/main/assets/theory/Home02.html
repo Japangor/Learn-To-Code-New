@@ -1,0 +1,46 @@
+<h2><strong><span style="color: #2980b9;">Wrapper class in Java</span></strong></h2>
+<h4><span style="color: #333333;">Java uses primitive types such as int, double or float to hold the basic data types for the sake of performance. Despite the performance benefits offered by the primitive types, there are situation when you will need an object representation. For example, many data structures in Java operate on objects, so you cannot use primitive types with those data structures. To handle these situations Java provides type Wrappers which provide classes that encapsulate a primitive type within an object.</span></h4>
+<h4><span style="color: #333333;">Character : It encapsulates primitive type char within object.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Character (char ch)
+</pre>
+<h4><span style="color: #333333;">Boolean : It encapsulates primitive type boolean within object.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Boolean (boolean boolValue)
+</pre>
+<h4><span style="color: #333333;">Numeric type wrappers : It is the most commonly used type wrapper.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Byte	Short	Integer	 Long	Float	Double
+</pre>
+<h4><span style="color: #333333;">Above mentioned Classes comes under Numeric type wrapper. These classes encapsulate byte, short, int, long, float, double primitive type.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Autoboxing and Unboxing</span></strong></span></h3>
+<h4><span style="color: #333333;">Autoboxing and Unboxing features was added in Java5. Autoboxing is a process by which primitive type is automatically encapsulated(boxed) into its equivalent type wrapper<br />Auto-Unboxing is a process by which the value of object is automatically extracted from a type wrapper.</span></h4>
+<h4><span style="color: #333333;">Example of Autoboxing and Unboxing</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">Integer</span> iob = 100;      <span style="color: #3f7f59;">//Autoboxing of int</span>
+  <span style="color: #7f0055; font-weight: bold;">int</span> i = iob;          <span style="color: #3f7f59;">//Unboxing of Integer</span>
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(i+<span style="color: #2a00ff;">" "</span>+iob);
+
+  <span style="color: #7f0055; font-weight: bold;">Character</span> cob = <span style="color: #2a00ff;">'abc'</span>;       /Autoboxing of <span style="color: #7f0055; font-weight: bold;">char</span>
+  <span style="color: #7f0055; font-weight: bold;">char</span> ch = cob;            <span style="color: #3f7f59;">//Auto-unboxing of Character</span>
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(cob+<span style="color: #2a00ff;">" "</span>+ch);
+ }
+}
+Output :
+
+100 100
+abc abc<br />
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Autoboxing and Unboxing</span></strong></span></h3>
+<h4><span style="color: #333333;">Whenever we use object of Wrapper class in an expression, automatic unboxing and boxing is done by JVM.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Integer iOb;
+iOb = 100;        <span style="color: #3f7f59;">//Autoboxing of int</span>
+++iOb;
+</pre>
+<h4><span style="color: #333333;">When we perform increment operation on Integer object, it is first unboxed, then incremented and then again reboxed into Integer type object.</span></h4>
+<h4><span style="color: #333333;">This will happen always, when we will use Wrapper class objects in expressions or conditions etc<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Benefits of Autoboxing / Unboxing</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Autoboxing / Unboxing lets us use primitive types and Wrapper class objects interchangeably.</span></h4>
+<h4><span style="color: #333333;">2. We don't have to perform Explicit typecasting.</span></h4>
+<h4><span style="color: #333333;">3. It helps prevent errors, but may lead to unexpected results sometimes. Hence must be used with care.</span></h4>
+<h4><span style="color: #333333;">&nbsp;</span></h4>

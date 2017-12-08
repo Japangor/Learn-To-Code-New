@@ -1,0 +1,56 @@
+<h2><strong><span style="color: #2980b9;">Method Overriding</span></strong></h2>
+<h4><span style="color: #333333;">When a method in a sub class has same name and type signature as a method in its super class, then the method is known as method overriding.</span></h4>
+<h4><span style="color: #333333;">Method overriding is also referred to as runtime polymorphism. The key benefit of overriding is the abitility to define method that's specific to a particular subclass type.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Usage of Java Method Overriding</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Method overriding is used to provide specific implementation of a method that is already provided by its super class.</span></h4>
+<h4><span style="color: #333333;">2. Method overriding is used for runtime polymorphism.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Rules for Java Method Overriding<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">1. method must have same name as in the parent class.<br /></span></h4>
+<h4><span style="color: #333333;">2.&nbsp;method must have same parameter as in the parent class.</span></h4>
+<h4><span style="color: #333333;">3.&nbsp;must be IS-A relationship (inheritance).</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Animal
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> eat()
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Generic Animal eating"</span>);
+ }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>class</span> Dog <span style='color:#7f0055; font-weight:bold; '>extends</span> Animal
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> eat()   <span style='color:#3f7f59; '>//eat() method overriden by Dog class.</span>
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Dog eat meat"</span>);
+ }
+}
+</pre>
+<h4><span style="color: #333333;">As you can see here Dog class gives it own implementation of eat() method. Method must have same name and same type signature.</span></h4>
+<h4><span style="color: #333333;">NOTE : Static methods cannot be overridden because, a static method is bounded with class where as instance method is bounded with object.</span></h4>
+<h3>&nbsp;</h3>
+<h3><strong><span style="color: #008080;">Difference between Overloading and Overriding?</span></strong></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Method Overloading</strong></td>
+<td><strong>&nbsp;Method Overriding</strong></td>
+</tr>
+<tr>
+<td>Parameter must be different and name must be same.</td>
+<td>Both name and parameter must be same.</td>
+</tr>
+<tr>
+<td>Compile time polymorphism.&nbsp;</td>
+<td>Runtime polymorphism.</td>
+</tr>
+<tr>
+<td>Increase readability of code.</td>
+<td>Increase reusability of code.</td>
+</tr>
+<tr>
+<td>Access specifier can be changed.</td>
+<td>Access specifier most not be more restrictive than original method(can be less restrictive).</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

@@ -1,0 +1,142 @@
+<h2><strong><span style="color: #2980b9;">Class</span></strong></h2>
+<h4><span style="color: #333333;">In Java everything is encapsulated under classes. Class is the core of Java language. Class can be defined as a template/ blueprint that describe the behaviors /states of a particular entity. A class defines new data type. Once defined this new type can be used to create object of that type.&nbsp;</span></h4>
+<h4><span style="color: #333333;">A class is declared using class keyword. A class contain both data and code that operate on that data. The data or variables defined within a class are called instance variables and the code that operates on this data is known as methods.</span></h4>
+<h4><span style="color: #333333;">Object is the physical as well as logical entity whereas class is the logical entity only.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">A class in java can contain:</span></strong></span></h3>
+<ul>
+<li>
+<h4><span style="color: #333333;">data member</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">method<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">constructor</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">block.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">class and interface</span>&nbsp;&nbsp;</h4>
+</li>
+</ul>
+<h4>&nbsp;&nbsp;</h4>
+<h4><span style="color: #333333;">Syntax:</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">class &lt; class_name &gt; { <br />&nbsp; &nbsp; &nbsp; &nbsp; data member; <br />&nbsp; &nbsp; &nbsp; &nbsp; method; <br />}</span></h3>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Rules for Java Class:</span></strong></span></h3>
+<ul>
+<li>
+<h4><span style="color: #333333;">A class can have only public or default(no modifier) access specifier.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">It can be either abstract, final or concrete (normal class).<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">It must have the class keyword, and class must be followed by a legal identifier.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">It may optionally extend one parent class. By default, it will extend java.lang.Object.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">It may optionally implement any number of comma-separated interfaces.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">The class's variables and methods are declared within a set of curly braces {}.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Each .java source file may contain only one public class. A source file may contain any number of default visible classes.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Finally, the source file name must match the public class name and it must have a .java suffix.</span></h4>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">A simple class example:</span></strong></span></h3>
+<h4><span style="color: #333333;">Suppose, Student is a class and student's name, roll number, age will be its property. Lets see this in Java syntax.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Student.
+{
+ <span style='color:#7f0055; font-weight:bold; '>String</span> name;
+ <span style='color:#7f0055; font-weight:bold; '>int</span> rollno;
+ <span style='color:#7f0055; font-weight:bold; '>int</span> age;
+}
+</pre>
+<h4><span style="color: #333333;">When a reference is made to a particular student with its property then it becomes an object, physical existence of Student class.<br /><br /></span></h4>
+<h2><strong><span style="color: #2980b9;">Object</span></strong></h2>
+<h4><span style="color: #333333;">An entity that has state and behavior is known as an object. Object is an instance of class. You may also call it as physical existence of a logical template class.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">An object has three characteristics:</span></strong></span></h3>
+<ul>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">state :</span> represents data (value) of an object.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">behavior :</span> represents the behavior (functionality) of an object such as deposit, withdraw etc.<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">identity : </span>Object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. But,it is used internally by the JVM to identify each object uniquely.</span></h4>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">There are three steps when creating an object from a class:</span></strong></span></h3>
+<ul>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">Declaration&nbsp;:</span>&nbsp;A variable declaration with a variable name with an object type.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">Instantiation&nbsp;:</span>&nbsp;The 'new' keyword is used to create the object.<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;"><span style="color: #008080;">Initialization&nbsp;: </span>The 'new' keyword is followed by a call to a constructor. This call initializes the new object.</span></h4>
+</li>
+</ul>
+<p><br />Student std=new Student(); //here std is object of class Student&nbsp;</p>
+<h4><span style="color: #333333;">After the above statement std is instance/object of Student class. Here the new keyword creates an actual physical copy of the object and assign it to the std variable. It will have physical existence and get memory in heap area. The new operator dynamically allocates memory for an object.</span></h4>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. Difference between object and class ???</span></strong></span></h3>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td>&nbsp;<strong>Object</strong></td>
+<td>&nbsp;<strong>Class</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Object is an instance of a class.</td>
+<td>&nbsp;Class is a blueprint or template from which objects are created.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is a real world entity such as pen, laptop, mobile, bed, keyboard, mouse, chair etc.&nbsp;</td>
+<td>&nbsp;Class is a group of similar objects.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is a physical entity.</td>
+<td>&nbsp;Class is a logical entity.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is created through new keyword mainly e.g.<br />Student s1=new Student();</td>
+<td>&nbsp;Class is declared using class keyword e.g.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is created many times as per requirement.</td>
+<td>&nbsp;Class is declared once.</td>
+</tr>
+<tr>
+<td>&nbsp;Object allocates memory when it is created.</td>
+<td>&nbsp;Class doesn't allocated memory when it is created.</td>
+</tr>
+<tr>
+<td>&nbsp;There are many ways to create object in java such as new keyword, newInstance() method, clone() method, factory method and deserialization.</td>
+<td>&nbsp;There is only one way to define class in java using class keyword.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. What are the different ways to create an object in Java ??</span></strong></span></h3>
+<h4><span style="color: #333333;">There are many ways to create an object in java. They are:</span></h4>
+<h4><span style="color: #333333;">By new keyword.</span></h4>
+<h4><span style="color: #333333;">By newInstance() method.</span></h4>
+<h4><span style="color: #333333;">By clone() method.</span></h4>
+<h4><span style="color: #333333;">By factory method etc.</span></h4>
+<h4>&nbsp;</h4>
+<h4>&nbsp;</h4>

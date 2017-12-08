@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Learn To Code(HTML)</string>
+    <string name="share_using">Learn To Code(HTML)</string>
+    <string name="profile">About</string>
+    <string name="feed">Our More Apps</string>
+    <string name="activity">Learn To Code(HTML)</string>
+    <string name="settings">Review Us</string>
+    <string name="banner"></string>
+    <string name="interstitial_full_screen"></string>
+
+</resources>

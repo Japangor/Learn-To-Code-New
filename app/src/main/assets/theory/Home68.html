@@ -1,0 +1,44 @@
+<h2><strong><span style="color: #2980b9;">Abstract class&nbsp;in Java</span></strong></h2>
+<h4><span style="color: #333333;">If a class contain any abstract method then the class is declared as abstract class. It can have abstract and non-abstract methods (method with body).</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Abstraction in Java:</span></strong></span></h3>
+<h4><span style="color: #333333;">Abstraction is a process of hiding the implementation details and showing only functionality to the user.&nbsp;Abstraction lets you focus on what the object does instead of how it does it.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Abstraction in Java:</span></strong></span></h3>
+<h4><span style="color: #333333;">1.&nbsp;Abstract class (0 to 100%)</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;Interface (100%)</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Abstract class:</span></strong></span></h3>
+<h4><span style="color: #333333;">A class that is declared as abstract is known as abstract class. It needs to be extended and its method implemented. It cannot be instantiated.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">abstract class class_name { </span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}</span></h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Abstract method:</span></strong></span></h3>
+<h4><span style="color: #333333;">Method that are declared without any body within an abstract class is known as abstract method. Any class that extends an abstract class must implement all the abstract methods declared by the super class.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">abstract&nbsp;return_type function_name ( ); &nbsp; &nbsp;// No definition</span></h3>
+<h4><span style="color: #333333;">NOTE:&nbsp;Instead of curly braces({ }) an abstract method will have a semicolon( ; ) at the end.</span></h4>
+<h4><span style="color: #333333;">Example &nbsp;of Abstract class</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>class</span> A
+{
+ <span style='color:#7f0055; font-weight:bold; '>abstract</span> <span style='color:#7f0055; font-weight:bold; '>void</span> callme(); 
+}
+<span style='color:#7f0055; font-weight:bold; '>class</span> B <span style='color:#7f0055; font-weight:bold; '>extends</span> A
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> callme()
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"this is callme."</span>); 
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  B b=<span style='color:#7f0055; font-weight:bold; '>new</span> B();
+  b.callme();
+ }
+}
+Output : this is callme.
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Points to Remember:</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Abstract classes are not Interfaces. They are different, we will study this when we will study Interfaces.</span></h4>
+<h4><span style="color: #333333;">2. An abstract class must have an abstract method.</span></h4>
+<h4><span style="color: #333333;">3. Abstract classes can have Constructors, Member variables and Normal methods.</span></h4>
+<h4><span style="color: #333333;">4. Abstract classes are never instantiated.</span></h4>
+<h4><span style="color: #333333;">5. When you extend Abstract class with abstract method, you must define the abstract method in the child class, or make the child class abstract.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />When to use Abstract Methods &amp; Abstract Class??<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) Abstract methods are usually declared where two or more subclasses are expected to do a similar thing in different ways through different implementations. These subclasses extend the same Abstract class and provide different implementations for the abstract methods.</span></h4>

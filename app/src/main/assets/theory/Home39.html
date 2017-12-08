@@ -1,0 +1,97 @@
+<h2><strong><span style="color: #2980b9;">Java&nbsp;Swing</span></strong></h2>
+<h4><span style="color: #333333;">Swing Framework contains a set of classes that provides more powerful and flexible GUI components than those of AWT. Swing provides the look and feel of modern Java GUI. Swing library is an official Java GUI tool kit released by Sun Microsystems. It is used to create graphical user interface with Java.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Main Features of Swing Toolkit</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Platform Independent<br />2. Customizable<br />3. Extensible<br />4. Configurable<br />5. Lightweight</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Swing and JFC</span></strong></span></h3>
+<h4><span style="color: #333333;">JFC is an abbreviation for Java Foundation classes, which encompass a group of features for building Graphical User Interfaces(GUI) and adding rich graphical functionalities and interactivity to Java desktop applications.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Features of JFC</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Swing GUI components. <br />2.&nbsp;Look and Feel support.<br />3.&nbsp;Java 2D.<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Difference between AWT and Swing</span></strong></span></h3>
+<h4><span style="color: #333333;">There are many differences between java awt and swing that are given below.<br /></span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Java AWT</strong></td>
+<td><strong>&nbsp;Java Swing</strong></td>
+</tr>
+<tr>
+<td>AWT components are platform-dependent.</td>
+<td>Java swing components are platform-independent.</td>
+</tr>
+<tr>
+<td>AWT components are heavyweight.</td>
+<td>wing components are lightweight.</td>
+</tr>
+<tr>
+<td>AWT doesn't support pluggable look and feel.</td>
+<td>Swing supports pluggable look and feel.</td>
+</tr>
+<tr>
+<td>AWT provides less components than Swing.</td>
+<td>Swing provides more powerful components such as tables, lists, scrollpanes, colorchooser, tabbedpane etc.</td>
+</tr>
+<tr>
+<td>AWT doesn't follows MVC(Model View Controller) where model represents data, view represents presentation and controller acts as an interface between model and view.</td>
+<td>Swing follows MVC.</td>
+</tr>
+</tbody>
+</table>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Introduction to Swing Classes</span></strong></span></h3>
+<h4><span style="color: #333333;">JPanel : JPanel is Swing's version of AWT class Panel and uses the same default layout, FlowLayout. JPanel is descended directly from JComponent.</span></h4>
+<h4><span style="color: #333333;">JFrame : JFrame is Swing's version of Frame and is descended directly from Frame class. The component which is added to the Frame, is refered as its Content.</span></h4>
+<h4><span style="color: #333333;">JWindow : This is Swing's version of Window and hass descended directly from Window class. Like Window it uses BorderLayout by default.</span></h4>
+<h4><span style="color: #333333;">JLabel : JLabel descended from Jcomponent, and is used to create text labels.</span></h4>
+<h4><span style="color: #333333;">JButton : JButton class provides the functioning of push button. JButton allows an icon, string or both associated with a button.</span></h4>
+<h4><span style="color: #333333;">JTextField : JTextFields allow editing of a single line of text.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating a JFrame</span></strong></span></h3>
+<h4><span style="color: #333333;">There are two way to create a JFrame Window,</span></h4>
+<h4><span style="color: #333333;">1. By instantiating JFrame class. (Association)<br />2. By extending JFrame class. (Inheritance)</span></h4>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating JFrame window by Instantiating JFrame class</span></strong></span></h3>
+<h4><span style="color: #333333;">There are two ways to create a Frame. They are,</span></h4>
+<h4><span style="color: #333333;">1. By Instantiating Frame class (Association)<br /></span></h4>
+<h4><span style="color: #333333;">2. By Extending Frame class (Inheritance)<br /><br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating Frame Window by Instantiating Frame class</span></strong></span>&nbsp;</h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> javax</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">swing</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> First 
+{
+ JFrame jf;
+ <span style="color: #7f0055; font-weight: bold;">public</span> First() {
+ jf = <span style="color: #7f0055; font-weight: bold;">new</span> JFrame(<span style="color: #2a00ff;">"MyWindow"</span>);		<span style="color: #3f7f59;">//Creating a JFrame with name MyWindow.</span>
+ JButton btn = <span style="color: #7f0055; font-weight: bold;">new</span> JButton(<span style="color: #2a00ff;">"Say Hello"</span>);	<span style="color: #3f7f59;">//Creating a Button. </span>
+ jf.add(btn);             		<span style="color: #3f7f59;">//adding button to frame.</span>
+ jf.setLayout(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FlowLayout</span>());        <span style="color: #3f7f59;">//setting layout using FlowLayout object.</span>
+ jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	<span style="color: #3f7f59;">//setting close  operation.</span>
+ jf.setSize(400, 400);            	<span style="color: #3f7f59;">//setting size</span>
+ jf.setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);            	<span style="color: #3f7f59;">//setting frame visibilty</span>
+}
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">new</span> First();
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating&nbsp;JFrame window by extending JFrame class</span></strong></span></h3>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> javax</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>swing</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>event</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Second <span style='color:#7f0055; font-weight:bold; '>extends</span> JFrame
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> Second() 
+ {
+  setTitle(<span style='color:#2a00ff; '>"MyWindow"</span>);
+  JLabel lb = <span style='color:#7f0055; font-weight:bold; '>new</span> JLabel(<span style='color:#2a00ff; '>"Welcome to My Second Window"</span>);	<span style='color:#3f7f59; '>//Creating a label.</span>
+  add(lb);			<span style='color:#3f7f59; '>//adding label to frame. </span>
+  setLayout(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FlowLayout</span>());	<span style='color:#3f7f59; '>//setting layout using FlowLayout object. </span>
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		<span style='color:#3f7f59; '>//setting close operation. </span>
+  setSize(400, 400);		<span style='color:#3f7f59; '>//setting size </span>
+  setVisible(<span style='color:#7f0055; font-weight:bold; '>true</span>);		<span style='color:#3f7f59; '>//setting frame visibilty </span>
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) 
+ {
+  <span style='color:#7f0055; font-weight:bold; '>new</span> Second();
+ }
+}
+</pre>
+<p>&nbsp;</p>

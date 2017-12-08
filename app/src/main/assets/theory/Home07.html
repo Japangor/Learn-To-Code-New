@@ -1,0 +1,30 @@
+<h2><strong><span style="color: #2980b9;">URL class</span></strong></h2>
+<h4><span style="color: #333333;">Java URL Class present in java.net package, deals with URL (Uniform Resource Locator) which uniquely identify or locate resources on internet.</span></h4>
+<pre style="color: #000000; background: #ffffff;">http:<span style="color: #3f7f59;">//</span><span style="color: #3f3fbf;">www.bethedeveloper.com:18/index.html</span>
+
+protocol : http 
+hostname : www.bethedeveloper.com
+portnumber : 80
+file name : index.html</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Program using URL&nbsp;&nbsp;class</span></strong></span></h3>
+<h4><span style="color: #333333;"><span style="color: #008080;">1. getProtocol ( ) :</span> Returns protocol of URL.<br /><span style="color: #008080;">2.&nbsp;getHost( ) :</span> Returns hostname(domain name) of URL.<br /><span style="color: #008080;">3.&nbsp;getPort( ) :</span> Returns port number of URL.<br /><span style="color: #008080;">4.&nbsp;getFile( ) :</span> Returns filename of URL</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Program using URL&nbsp;&nbsp;class</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] arg) <span style="color: #7f0055; font-weight: bold;">throws</span> <span style="color: #7f0055; font-weight: bold;">MalformedURLException</span> 
+ {
+  <span style="color: #7f0055; font-weight: bold;">URL</span> url = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">URL</span>(<span style="color: #2a00ff;">"http://www.bethedeveloper.com/java"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Protocol: "</span>+url.getProtocol());  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Host Name: "</span>+url.getHost());  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Port Number: "</span>+url.getPort());  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"File Name: "</span>+url.getFile());  
+ }
+}
+
+Output:
+Protocol: http
+Host Name: www.bethedeveloper.com
+Port Number: -1
+File Name: /java
+</pre>

@@ -1,0 +1,73 @@
+<h2><strong><span style="color: #2980b9;">super Keyword</span></strong></h2>
+<h4><span style="color: #333333;">The super keyword in java is a reference variable that is used to refer immediate parent class object.</span></h4>
+<h4><span style="color: #333333;">Whenever you create the instance of subclass, an instance of parent class is created implicitly i.e. referred by super reference variable.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Usage of Java&nbsp;super Keyword</span></strong></span></h3>
+<h4><span style="color: #333333;">1. super is used to refer immediate parent class instance variable.</span></h4>
+<h4><span style="color: #333333;">2. super() is used to invoke immediate parent class constructor.</span></h4>
+<h4><span style="color: #333333;">3. super is used to invoke immediate parent class method.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />1.&nbsp;super is used to refer immediate parent class instance variable<br /></span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Vehicle{  
+  <span style="color: #7f0055; font-weight: bold;">int</span> speed=50;  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> Bike1 <span style="color: #7f0055; font-weight: bold;">extends</span> Vehicle{  
+  <span style="color: #7f0055; font-weight: bold;">int</span> speed=100;  
+      
+  <span style="color: #7f0055; font-weight: bold;">void</span> display(){  
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #7f0055; font-weight: bold;">super</span>.speed); <span style="color: #3f7f59;">//will print speed of Vehicle  </span>
+  }  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   Bike1 b=<span style="color: #7f0055; font-weight: bold;">new</span> Bike1();  
+   b.display();  
+     
+}  
+} 
+Output: 50
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2.&nbsp;super() is used to invoke parent class constructor.</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Vehicle{  
+  Vehicle(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Vehicle is created"</span>);}  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> Bike2 <span style="color: #7f0055; font-weight: bold;">extends</span> Vehicle{  
+  Bike2(){  
+   <span style="color: #7f0055; font-weight: bold;">super</span>();<span style="color: #3f7f59;">//will invoke parent class constructor  </span>
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Bike is created"</span>);  
+  }  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   Bike2 b=<span style="color: #7f0055; font-weight: bold;">new</span> Bike2();  
+        
+}  
+}  
+Output:
+Vehicle is created       
+Bike is created
+</pre>
+<h4><span style="color: #333333;">NOTE: super() is added in each class constructor automatically by compiler.</span></h4>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3.&nbsp;super can be used to invoke parent class method</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Person{  
+<span style="color: #7f0055; font-weight: bold;">    void</span> message(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"welcome"</span>);}  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> Student16 <span style="color: #7f0055; font-weight: bold;">extends</span> Person{  
+<span style="color: #7f0055; font-weight: bold;">    void</span> message(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"welcome to java"</span>);}  
+  
+<span style="color: #7f0055; font-weight: bold;">void</span> display(){  
+     message();     <span style="color: #3f7f59;">//will invoke current class message() method  </span>
+<span style="color: #7f0055; font-weight: bold;">     super</span>.message();<span style="color: #3f7f59;">//will invoke parent class message() method  </span>
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+     Student16 s=<span style="color: #7f0055; font-weight: bold;">new</span> Student16();  
+     s.display();  
+  }  
+}  
+Output:
+welcome to java       
+welcome
+</pre>
+<h4><span style="color: #333333;">NOTE: super cannot be referenced from a static method.<br /></span></h4>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

@@ -1,0 +1,42 @@
+<h2><strong><span style="color: #2980b9;">Java try-catch</span></strong></h2>
+<h4><span style="color: #333333;">Java Exception Handling Keywords.</span></h4>
+<h4><span style="color: #333333;">There are 5 keywords used in java exception handling.</span></h4>
+<h4><span style="color: #333333;">1) try<br />2) catch<br />3) finally<br />4) throw<br />5) throws.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Java try block</span></strong></span></h3>
+<h4><span style="color: #333333;">Java try block is used to enclose the code that might throw an exception. It must be used within the method.</span></h4>
+<h4><span style="color: #333333;">Java try block must be followed by either catch or finally block.</span></h4>
+<h4><span style="color: #333333;">Syntax of java try-catch.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #333399;">try { </span><br /><span style="color: #333399;">&nbsp; &nbsp; &nbsp;//code that may throw exception </span><br /><span style="color: #333399;">} catch(Exception_class_Name ref){</span><br /><span style="color: #333399;">&nbsp; &nbsp; // Handle exception</span><br /><span style="color: #333399;">} </span><br /></span></h4>
+<h4><span style="color: #333333;">Syntax of try-finally block.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #333399;">try { <br />&nbsp; &nbsp; &nbsp; &nbsp; //code that may throw exception <br />} finally {<br />&nbsp; &nbsp; &nbsp; &nbsp;// code to excecute anyhow<br />}</span><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Java catch block</span></strong></span></h3>
+<h4><span style="color: #333333;">Java catch block is used to handle the Exception. It must be used after the try block only.</span></h4>
+<h4><span style="color: #333333;">You can use multiple catch block with a single try.</span></h4>
+<h4><span style="color: #333333;">Example using Try and catch</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Excp
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+ {
+  <span style='color:#7f0055; font-weight:bold; '>int</span> a,b,c;
+  <span style='color:#7f0055; font-weight:bold; '>try</span>
+  {
+   a=0;
+   b=10;
+   c=b/a;
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"This line will not be executed"</span>);
+  }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span> e)
+  {
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Divided by zero"</span>); 
+  }
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"After exception is handled"</span>);
+ }
+}
+
+Output :
+Divided by zero
+After exception is handled
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">An exception will thrown by this program as we are trying to divide a number by zero inside try block. The program control is transfered outside try block. Thus the line "This line will not be executed" is never parsed by the compiler. The exception thrown is handle in catch block. Once the exception is handled the program controls continue with the next line in the program. Thus the line "After exception is handled" is printed.</span></h4>
+<h3>&nbsp;</h3>

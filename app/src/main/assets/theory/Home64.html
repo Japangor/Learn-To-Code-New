@@ -1,0 +1,66 @@
+<h2><strong><span style="color: #2980b9;">final&nbsp;Keyword</span></strong></h2>
+<h4><span style="color: #333333;">The final keyword in java is used to restrict the user. The java final keyword can be used in many context. Final can be:</span></h4>
+<h4><span style="color: #333333;">1. variable <br />2. method <br />3. class</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1. Java final variable</span></strong></span></h3>
+<h4><span style="color: #333333;">If you make any variable as final, you cannot change the value of final variable(It will be constant).</span></h4>
+<h4><span style="color: #333333;">Example of final variable.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Vehicle{  
+ <span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">int</span> speedlimit=100;<span style="color: #3f7f59;">//final variable  </span>
+ <span style="color: #7f0055; font-weight: bold;">void</span> run(){  
+  speedlimit=360;  
+ }  
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+ Vehicle obj=<span style="color: #7f0055; font-weight: bold;">new</span>  Vehicle();  
+ obj.run();  
+ }  
+} <span style="color: #3f7f59;">//end of class  </span>
+
+Output: Compile Time Error
+</pre>
+<p>Output: Compile Time Error</p>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Java final method<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">If you make any method as final, you cannot override it.</span></h4>
+<h4><span style="color: #333333;">Example.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Bike{  
+  <span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">void</span> run(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"running"</span>);}  
+}  
+     
+<span style="color: #7f0055; font-weight: bold;">class</span> Honda <span style="color: #7f0055; font-weight: bold;">extends</span> Bike{  
+  
+ <span style="color: #7f0055; font-weight: bold;">void</span> run(){
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"running safely with 100kmph"</span>);
+   }    
+   
+   <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   Honda honda= <span style="color: #7f0055; font-weight: bold;">new</span> Honda();  
+   honda.run();  
+   }  
+}  
+
+Output:Compile Time Error
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3. Java final&nbsp;class<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">If you make any class as final, you cannot extend it.</span></h4>
+<h4><span style="color: #333333;">Example.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">class</span> Vehicle{
+
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> Bike <span style="color: #7f0055; font-weight: bold;">extends</span> Vehicle{  
+  <span style="color: #7f0055; font-weight: bold;">void</span> run(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"running safely with 100kmph"</span>);}  
+    
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+  Bike bike= <span style="color: #7f0055; font-weight: bold;">new</span> Bike();  
+  bike.run();  
+  }  
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;Is final method inherited?</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) Yes, final method is inherited but you cannot override it.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;What is blank or uninitialized final variable?</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) A final variable that is not initialized at the time of declaration is known as blank final variable.<br />It can be initialized only in constructor.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;What is blank or uninitialized final variable?</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) If you declare any parameter as final, you cannot change the value of it.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;Can we declare a constructor final?</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans)&nbsp;No, because constructor is never inherited.</span></h4>

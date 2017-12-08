@@ -1,0 +1,92 @@
+<h2><strong><span style="color: #2980b9;">Java String</span></strong></h2>
+<h4><span style="color: #333333;">In java, string is basically an object that represents sequence of char values.<br /></span></h4>
+<h4><span style="color: #333333;">An array of characters works same as java string. <br /></span></h4>
+<h4><span style="color: #333333;">The java.lang.String class implements Serializable, Comparable and CharSequence interfaces.</span></h4>
+<h4><span style="color: #333333;">One important thing to notice about string object is that string objects are immutable that means once a string object is created it cannot be altered.</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">What is an Immutable object??</span></strong></span></h3>
+<h4><span style="color: #333333;">An object whose state cannot be changed after it is created is known as an Immutable object.</span></h4>
+<h4><span style="color: #333333;">String, Integer, Byte, Short, Float, Double and all other wrapper class's objects are immutable.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Creating &nbsp;an Immutable class:</span></strong></span></h3>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyString
+{
+ <span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">String</span> str;
+ MyString(<span style="color: #7f0055; font-weight: bold;">String</span> s)
+ {
+  <span style="color: #7f0055; font-weight: bold;">this</span>.str = s;
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">String</span> get()
+ {
+  <span style="color: #7f0055; font-weight: bold;">return</span> str;
+ }
+}
+The above statement create a package called mypack.
+</pre>
+<h4><span style="color: #333333;">In this example MyString is an immutable class. MyString's state cannot be changed once it is created.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Creating a String object:</span></strong></span></h3>
+<h4><span style="color: #333333;">String can be created in number of ways, here are a few ways of creating string object.</span></h4>
+<h4><span style="color: #333333;">1 Using a String literal.</span></h4>
+<h4><span style="color: #333333;">String literal is a simple string enclosed in double quotes " ". A string literal is treated as a String object</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">String str1 = "Hello";</span></h3>
+<h4><span style="color: #333333;">2. Using another String object</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">String str2 = new String(str1);</span></h3>
+<h4><span style="color: #333333;">3.&nbsp;Using new Keyword</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">String str3 = new String("Java");</span></h3>
+<h4><span style="color: #333333;">4.&nbsp;Using + operator (Concatenation)</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">String str4 = str1 + str2;<br />or,<br />String str5 = "hello"+"Java";</span></h3>
+<h4><span style="color: #333333;">Each time you create a String literal, the JVM checks the string pool first. If the string literal already exists in the pool, a reference to the pool instance is returned. If string does not exist in the pool, a new string object is created, and is placed in the pool.&nbsp;</span></h4>
+<h4><span style="color: #333333;">NOTE: String objects are stored in a special memory area known as string constant pool inside the heap memory.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Concatenating String:</span></strong></span></h3>
+<h4><span style="color: #333333;">There are 2 methods to concatenate two or more string.</span></h4>
+<h4><span style="color: #333333;">1. Using concat() method.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String s = "Hello";
+String str = "Java";
+String str2 = s.concat(str);
+String str1 = "Hello".concat("Java");    <span style="color: #3f7f59;">//works with string literals too.</span>
+</pre>
+<h4><span style="color: #333333;">2. Using + operator.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "Roger"; 
+String str1 = "Federer";
+String str2 = str + str1;
+String st = "Roger"+"Federer";
+String s = 60+40+"Roger"+60+40; <span style="color: #3f7f59;">// 100Roger6040</span>
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Note: After a string literal, all the + will be treated as string concatenation operator.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />String Comparison:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">String comparison can be done in 3 ways.</span></h4>
+<h4><span style="color: #333333;">1. Using equals() method.</span></h4>
+<h4><span style="color: #333333;">1. Using == operator.</span></h4>
+<h4><span style="color: #333333;">1. By CompareTo() method.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1. Using equals() method:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">equals() method compares two strings for equality. Its general syntax is,</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">String str5 = "hello"+"Java";</span></h3>
+<h4><span style="color: #333333;">It compares the content of the strings. It will return true if string matches, else returns false.<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;">String s = "Hell";
+String s1 = "Hello";
+String s2 = "Hello";
+s1.equals(s2); <span style="color: #3f7f59;">//true</span>
+s.equals(s1) ; <span style="color: #3f7f59;">//false</span>
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Using == operator:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">== operator compares two object references to check whether they refer to same instance. This also, will return true on successful match.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String s1 = "Sachin";
+String s2 = "Sachin";
+String s3 = new string ("Sachin");
+test(sl == s2) <span style="color: #3f7f59;">//true (because both refer to same instance)</span>
+test(s1 == s3) <span style="color: #3f7f59;">//false (because s3 refers to instance created in nonpool)</span>
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3. By compareTo() method:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">compareTo() method compares values and returns an int which tells if the string compared is less than, equal to or greater than th other string. Its general syntax is,</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">int compareTo(String str);</span></h3>
+<h4><span style="color: #333333;">To use this function you must implement the Comparable Interface. compareTo() is the only function in Comparable Interface.</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;">String s1 = "Abhi";
+String s2 = "Vrajesh";
+String s3 = "Abhi";
+s1.compareTo(s2); <span style="color: #3f7f59;">//return -1 because s1 &lt; s2 </span>
+s1.compareTo(s3); <span style="color: #3f7f59;">//return 0 because s1 == s3 </span>
+s2.compareTo(s3); <span style="color: #3f7f59;">//return 1 because s2 &gt; s3</span>
+</pre>
+<p>&nbsp;</p>

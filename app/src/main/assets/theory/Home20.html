@@ -1,0 +1,208 @@
+<h2><strong><span style="color: #2980b9;">The Collection classes</span></strong></h2>
+<h4><span style="color: #333333;">Java provides a set of Collection classes that implements Collection interface. Some of these classes provide full implementations that can be used as it is and other abstract classes provides skeletal implementations that can be used as starting points for creating concrete collections.</span></h4>
+<h3><span style="color: #008080;">ArrayList Class</span></h3>
+<h4>1. ArrayList class extends AbstractList class and implements the List interface.</h4>
+<h4><span style="color: #333333;">2. ArrayList supports dynamic array that can grow as needed. ArrayList has three constructors.</span></h4>
+<h3><span style="color: #333399;">ArrayList()</span></h3>
+<h3><span style="color: #333399;">ArrayList( Collection C )</span></h3>
+<h3><span style="color: #333399;">ArrayList( int capacity )</span></h3>
+<h4><span style="color: #333333;">3. ArrayLists are created with an initial size, when this size is exceeded, it gets enlarged automatically.</span></h4>
+<h4><span style="color: #333333;">4. It can contain Duplicate elements and maintains the insertion order.</span></h4>
+<h4><span style="color: #333333;">5.ArrayLists are not synchronized.</span></h4>
+<h4><br /><span style="color: #333333;">Example of ArrayList</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; al = <span style="color: #7f0055; font-weight: bold;">new</span> ArrayList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  al.add(<span style="color: #2a00ff;">"abc"</span>);
+  al.add(<span style="color: #2a00ff;">"pqr"</span>);
+  al.add(<span style="color: #2a00ff;">"xyz"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(al);
+ }
+}
+Output : [abc, pqr, xyz]
+</pre>
+<h3><span style="color: #008080;">Getting Array from an ArrayList</span></h3>
+<h4><span style="color: #333333;">toArray() method is used to get an araay containing all the contents of the list. Following are the reasons why you must obtain array from your ArrayList whenever required.</span></h4>
+<ul>
+<li>
+<h4><span style="color: #333333;">To obtain faster processing.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">To pass array to methods who do not accept Collection as arguments.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">To integrate and use collections with legacy code.</span></h4>
+</li>
+</ul>
+<h3><span style="color: #008080;">Storing User-Defined classes</span></h3>
+<h4><span style="color: #333333;">In the above example we are storing only string object in ArrayList collection. But You can store any type of object, including object of class that you create in Collection classes.</span></h4>
+<h4><span style="color: #333333;">Example of storing User-Defined object</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+
+<span style="color: #3f7f59;">//Contact class</span>
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Contact 
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> first_name;
+ <span style="color: #7f0055; font-weight: bold;">String</span> last_name;
+ <span style="color: #7f0055; font-weight: bold;">String</span> phone_no;
+
+ <span style="color: #7f0055; font-weight: bold;">public</span> Contact(<span style="color: #7f0055; font-weight: bold;">String</span> fn,<span style="color: #7f0055; font-weight: bold;">String</span> ln,<span style="color: #7f0055; font-weight: bold;">String</span> pn) 
+ {
+  first_name = fn;
+  last_name = ln;
+  phone_no = pn;
+ }
+
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">String</span> toString()
+ {
+  <span style="color: #7f0055; font-weight: bold;">return</span> first_name+<span style="color: #2a00ff;">" "</span>+last_name+<span style="color: #2a00ff;">"("</span>+phone_no+<span style="color: #2a00ff;">")"</span>;
+ }
+}
+
+<span style="color: #3f7f59;">//Storing Contact class</span>
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> PhoneBook
+{
+
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  Contact c1 = <span style="color: #7f0055; font-weight: bold;">new</span> Contact(<span style="color: #2a00ff;">"Roger"</span>, <span style="color: #2a00ff;">"Federer"</span>,<span style="color: #2a00ff;">"999100091"</span>);
+  Contact c2 = <span style="color: #7f0055; font-weight: bold;">new</span> Contact(<span style="color: #2a00ff;">"Lionel"</span>, <span style="color: #2a00ff;">"Messi"</span>,<span style="color: #2a00ff;">"998392819"</span>);
+  Contact c3 = <span style="color: #7f0055; font-weight: bold;">new</span> Contact(<span style="color: #2a00ff;">"Virat"</span>, <span style="color: #2a00ff;">"Kohli"</span>,<span style="color: #2a00ff;">"998131319"</span>);
+
+  ArrayList&lt; Contact&gt; al = <span style="color: #7f0055; font-weight: bold;">new</span> ArrayList&lt; Contact&gt;(); 
+  al.add(c1);
+  al.add(c2);
+  al.add(c3);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(al);
+ }
+}
+Output:
+[Roger Federer(999100091), Lionel Messi(998392819), Virat Kohli(998131319)]
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">LinkedList Class</span></h3>
+<h4><span style="color: #333333;">1. LinkedList class extends AbstractSequentialList and implements List, Deque and Queue inteface.</span></h4>
+<h4><span style="color: #333333;">2. It can be used as List, stack or Queue as it implements all the related interfaces.</span></h4>
+<h4><span style="color: #333333;">3. It can contain duplicate elements and is not synchronized.</span></h4>
+<h4><span style="color: #333333;">Example of LinkedList class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  LinkedList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; ll = <span style="color: #7f0055; font-weight: bold;">new</span> LinkedList&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  ll.add(<span style="color: #2a00ff;">"a"</span>);
+  ll.add(<span style="color: #2a00ff;">"b"</span>);
+  ll.add(<span style="color: #2a00ff;">"c"</span>);
+  ll.addFirst(<span style="color: #2a00ff;">"A"</span>);
+  ll.addLast(<span style="color: #2a00ff;">"Z"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ll);
+ }
+}
+Output : [A, a, b, c, Z]
+</pre>
+<h3><span style="color: #008080;">Difference between ArrayList and LinkedList</span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;ArrayList</strong></td>
+<td><strong>&nbsp;LinkedList</strong></td>
+</tr>
+<tr>
+<td>&nbsp;ArrayList internally uses dynamic array to store the elements.</td>
+<td>&nbsp;LinkedList internally uses doubly linked list to store the elements.</td>
+</tr>
+<tr>
+<td>&nbsp;Manipulation with ArrayList is slow because it internally uses array. If any element is removed from the array, all the bits are shifted in memory.</td>
+<td>&nbsp;Manipulation with LinkedList is faster than ArrayList because it uses doubly linked list so no bit shifting is required in memory.</td>
+</tr>
+<tr>
+<td>&nbsp;ArrayList class can act as a list only because it implements List only.</td>
+<td>&nbsp;LinkedList class can act as a list and queue both because it implements List and Deque interfaces.</td>
+</tr>
+<tr>
+<td>&nbsp;ArrayList is better for storing and accessing data.</td>
+<td>&nbsp;LinkedList is better for manipulating data.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3><br /><span style="color: #008080;">HashSet Class</span></h3>
+<h4><span style="color: #333333;">1. HashSet extends AbstractSet class and implements the Set interface.</span></h4>
+<h4><span style="color: #333333;">2. It creates a collection that uses hash table for storage.</span></h4>
+<h4><span style="color: #333333;">3. HashSet does not maintain any order of elements.</span></h4>
+<h4><span style="color: #333333;">Example of HashSet class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> HashSetDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  HashSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; hs = <span style="color: #7f0055; font-weight: bold;">new</span> HashSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  hs.add(<span style="color: #2a00ff;">"B"</span>);
+  hs.add(<span style="color: #2a00ff;">"A"</span>);
+  hs.add(<span style="color: #2a00ff;">"D"</span>);
+  hs.add(<span style="color: #2a00ff;">"E"</span>);
+  hs.add(<span style="color: #2a00ff;">"C"</span>);
+  hs.add(<span style="color: #2a00ff;">"F"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(hs); 
+ }
+}
+Output : [A, B, C, D, E, F]
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">LinkedHashSet Class</span></h3>
+<h4><span style="color: #333333;">1. LinkedHashSet class extends HashSet class</span></h4>
+<h4><span style="color: #333333;">2. LinkedHashSet maintains a linked list of entries in the set.</span></h4>
+<h4><span style="color: #333333;">3. LinkedHashSet stores elements in the order in which elements are inserted.</span></h4>
+<h4><span style="color: #333333;">Example of LinkedHashSet class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> LinkedHashSetDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  LinkedHashSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; hs = <span style="color: #7f0055; font-weight: bold;">new</span> LinkedHashSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  hs.add(<span style="color: #2a00ff;">"B"</span>);
+  hs.add(<span style="color: #2a00ff;">"A"</span>);
+  hs.add(<span style="color: #2a00ff;">"D"</span>);
+  hs.add(<span style="color: #2a00ff;">"E"</span>);
+  hs.add(<span style="color: #2a00ff;">"C"</span>);
+  hs.add(<span style="color: #2a00ff;">"F"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(hs);
+ }
+}
+Output : [B, A, D, E, C, F]
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">TreeSet Class</span></h3>
+<h4><span style="color: #333333;">1. It extends AbstractSet class and implements the NavigableSet interface.</span></h4>
+<h4><span style="color: #333333;">2. It stores elements sorted ascending order.</span></h4>
+<h4><span style="color: #333333;">3. Uses a Tree structure to store elements.</span></h4>
+<h4><span style="color: #333333;">4. Access and retrieval times are quite fast.</span></h4>
+<h4><span style="color: #333333;">5. It has four Constructors.</span></h4>
+<h3><span style="color: #333399;">TreeSet()</span></h3>
+<h3><span style="color: #333399;">TreeSet( Collection C )</span></h3>
+<h3><span style="color: #333399;">TreeSet( Comparator comp )</span></h3>
+<h3><span style="color: #333399;">TreeSet( SortedSet ss )</span></h3>
+<h4><span style="color: #333333;">Example of TreeSet class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> HashSetDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  TreeSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt; ts = <span style="color: #7f0055; font-weight: bold;">new</span> TreeSet&lt; <span style="color: #7f0055; font-weight: bold;">String</span>&gt;();
+  hs.add(<span style="color: #2a00ff;">"B"</span>);
+  hs.add(<span style="color: #2a00ff;">"A"</span>);
+  hs.add(<span style="color: #2a00ff;">"D"</span>);
+  hs.add(<span style="color: #2a00ff;">"E"</span>);
+  hs.add(<span style="color: #2a00ff;">"C"</span>);
+  hs.add(<span style="color: #2a00ff;">"F"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ts); 
+ }
+}
+Output : [A, B, C, D, E, F]
+</pre>

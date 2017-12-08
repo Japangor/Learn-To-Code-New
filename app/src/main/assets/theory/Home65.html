@@ -1,0 +1,33 @@
+<h2><strong><span style="color: #2980b9;">Polymorphism</span></strong></h2>
+<h4><span style="color: #333333;">Polymorphism is the ability of an object to take many forms.It is a concept by which we can perform a single action by different ways.</span></h4>
+<h4><span style="color: #333333;">There are two types of polymorphism in java:</span></h4>
+<h4><span style="color: #333333;">1. Compile time polymorphism&nbsp;<br />2.&nbsp;Runtime polymorphism<br /></span></h4>
+<h4><span style="color: #333333;">We can perform polymorphism in java by method overloading and method overriding.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Upcasting</span></strong></span></h3>
+<h4><span style="color: #333333;">When reference variable of Parent class refers to the object of Child class, it is known as upcasting. For example.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> A{} 
+<span style="color: #7f0055; font-weight: bold;">class</span> B <span style="color: #7f0055; font-weight: bold;">extends</span> A{}
+
+A a=new B(); <span style="color: #3f7f59;">//upcasting</span></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Runtime Polymorphism in Java</span></strong></span></h3>
+<h4><span style="color: #333333;">Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time.</span></h4>
+<h4><span style="color: #333333;">In this process, an overridden method is called through the reference variable of a superclass. The determination of the method to be called is based on the object being referred to by the reference variable.</span></h4>
+<h4><span style="color: #333333;">Example.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Bike{  
+  <span style='color:#7f0055; font-weight:bold; '>void</span> run(){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"running"</span>);}  
+}  
+<span style='color:#7f0055; font-weight:bold; '>class</span> Splender <span style='color:#7f0055; font-weight:bold; '>extends</span> Bike{  
+  <span style='color:#7f0055; font-weight:bold; '>void</span> run(){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"running safely with 60km"</span>);}  
+  
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+    Bike b = <span style='color:#7f0055; font-weight:bold; '>new</span> Splender(); <span style='color:#3f7f59; '>//upcasting  </span>
+    b.run();  
+  }  
+}  
+
+Output: running safely with 60km.
+</pre>
+<h4><span style="color: #333333;">NOTE: Runtime polymorphism can't be achieved by data members.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Q.&nbsp;Difference between Static binding and Dynamic binding in java ?<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) <br />1. Static binding in Java occurs during compile time while dynamic binding occurs during runtime. <br /><br />2. Static binding uses type(Class) information for binding while dynamic binding uses instance of class(Object) to resolve calling of method at run-time.<br /><br />3. Overloaded methods are bonded using static binding while overridden methods are bonded using dynamic binding at runtime.</span></h4>
+<h4>&nbsp;</h4>

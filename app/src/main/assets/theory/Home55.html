@@ -1,0 +1,154 @@
+<h2><strong><span style="color: #2980b9;">Constructors&nbsp;in Java</span></strong></h2>
+<h4><span style="color: #333333;">Constructor in java is a special type of method that is used to initialize the object.&nbsp;</span></h4>
+<h4><span style="color: #333333;">Java constructor is invoked at the time of object creation. It constructs the values i.e. provides data for the object that is why it is known as constructor.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Rules for creating java constructor:</span></strong></span></h3>
+<ol>
+<li>
+<h4><span style="color: #333333;">Constructor name must be same as its class name.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Constructor must not have any explicit return type.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Constructrs can not be abstract, static, final or synchronized.<br /><br /></span></h4>
+</li>
+</ol>
+<pre style="color: #000000; background: #ffffff;">Example:
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Car
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> name ;
+ <span style="color: #7f0055; font-weight: bold;">String</span> model;
+ Car( )     <span style="color: #3f7f59;">//Constructor </span>
+ {
+  name =<span style="color: #2a00ff;">""</span>;
+  model=<span style="color: #2a00ff;">""</span>;
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Two types of Constructor:</span></strong></span></h3>
+<ul>
+<li><span style="color: #333333;"><span style="color: #333333;"><strong><span style="color: #008080;">Default constructor (no-arg constructor) :</span> Default constructor provides the default values to the object like 0, null etc.<br /><br /></strong></span></span></li>
+<li><strong><span style="color: #333333;"><strong><span style="color: #008080;">Parameterized constructor :</span> Default constructor provides the default values to the object like 0, null etc.</strong></span></strong></li>
+</ul>
+<h4><span style="color: #333333;">Each time a new object is created at least one constructor will be invoked.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Car c = new Car() <span style="color: #3f7f59;">//Default constructor invoked</span>
+Car c = new Car(name); <span style="color: #3f7f59;">//Parameterized constructor invoked</span>
+</pre>
+<h4><span style="color: #333333;">NOTE : If there is no constructor in a class, compiler automatically creates a default constructor.</span></h4>
+<h2><strong><span style="color: #2980b9;"><br />Constructors&nbsp;Overloading</span></strong></h2>
+<h4><span style="color: #333333;">Like methods, a constructor can also be overloaded. Overloaded constructors are differentiated on the basis of their type of parameters or number of parameters.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Why do we Overload constructors ?</span></strong></span></h3>
+<h4><span style="color: #333333;">Constuctor overloading is done to construct object in different ways.</span></h4>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Cricketer 
+{
+ <span style='color:#7f0055; font-weight:bold; '>String</span> name;
+ <span style='color:#7f0055; font-weight:bold; '>String</span> team;
+ <span style='color:#7f0055; font-weight:bold; '>int</span> age;
+ Cricketer ()   <span style='color:#3f7f59; '>//default constructor.</span>
+ {
+  name =<span style='color:#2a00ff; '>""</span>;
+  team =<span style='color:#2a00ff; '>""</span>;
+  age = 0;
+ }
+ Cricketer(<span style='color:#7f0055; font-weight:bold; '>String</span> n, <span style='color:#7f0055; font-weight:bold; '>String</span> t, <span style='color:#7f0055; font-weight:bold; '>int</span> a)   <span style='color:#3f7f59; '>//constructor overloaded</span>
+ {
+  name = n;
+  team = t;
+  age = a;
+ }
+ Cricketer (Cricketer ckt)     <span style='color:#3f7f59; '>//constructor similar to copy constructor of c++ </span>
+ {
+  name = ckt.name;
+  team = ckt.team;
+  age = ckt.age;
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>String</span> toString() 
+ {
+  <span style='color:#7f0055; font-weight:bold; '>return</span> <span style='color:#2a00ff; '>"This is "</span> + name + <span style='color:#2a00ff; '>" of "</span>+team;
+ }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> test
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Cricketer c1 = <span style='color:#7f0055; font-weight:bold; '>new</span> Cricketer();
+  Cricketer c2 = <span style='color:#7f0055; font-weight:bold; '>new</span> Cricketer(<span style='color:#2a00ff; '>"Sachin"</span>, <span style='color:#2a00ff; '>"India"</span>, 43);
+  Cricketer c3 = <span style='color:#7f0055; font-weight:bold; '>new</span> Cricketer(c2 );
+ 
+  c1.name = <span style='color:#2a00ff; '>"Virat"</span>;
+  c1.team= <span style='color:#2a00ff; '>"India"</span>;
+  c1.age = 27;
+
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(c1);
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(c2);
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(c3);
+ }
+}
+Output:
+This is Virat of India
+This is Sachin of India
+This is Sachin of India
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Difference between constructor and method in java</span></strong></span></h3>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Constructor</strong></td>
+<td><strong>&nbsp;Method</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Constructor is used to initialize the state of an object.</td>
+<td>&nbsp;Method is used to expose behaviour of an object.</td>
+</tr>
+<tr>
+<td>&nbsp;Constructor must not have return type.&nbsp;</td>
+<td>&nbsp;Method must have return type.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is a physical entity.</td>
+<td>&nbsp;Class is a logical entity.</td>
+</tr>
+<tr>
+<td>&nbsp;Constructor is invoked implicitly.</td>
+<td>&nbsp;Method is invoked explicitly.</td>
+</tr>
+<tr>
+<td>&nbsp;Object is created many times as per requirement.</td>
+<td>&nbsp;Class is declared once.</td>
+</tr>
+<tr>
+<td>&nbsp;The java compiler provides a default constructor if you don't have any constructor.</td>
+<td>&nbsp;Method is not provided by compiler in any case.</td>
+</tr>
+<tr>
+<td>&nbsp;Constructor name must be same as the class name.</td>
+<td>&nbsp;Method name may or may not be same as class name.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;What is constructor chaining in Java??</span></strong></span></h3>
+<h4><span style="color: #333333;">NOTE :&nbsp;Constructor chaining is a phenomena of calling one constructor from another constructor of same class. Since constructor can only be called from another constructor in Java, constructor chaining is used for this purpose.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+ Test()
+ {
+  <span style='color:#7f0055; font-weight:bold; '>this</span>(10);
+ }
+ Test(<span style='color:#7f0055; font-weight:bold; '>int</span> x)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"x="</span>+x);
+ }
+}
+Output:
+x=10
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. Does constructor return any value??</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans:Yes, Constructor return current class instance (You cannot use return type yet it returns a value).</span>&nbsp;</h4>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

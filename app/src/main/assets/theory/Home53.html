@@ -1,0 +1,51 @@
+<h2><strong><span style="color: #2980b9;">Call-by-value and Call-by-reference</span></strong></h2>
+<h4><span style="color: #333333;">There are two ways to pass an argument to a method.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Call-by-value:</span></strong></span></h3>
+<h4><span style="color: #333333;">In this approach copy of an argument value is pass to a method. Changes made to the argument value inside the method will have no effect on the arguments.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Call-by-reference:</span></strong></span></h3>
+<h4><span style="color: #333333;">In this reference of an argument is pass to a method. Any changes made inside the method will affect the agrument value.</span></h4>
+<h4><span style="color: #333333;">NOTE : In Java, when you pass a primitive type to a method it is passed by value whereas when you pass an object of any type to a method it is passed as reference.</span></h4>
+<h4><span style="color: #333333;">Example of call-by-value.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> callByValue(<span style="color: #7f0055; font-weight: bold;">int</span> x)
+    {
+        x=100;
+    }
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+    {
+       <span style="color: #7f0055; font-weight: bold;">int</span> x=50;
+        Test t = <span style="color: #7f0055; font-weight: bold;">new</span> Test();
+        t.callByValue(x);	<span style="color: #3f7f59;">//function call</span>
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(x);
+    }
+    
+}
+Output : 50
+</pre>
+<h4><span style="color: #333333;">Example of call-by-reference.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+    <span style="color: #7f0055; font-weight: bold;">int</span> x=10;
+    <span style="color: #7f0055; font-weight: bold;">int</span>	y=20;
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> callByReference(Test t)
+    {
+        t.x=100;
+        t.y=50;
+    }
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+    {
+       
+        Test ts = <span style="color: #7f0055; font-weight: bold;">new</span> Test();
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Before "</span>+ts.x+<span style="color: #2a00ff;">" "</span>+ts.y);
+        ts.callByReference(ts);
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"After "</span>+ts.x+<span style="color: #2a00ff;">" "</span>+ts.y);
+    }
+    
+}
+Output :
+Before 10 20
+After 100 50
+</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

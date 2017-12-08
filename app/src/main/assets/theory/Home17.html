@@ -1,0 +1,98 @@
+<h2><strong><span style="color: #2980b9;">Array&nbsp;in Java</span></strong></h2>
+<h4><span style="color: #333333;">An array is a collection of similar type of elements that have contiguous memory location. Array is a container object that hold values of homogenous type. It is also known as static data structure because size of an array must be specified at the time of its declaration.&nbsp;</span></h4>
+<h4><span style="color: #333333;">An array can be either primitive or reference type. It gets memory in heap area. Index of array starts from zero to size-1.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Advantage of Java Array</span></strong></span></h3>
+<h4><span style="color: #333333;">Code Optimization: It makes the code optimized, we can retrieve or sort the data easily.<br />Random access: We can get any data located at any index position.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Disadvantage&nbsp;of Java Array</span></strong></span></h3>
+<h4><span style="color: #333333;">Size Limit: We can store only fixed size of elements in the array. It doesn't grow its size at runtime. To solve this problem, collection framework is used in java.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Types of&nbsp;Array</span></strong></span></h3>
+<ul>
+<li>
+<h4><span style="color: #333333;">Single Dimensional Array</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Multidimensional Array<br /><br /><br /></span></h4>
+</li>
+</ul>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1.&nbsp;Single Dimensional&nbsp;Array</span></strong></span></h3>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">datatype [ ] identifier;<br />or<br />datatype identifier [ ];</span><span style="color: #333399;">&nbsp;</span></h3>
+<h4><span style="color: #333333;">Both are valid syntax for array declaration. But the former is more readable.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Example :
+
+int[] arr;
+char[] arr;
+short[] arr;
+long[] arr; <span style="color: #3f7f59;">//one dimensional array</span>
+int[][] arr; <span style="color: #3f7f59;">//two dimensional array.</span>
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Initialization of Array</span></strong></span></h3>
+<h4><span style="color: #333333;">new operator is used to initialize an array.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Example :
+
+int[] arr = new int[10]; <span style="color: #3f7f59;">//declaration and instantiation</span>
+or
+int[] arr = {10,20,30,40,50}; <span style="color: #3f7f59;">//declaration, instantiation and initialization</span>
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Accessing array element</span></strong></span></h3>
+<h4><span style="color: #333333;">As mention ealier array index starts from 0. To access nth element of an array.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">arrayname [ n-1 ];</span><span style="color: #333399;">&nbsp;</span></h3>
+<pre style='color:#000000;background:#ffffff;'>Example : To access 4th element of a given array
+
+int[] arr={10,20,30,40};
+System.out.println("Element at 4th place"+arr[3]);
+</pre>
+<h4><span style="color: #333333;">The above code will print the 4th element of array arr on console.<br /><br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Using foreach or enhanced for loop</span></strong></span></h3>
+<h4><span style="color: #333333;">JDK 1.5 introduces special type of for loop called foreach loop to access elements of array. Using foreach loop you can access complete array sequentially without using index of array. Let us see an exapmle of foreach loop.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>Example:
+ 
+<span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+  {
+    <span style='color:#7f0055; font-weight:bold; '>int</span>[] arr={10,20,30,40};
+	<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> x:arr)
+	{
+	<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(x);
+	}
+   }
+}
+Output :
+10
+20
+30
+40
+</pre>
+
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2.&nbsp;Multidimensional&nbsp;Array</span></strong></span></h3>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">dataType[ ][ ] identifier;<br />or <br />dataType identifier[ ][ ]; <br />or <br />dataType [ ]identifier[ ];</span></h3>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Instantiation of&nbsp;Array</span></strong></span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">int[ ][ ] arr=new int[3][3]; &nbsp;//3 row and 3 column</span></h3>
+<h4><span style="color: #333333;">Let's see the simple example to declare, initialize and print the 2Dimensional array.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>Example:
+
+<span style='color:#7f0055; font-weight:bold; '>class</span> Testarray3{  
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+  
+<span style='color:#3f7f59; '>//declaring and initializing 2D array  </span>
+<span style='color:#7f0055; font-weight:bold; '>int</span> arr[][]={{1,2,3},{2,4,5},{4,4,5}};  
+  
+<span style='color:#3f7f59; '>//printing 2D array  </span>
+<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i=0;i&lt;3;i++){  
+ <span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> j=0;j&lt;3;j++){  
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.print(arr[i][j]+<span style='color:#2a00ff; '>" "</span>);  
+ }  
+ <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println();  
+}  
+  
+}}  
+Test it Now
+Output:1 2 3
+       2 4 5
+       4 4 5
+</pre>
+<p>&nbsp;</p>

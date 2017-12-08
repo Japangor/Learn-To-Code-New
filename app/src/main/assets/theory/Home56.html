@@ -1,0 +1,64 @@
+<h2><strong><span style="color: #2980b9;">this&nbsp;keyword</span></strong></h2>
+<ol>
+<li>
+<h4><span style="color: #333333;">this keyword is used to refer current class object.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">this() can be used to invoke current class constructor.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">this keyword can be used to invoke current class method(implicitly).<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">this can be passed as an argument in the method or constructor call.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">this keyword can also be used to return the current class instance.</span>&nbsp;</h4>
+</li>
+</ol>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Box
+ {
+  <span style="color: #7f0055; font-weight: bold;">Double</span> width, weight, dept; 
+  Box (<span style="color: #7f0055; font-weight: bold;">double</span> w, <span style="color: #7f0055; font-weight: bold;">double</span> h, <span style="color: #7f0055; font-weight: bold;">double</span> d)
+  {
+   <span style="color: #7f0055; font-weight: bold;">this</span>.width = w;
+   <span style="color: #7f0055; font-weight: bold;">this</span>.height = h;
+   <span style="color: #7f0055; font-weight: bold;">this</span>.depth = d;
+  }
+}
+</pre>
+<h4><span style="color: #333333;">Here the this is used to initialize member of current object.</span></h4>
+<h4><span style="color: #333333;">NOTE : Call to this() must be the first statement in constructor.</span></h4>
+<h4><span style="color: #333333;">this is used to call overloaded constructor (or constructor chaining) in java.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Car
+{
+ <span style="color: #7f0055; font-weight: bold;">private</span> <span style="color: #7f0055; font-weight: bold;">String</span> name;
+ <span style="color: #7f0055; font-weight: bold;">public</span> Car()
+ {
+  <span style="color: #7f0055; font-weight: bold;">this</span>(<span style="color: #2a00ff;">"BMW"</span>);    <span style="color: #3f7f59;">//oveloaded constructor is called.</span>
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> Car(Stting n)
+ {
+  <span style="color: #7f0055; font-weight: bold;">this</span>.name=n;   <span style="color: #3f7f59;">//member is initialized using this.</span>
+ }
+}
+</pre>
+<h4><span style="color: #333333;">this is also used to call Method of that class.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>public</span> void getName()
+{
+ <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"BeTheDeveloper"</span>);
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> void display()
+{
+ <span style='color:#7f0055; font-weight:bold; '>this</span>.getName();
+ <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println();
+}
+</pre>
+<h4><span style="color: #333333;">this is used to return current Object.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>public</span> Car getCar()
+{
+ <span style='color:#7f0055; font-weight:bold; '>return</span> <span style='color:#7f0055; font-weight:bold; '>this</span>;
+}
+</pre>

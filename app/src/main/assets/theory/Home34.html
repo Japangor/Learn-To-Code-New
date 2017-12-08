@@ -1,0 +1,46 @@
+<h2><strong><span style="color: #2980b9;">Chained Exception</span></strong></h2>
+<h4><span style="color: #333333;">This feature allow you to relate one exception with another exception, i.e one exception describes cause of another exception.</span>&nbsp;</h4>
+<h4><span style="color: #333333;">For example, consider a situation in which a method throws an ArithmeticException because of an attempt to divide by zero but the actual cause of exception was an I/O error which caused the divisor to be zero. The method will throw only ArithmeticException to the caller. So the caller would not come to know about the actual cause of exception. Chained Exception is used in such type of situations.</span></h4>
+<h4><span style="color: #333333;">Two new constructors and two methods were added to Throwable class to support chained exception.</span></h4>
+<h4><span style="color: #333333;">1. Throwable( Throwable cause )</span></h4>
+<h4><span style="color: #333333;">2. Throwable( String str, Throwable cause )</span></h4>
+<h4><span style="color: #333333;">In the first form, the paramter cause specifies the actual cause of exception.</span></h4>
+<h4><span style="color: #333333;">In the second form, it allows us to add an exception description in string form with the actual cause of exception.</span></h4>
+<h4><span style="color: #333333;">getCause() and initCause() are the two methods added to Throwable class.</span></h4>
+<h4><span style="color: #333333;">getCause() method returns the actual cause associated with current exception.</span></h4>
+<h4><span style="color: #333333;">initCause() set an underlying cause(exception) with invoking exception.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>IOException</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> ChainedException 
+ {
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> divide(<span style='color:#7f0055; font-weight:bold; '>int</span> a, <span style='color:#7f0055; font-weight:bold; '>int</span> b)
+  {
+   <span style='color:#7f0055; font-weight:bold; '>if</span>(b==0)
+   {
+    <span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span> ae = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span>(<span style='color:#2a00ff; '>"top layer"</span>);
+    ae.initCause( <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>(<span style='color:#2a00ff; '>"cause"</span>) );
+    <span style='color:#7f0055; font-weight:bold; '>throw</span> ae;
+   }
+   <span style='color:#7f0055; font-weight:bold; '>else</span>
+   {
+    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(a/b);
+   }
+  }
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span> {
+   divide(5, 0);
+  } 
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span> ae) {
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println( <span style='color:#2a00ff; '>"caught : "</span> +ae);
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"actual cause : "</span>+ae.getCause());
+  }
+ }
+}
+Output :
+
+caught : java.lang.ArithmeticException: top layer
+actual cause : java.io.IOException: cause
+</pre>
+<p>&nbsp;</p>

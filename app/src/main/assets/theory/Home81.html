@@ -1,0 +1,42 @@
+<h2><strong><span style="color: #2980b9;">Introduction to Multithreading in Java</span></strong></h2>
+<h4><span style="color: #333333;">A program can be divided into a number of small processes. Each small process can be addressed as a single thread (a lightweight process). Multithreaded programs contain two or more threads that can run concurrently.&nbsp;</span></h4>
+<h4><span style="color: #333333;">This means that a single program can perform two or more tasks simultaneously.</span></h4>
+<h4><span style="color: #333333;">For example, one thread is writing content on a file at the same time another thread is performing spelling check.</span></h4>
+<h4><span style="color: #333333;">But we use multithreading than multiprocessing because threads share a common memory area. They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.</span></h4>
+<h4><span style="color: #333333;">Java Multithreading is mostly used in games, animation etc.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Advantage of Java&nbsp;Multithreading</span></strong></span></h3>
+<h4><span style="color: #333333;">1) It doesn't block the user because threads are independent and you can perform multiple operations at same time.</span></h4>
+<h4><span style="color: #333333;">2) You can perform many operations together so it saves time.</span></h4>
+<h4><span style="color: #333333;">3) Threads are independent so it doesn't affect other threads if exception occur in a single thread.</span></h4>
+<h4><span style="color: #333333;">In Java, the word thread means two different things.</span></h4>
+<h4><span style="color: #333333;">An instance of Thread class.<br />or, A thread of execution.</span></h4>
+<h4><span style="color: #333333;">An instance of Thread class is just an object, like any other object in java. But a thread of execution means an individual "lightweight" process that has its own call stack. In java each thread has its own call stack.</span></h4>
+<h4><span style="color: #333333;">Note: At a time one thread is executed only</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />The main thread</span></strong></span></h3>
+<h4><span style="color: #333333;">Even if you don't create any thread in your program, a thread called main thread is still created. Although the main thread is automatically created, you can control it by obtaining a reference to it by calling currentThread() method.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Two important things to know about main thread are,</span></strong></span></h3>
+<h4><span style="color: #333333;">It is the thread from which other threads will be produced.<br />main thread must be always the last thread to finish execution.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> MainThread
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">Thread</span> t=<span style="color: #7f0055; font-weight: bold;">Thread</span>.currentThread();
+  t.setName(<span style="color: #2a00ff;">"MainThread"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Name of thread is "</span>+t);
+ }
+}
+
+Output :
+Name of thread is Thread[MainThread,5,main]
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Life cycle of a Thread</span></strong></span></h3>
+<h4><span style="color: #333333;">The life cycle of the thread in java is controlled by JVM. The java thread states are as follows:</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">1. New :</span> A thread begins its life cycle in the new state. It remains in this state until the start() method is called on it.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">2. Runable :</span> After invocation of start() method on new thread, the thread becomes runable.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">3. Running :</span> A method is in running thread if the thread scheduler has selected it.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">4. Waiting :</span> A thread is waiting for another thread to perform a task. In this stage the thread is still alive.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">5. Terminated :</span> A thread enter the terminated state when it complete its task.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Thread Priorities</span></strong></span></h3>
+<h4><span style="color: #333333;">Every thread has a priority that helps the operating system determine the order in which threads are scheduled for execution. In java thread priority ranges between,</span></h4>
+<h4><span style="color: #000080;">MIN-PRIORITY (a constant of 1)<br /><br />MAX-PRIORITY (a constant of 10)</span></h4>
+<h4><span style="color: #333333;">By default every thread is given a NORM-PRIORITY(5). The main thread always have NORM-PRIORITY.</span></h4>

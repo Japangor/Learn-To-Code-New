@@ -1,0 +1,180 @@
+<h2><strong><span style="color: #2980b9;">Input/Output Streams</span></strong></h2>
+<h4><span style="color: #333333;">Java I/O (Input and Output) is used to process the input and produce the output based on the input.</span></h4>
+<h4><span style="color: #333333;">Java encapsulates Stream under java.io package. Java defines two types of streams. They are,</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">Byte Stream :</span> It provides a convenient means for handling input and output of byte.</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">Character Stream :</span> It provides a convenient means for handling input and output of characters. Character stream uses Unicode and therefore can be internationalized.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Byte Stream Classes</span></strong></span></h3>
+<h4><span style="color: #333333;">Byte stream is defined by using two abstract class at the top of hierarchy, they are InputStream and OutputStream.<br /><br />These two abstract classes have several concrete classes that handle various devices such as disk files, network connection etc.</span></h4>
+<h4>Some important Byte stream classes.</h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Stream class</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>BufferedInputStream</td>
+<td>Used for Buffered Input Stream..</td>
+</tr>
+<tr>
+<td>BufferedOutputStream</td>
+<td>Used for Buffered Output Stream.</td>
+</tr>
+<tr>
+<td>DataInputStream</td>
+<td>Contains method for reading java standard datatype</td>
+</tr>
+<tr>
+<td>static String format(Locale l, String format, Object... args)</td>
+<td>returns formatted string with given localer.</td>
+</tr>
+<tr>
+<td>DataOutputStream</td>
+<td>An output stream that contain method for writing java standard data type</td>
+</tr>
+<tr>
+<td>FileInputStream</td>
+<td>Input stream that reads from a file.</td>
+</tr>
+<tr>
+<td>FileOutputStream</td>
+<td>Abstract class that describe stream input.</td>
+</tr>
+<tr>
+<td>OutputStream</td>
+<td>Abstract class that describe stream output.</td>
+</tr>
+<tr>
+<td>PrintStream</td>
+<td>Output Stream that contain print() and println() method.</td>
+</tr>
+</tbody>
+</table>
+<pre style="color: #000000; background: #ffffff;">&nbsp;</pre>
+<h4><span style="color: #333333;">These classes define several key methods. Two most important are,</span></h4>
+<h4><span style="color: #333333;"><span style="color: #008080;">read() :</span> reads byte of data.<br /><span style="color: #008080;">write() :</span> Writes byte of data.<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Character Stream Classes</span></strong></span></h3>
+<h4><span style="color: #333333;">Character stream is also defined by using two abstract class at the top of hierarchy, they are Reader and Writer.&nbsp;These two abstract classes have several concrete classes that handle unicode character.</span></h4>
+<h4><span style="color: #333333;">Some important Character stream classes</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Stream class</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>BufferedReader</td>
+<td>Handles buffered input stream.</td>
+</tr>
+<tr>
+<td>BufferedWriter</td>
+<td>Handles buffered output stream.</td>
+</tr>
+<tr>
+<td>FileReader</td>
+<td>Input stream that reads from file.</td>
+</tr>
+<tr>
+<td>FileWriter</td>
+<td>Output stream that writes to file.</td>
+</tr>
+<tr>
+<td>InputStreamReader</td>
+<td>Input stream that translate byte to character.</td>
+</tr>
+<tr>
+<td>OutputStreamReader</td>
+<td>Output stream that translate character to byte.</td>
+</tr>
+<tr>
+<td>PrintWriter</td>
+<td>Output Stream that contain print() and println() method.</td>
+</tr>
+<tr>
+<td>Reader</td>
+<td>Abstract class that define character stream input.</td>
+</tr>
+<tr>
+<td>Writer</td>
+<td>Abstract class that define character stream output.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Reading Console Input</span></strong></span></h3>
+<h4><span style="color: #333333;">We use the object of BufferedReader class to take inputs from the keyboard.</span></h4>
+<pre style="color: #000000; background: #ffffff;">BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
+</pre>
+<h4><span style="color: #333333;">Here,<br />br is Object of BufferedReader class<br />InputStreamReader is subclass of Reader class. It converts bytes to character.<br />System.in - Console inputs are read from this<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Reading Characters</span></strong></span></h3>
+<h4><span style="color: #333333;">read() method is used with BufferedReader object to read characters. As this function returns integer type value has we need to use typecasting to convert it into char type.</span></h4>
+<h4><span style="color: #333333;">int read() throws IOException.</span></h4>
+<h4><span style="color: #333333;">Below is a simple example explaining character input,<br /><br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> CharRead
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main( <span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">BufferedReader</span> br = <span style="color: #7f0055; font-weight: bold;">new</span> Bufferedreader(<span style="color: #7f0055; font-weight: bold;">new</span> InputstreamReader(<span style="color: #7f0055; font-weight: bold;">System</span>.in));
+  <span style="color: #7f0055; font-weight: bold;">char</span> c = (<span style="color: #7f0055; font-weight: bold;">char</span>)br.read();       <span style="color: #3f7f59;">//Reading character  </span>
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Reading Strings</span></strong></span></h3>
+<h4><span style="color: #333333;">To read string we have to use readLine() function with BufferedReader class's object.</span></h4>
+<h4><span style="color: #333333;">String readLine() throws IOException</span></h4>
+<h4><span style="color: #333333;">Program to take String input from Keyboard in Java.<br /><br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> MyInput
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">String</span> text;
+  <span style="color: #7f0055; font-weight: bold;">InputStreamReader</span> isr = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">InputStreamReader</span>(<span style="color: #7f0055; font-weight: bold;">System</span>.in);
+  <span style="color: #7f0055; font-weight: bold;">BufferedReader</span> br = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">BufferedReader</span>(isr);
+  text = br.readLine();          <span style="color: #3f7f59;">//Reading String  </span>
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(text);
+ }
+}<br /><br /></pre>
+<h4><span style="color: #333333;">Program to read from a file using BufferedReader class.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> ReadTest
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span> 
+  {
+   <span style="color: #7f0055; font-weight: bold;">File</span> fl = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">File</span>(<span style="color: #2a00ff;">"d:/myfile.txt"</span>);
+   <span style="color: #7f0055; font-weight: bold;">BufferedReader</span> br = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">BufferedReader</span>(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FileReader</span>(fl)) ;
+   <span style="color: #7f0055; font-weight: bold;">String</span> str;
+   <span style="color: #7f0055; font-weight: bold;">while</span> ((str=br.readLine())!=<span style="color: #7f0055; font-weight: bold;">null</span>)
+   {
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(str);
+   }
+   br.close();
+   fl.close();
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span> (<span style="color: #7f0055; font-weight: bold;">IOException</span>  e)
+  { e.printStackTrace(); }
+ }
+}
+</pre>
+<h4><span style="color: #333333;">Program to write to a File using FileWriter class.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> WriteTest
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span> 
+  {
+   <span style='color:#7f0055; font-weight:bold; '>File</span> fl = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>File</span>(<span style='color:#2a00ff; '>"d:/myfile.txt"</span>);
+   <span style='color:#7f0055; font-weight:bold; '>String</span> str=<span style='color:#2a00ff; '>"Write this string to my file"</span>;
+   <span style='color:#7f0055; font-weight:bold; '>FileWriter</span> fw = <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FileWriter</span>(fl) ;
+   fw.write(str);
+   fw.close();
+   fl.close();
+  }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span> (<span style='color:#7f0055; font-weight:bold; '>IOException</span>  e)
+  { e.printStackTrace(); }
+ }
+}
+</pre>

@@ -1,0 +1,131 @@
+<h2><strong><span style="color: #2980b9;">Java If-else Statement</span></strong></h2>
+<h4><span style="color: #333333;">The Java if statement is used to test the condition. It returns true or false. There are various types of if statement in java.</span></h4>
+<ul>
+<li>
+<h4><span style="color: #333333;">if statement.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">if-else statement.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">nested if statement.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">if-else-if ladder</span></h4>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1) if statement</span></strong></span></h3>
+<h4><span style="color: #333333;">The if statement tests the condition. It executes the if statement if condition is true.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">if(condition){ </span><br /><span style="color: #333399;">&nbsp; &nbsp; &nbsp; &nbsp; //code to be executed </span><br /><span style="color: #333399;">}&nbsp;</span></h3>
+<pre style="color: #000000; background: #ffffff;">Example:
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> IfExample {  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) {  
+    <span style="color: #7f0055; font-weight: bold;">int</span> age=20;  
+    <span style="color: #7f0055; font-weight: bold;">if</span>(age&gt;18){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(<span style="color: #2a00ff;">"Age is greater than 18"</span>);  
+    }  
+}  
+}  
+Output:
+
+Age is greater than 18
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2) if else statement</span></strong></span></h3>
+<h4><span style="color: #333333;">The if-else statement also tests the condition. It executes the if block if condition is true otherwise else block.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">if(condition){ <br />&nbsp; &nbsp; &nbsp; &nbsp; //code if condition is true <br />}else{ &nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; //code if condition is false <br />}&nbsp;</span></h3>
+<pre style="color: #000000; background: #ffffff;">Example:
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> IfElseExample {  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) {  
+    <span style="color: #7f0055; font-weight: bold;">int</span> number=13;  
+    <span style="color: #7f0055; font-weight: bold;">if</span>(number%2==0){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"even number"</span>);  
+    }<span style="color: #7f0055; font-weight: bold;">else</span>{  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"odd number"</span>);  
+    }  
+  }  
+}  
+Output:
+
+odd number
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3) if else if ladder statement</span></strong></span></h3>
+<h4><span style="color: #333333;">The if-else-if ladder statement executes one condition from multiple statements.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">if(condition1){ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//code to be executed if condition1 is true <br />}else if(condition2){ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//code to be executed if condition2 is true <br />} <br />else if(condition3){ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //code to be executed if condition3 is true <br />} <br />... <br />else{ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //code to be executed if all the conditions are false&nbsp;<br />}&nbsp;</span></h3>
+<pre style="color: #000000; background: #ffffff;">Example:
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> IfElseIfExample {  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) {  
+    <span style="color: #7f0055; font-weight: bold;">int</span> marks=65;  
+      
+    <span style="color: #7f0055; font-weight: bold;">if</span>(marks&lt;50){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"fail"</span>);  
+    }  
+    <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(marks&gt;=50 &amp;&amp; marks&lt;60){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"D grade"</span>);  
+    }  
+    <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(marks&gt;=60 &amp;&amp; marks&lt;70){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"C grade"</span>);  
+    }  
+    <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(marks&gt;=70 &amp;&amp; marks&lt;80){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"B grade"</span>);  
+    }  
+    <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(marks&gt;=80 &amp;&amp; marks&lt;90){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"A grade"</span>);  
+    }<span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(marks&gt;=90 &amp;&amp; marks&lt;100){  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"A+ grade"</span>);  
+    }<span style="color: #7f0055; font-weight: bold;">else</span>{  
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Invalid!"</span>);  
+    }  
+}  
+}  
+Output:
+
+C grade&nbsp;</pre>
+<h2><strong><span style="color: #2980b9;">Java&nbsp;Switch Statement</span></strong></h2>
+<h4><span style="color: #333333;">The Java switch statement is executes one statement from multiple conditions. It is like if-else-if ladder statement.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">switch(expression){ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case value1: <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//code to be executed; <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break; //optional <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case value2: <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //code to be executed; <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break; //optional <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...... <br /> <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; default: <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; code to be executed if all cases are not matched;<br />}&nbsp;</span></h3>
+<pre style="color: #000000; background: #ffffff;">Example:
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> SwitchExample {  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) {  
+    <span style="color: #7f0055; font-weight: bold;">int</span> number=20;  
+    <span style="color: #7f0055; font-weight: bold;">switch</span>(number){  
+    <span style="color: #7f0055; font-weight: bold;">case</span> 10: <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"10"</span>);<span style="color: #7f0055; font-weight: bold;">break</span>;  
+    <span style="color: #7f0055; font-weight: bold;">case</span> 20: <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"20"</span>);<span style="color: #7f0055; font-weight: bold;">break</span>;  
+    <span style="color: #7f0055; font-weight: bold;">case</span> 30: <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"30"</span>);<span style="color: #7f0055; font-weight: bold;">break</span>;  
+    <span style="color: #7f0055; font-weight: bold;">default</span>:<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Not in 10, 20 or 30"</span>);  
+    }  
+}  
+}  
+Output:
+
+20
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Switch&nbsp;statement&nbsp;if fall-through</span></strong></span></h3>
+<h4><span style="color: #333333;">The java switch statement is fall-through. It means it executes all statement after first match if break statement is not used with switch cases.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>Example:
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> SwitchExample2 {  
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args) {  
+    <span style='color:#7f0055; font-weight:bold; '>int</span> number=20;  
+    <span style='color:#7f0055; font-weight:bold; '>switch</span>(number){  
+    <span style='color:#7f0055; font-weight:bold; '>case</span> 10: <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"10"</span>);  
+    <span style='color:#7f0055; font-weight:bold; '>case</span> 20: <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"20"</span>);  
+    <span style='color:#7f0055; font-weight:bold; '>case</span> 30: <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"30"</span>);  
+    <span style='color:#7f0055; font-weight:bold; '>default</span>:<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Not in 10, 20 or 30"</span>);  
+    }  
+}  
+}  
+Output:
+
+20
+30
+Not in 10, 20 or 30
+</pre>

@@ -1,0 +1,74 @@
+<h2><strong><span style="color: #2980b9;">Java Networking</span></strong></h2>
+<h4><span style="color: #333333;">Java Networking is a concept of connecting two or more computing devices together so that we can share resources.</span></h4>
+<h4><span style="color: #333333;">Java socket programming provides facility to share data between different computing devices.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of Java&nbsp;Networking</span></strong></span></h3>
+<h4><span style="color: #333333;">1. sharing resources.<br /></span></h4>
+<h4><span style="color: #333333;">2. centralize software management.</span></h4>
+<h4><span style="color: #333333;">java.net package encapsulate large number of classes and interface that provides an easy-to use means to access network resources. Here are some important classes and interfaces of java.net package.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Some Important Classese</span></strong></span></h3>
+<h4><span style="color: #333333;">CacheRequest, &nbsp; &nbsp; CookieHandler,<br />CookieManager, &nbsp; Datagrampacket,<br />Inet Address, &nbsp; &nbsp; &nbsp; &nbsp;ServerSocket,<br />Socket, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DatagramSocket,<br />Proxy, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;URL,<br />URLConnection<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Some Important&nbsp;Interfaces</span></strong></span></h3>
+<h4><span style="color: #333333;">CookiePolicy, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CookieStore,<br />FileNameMap, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SocketOption,<br />InetAddress, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ServerSocket,<br />SocketImplFactory, &nbsp; ProtocolFamily<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Java InetAddress class</span></strong></span></h3>
+<h4><span style="color: #333333;">Inet Address encapsulates both numerical IP address and the domain name for that address. Inet address can handle both IPv4 and IPv6 addresses. Inet Address class has no visible constructor. To create an Inet Address object, you have to use Factory methods.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Method</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>public static InetAddress getLocalHost()&nbsp;throws UnknownHostException</td>
+<td>it returns the instance of InetAdddress containing local host name and address.</td>
+</tr>
+<tr>
+<td>public static InetAddress getByName(String hostname) throws UnknownHostException</td>
+<td>it returns the instance of InetAddress containing LocalHost IP and name.</td>
+</tr>
+<tr>
+<td>public static InetAddress[ ] getAllByName(String hostname) throws UnknownHostException</td>
+<td>it returns the instance of InetAddress containing all LocalHost IP and name.</td>
+</tr>
+<tr>
+<td>static String format(Locale l, String format, Object... args)</td>
+<td>returns formatted string with given localer.</td>
+</tr>
+<tr>
+<td>public String getHostName()</td>
+<td>it returns the host name of the IP address.</td>
+</tr>
+<tr>
+<td>public String getHostAddress()</td>
+<td>it returns the IP address in string format.</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Example using InetAddress class</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">InetAddress</span> address = <span style="color: #7f0055; font-weight: bold;">InetAddress</span>.getLocalHost(); 
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(address);
+  address = <span style="color: #7f0055; font-weight: bold;">InetAddress</span>.getByName(<span style="color: #2a00ff;">"www.bethedeveloper.com"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(address);
+  <span style="color: #7f0055; font-weight: bold;">InetAddress</span> sw[] = <span style="color: #7f0055; font-weight: bold;">InetAddress</span>.getAllByName(<span style="color: #2a00ff;">"www.google.com"</span>);
+  <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0; i&lt; sw.length; i++)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(sw[i]);
+  }
+ }
+}
+Output:
+
+Welcome-PC/59.161.87.227
+www.bethedeveloper.com/208.91.198.55
+www.google.com/74.125.236.115
+www.google.com/74.125.236.116
+www.google.com/74.125.236.112
+www.google.com/74.125.236.113
+www.google.com/74.125.236.114
+www.google.com/2404:6800:4009:802:0:0:0:1014
+</pre>

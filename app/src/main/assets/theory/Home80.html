@@ -1,0 +1,50 @@
+<h2><strong><span style="color: #2980b9;">StringBuilder&nbsp;Class</span></strong></h2>
+<h4><span style="color: #333333;">StringBuilder is identical to StringBuffer except for one important difference it is not synchronized, which means it is not thread safe. Its because StringBuilder methods are not synchronised.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">StringBuilder&nbsp;Constructors</span></strong></span></h3>
+<h4><span style="color: #333333;">1.&nbsp;StringBuilder ( &nbsp;)</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;StringBuilder ( int size )</span></h4>
+<h4><span style="color: #333333;">3.&nbsp;StringBuilder ( String str )</span></h4>
+<h4><span style="color: #333333;"><br />1)&nbsp;StringBuilder ( ), creates an empty StringBuilder and reserves room for 16 characters.</span></h4>
+<h4><span style="color: #333333;">2)&nbsp;StringBuilder ( int size ), create an empty string and takes an integer argument to set capacity of the buffer.</span></h4>
+<h4><span style="color: #333333;">3)&nbsp;StringBuilder ( String str ), create a StringBuilder object and initialize it with string str.</span></h4>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Example&nbsp;of StringBuilder:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Test {
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  StringBuilder str = <span style="color: #7f0055; font-weight: bold;">new</span> StringBuilder(<span style="color: #2a00ff;">"hello"</span>);
+  str.append( <span style="color: #2a00ff;">"world"</span> );
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(str);
+  str.replace( 5, 9, <span style="color: #2a00ff;">"java"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(str);
+  str.reverse();
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(str);
+ }
+}
+
+Output :
+helloworld 
+hellojava
+avajolleh
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;"><strong>Difference between StringBuffer and StringBuilder Class:</strong></span></h3>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>StringBuffer&nbsp;Class</strong></td>
+<td><strong>&nbsp;StringBuilder Class</strong></td>
+</tr>
+<tr>
+<td>StringBuffer is synchronized i.e. thread safe. It means two threads can't call the methods of StringBuffer simultaneously.</td>
+<td>StringBuilder is non-synchronized i.e. not thread safe. It means two threads can call the methods of StringBuilder simultaneously.</td>
+</tr>
+<tr>
+<td>StringBuffer is less efficient (slower) than StringBuilder.&nbsp;</td>
+<td>StringBuilder is more efficient (faster) than StringBuffer.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>

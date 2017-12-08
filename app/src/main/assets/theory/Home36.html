@@ -1,0 +1,93 @@
+<h2><strong><span style="color: #2980b9;">Applet</span></strong></h2>
+<h4><span style="color: #333333;">1. Applets are small Java applications that can be accessed on an Internet server, transported over Internet, and can be automatically installed and run as apart of a web document. Any applet in Java is a class that extends the java.applet.Applet class.</span></h4>
+<h4><span style="color: #333333;">2. An Applet class does not have any main() method.</span></h4>
+<h4><span style="color: #333333;">3. It is viewed using JVM. The JVM can use either a plug-in of the Web browser or a separate runtime environment to run an applet application.</span></h4>
+<h4><span style="color: #333333;">4. JVM creates an instance of the applet class and invokes init() method to initialize an Applet.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of Applet</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Very less response time as it works on the client side.</span></h4>
+<h4><span style="color: #333333;">2. It is Secured.</span></h4>
+<h4><span style="color: #333333;">3. It can be executed by browsers running under many plateforms, including Linux, Windows, Mac OS etc. which has JVM running in it.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Drawback of&nbsp;Applet</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Plugin is required at client browser to execute applet.</span></h4>
+<h4><span style="color: #333333;">A Simple Applet</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">applet</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Simple <span style="color: #7f0055; font-weight: bold;">extends</span> Applet
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> paint(<span style="color: #7f0055; font-weight: bold;">Graphics</span> g)
+ {
+  g.drawString(<span style="color: #2a00ff;">"A Simple Applet"</span>, 20, 20);
+ }
+}</pre>
+<h4><span style="color: #333333;">Note: class must be public because its object is created by Java Plugin software that resides on the browser.</span></h4>
+<h4><span style="color: #333333;">1. Every Applet application must declare a paint() method. This method is defined by AWT class and must be overridden by the applet. paint() method is called each time an applet neede to redisplay its output. </span></h4>
+<h4><span style="color: #333333;">2.Another important thing to notice about applet application is that, execution of an applet does not begin at main() method. In fact an applet application does not have any main() method.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Applet Class</span></strong></span></h3>
+<h4><span style="color: #333333;">Applet class provides all necessary support for applet execution, such as initializing and destroying of applet. It also provide methods that load and display images and methods that load and play audio clips.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Applet Skeleton</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">Most applets override these four methods. These four methods forms Applet lifecycle.<br /></span></h4>
+<h4><span style="color: #333333;">1. init() : init() is the first method to be called. This is where variable are initialized. This method is called only once during the runtime of applet.</span></h4>
+<h4><span style="color: #333333;">2. start() : start() method is called after init(). This method is called to restart an applet after it has been stopped.</span></h4>
+<h4><span style="color: #333333;">3. stop() : stop() method is called to suspend thread that does not need to run when applet is not visible.</span></h4>
+<h4><span style="color: #333333;">4. destroy() : destroy() method is called when your applet needs to be removed completely from memory.</span></h4>
+<h4><span style="color: #333333;">Example&nbsp;of an Applet Skeleton</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span> 
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">applet</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span> 
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> AppletTest <span style="color: #7f0055; font-weight: bold;">extends</span> Applet
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> init()
+ {
+  <span style="color: #3f7f59;">//initialization </span>
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> start ()
+ {
+  <span style="color: #3f7f59;">//start or resume execution </span>
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> stop()
+ {
+  <span style="color: #3f7f59;">//suspend execution </span>
+ {
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> destroy()
+ {
+  <span style="color: #3f7f59;">//perform shutdown activity</span>
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> paint (<span style="color: #7f0055; font-weight: bold;">Graphics</span> g)
+ {
+  <span style="color: #3f7f59;">//display the content of window</span>
+ }
+}</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Example&nbsp;of an Applet</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">applet</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyApplet <span style="color: #7f0055; font-weight: bold;">extends</span> Applet 
+{
+ <span style="color: #7f0055; font-weight: bold;">int</span> height, width;
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> init() 
+ {
+  height = getSize().height;
+  width = getSize().width;
+  setName(<span style="color: #2a00ff;">"MyApplet"</span>);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> paint(<span style="color: #7f0055; font-weight: bold;">Graphics</span> g)
+ {
+  g.drawRoundRect(10, 30, 120, 120, 2, 3);
+ }
+}</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">How to run an Applet Program</span></strong></span></h3>
+<h4><span style="color: #333333;"><br />An Applet program is compiled in the same way as you have been compiling your console programs. However there are two ways to run an applet.</span></h4>
+<h4><span style="color: #333333;">1.&nbsp;Executing the Applet within Java-compatible web browser.</span></h4>
+<h4><span style="color: #333333;">1. Using an Applet viewer, such as the standard tool, applet viewer. An applet viewer executes your applet in a window.</span></h4>
+<h4><span style="color: #333333;">For executing an Applet in an web browser, create short HTML file in the same directory. Inside body tag of the file, include the following code. (applet tag loads the Applet class).</span></h4>
+<pre style="color: #000000; background: #ffffff;">&lt; applet code = "MyApplet" width=400 height=400 &gt;
+&lt; /applet &gt;<br />
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Running Applet using Applet Viewer</span></strong></span></h3>
+<h4><span style="color: #333333;">To execute an Applet with an applet viewer, write short HTML file as discussed above. If name is run.htm, then the following command will compile and run your applet program.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>c:\>javac Myapplet.java
+c:\>appletviewer run.htm
+</pre>
+<p>&nbsp;</p>

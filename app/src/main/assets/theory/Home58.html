@@ -1,0 +1,26 @@
+<h2><strong><span style="color: #2980b9;">Garbage Collection</span></strong></h2>
+<h4><span style="color: #333333;">In Java destruction of object from memory is done automatically by the JVM. When there is no reference to an object, then that object is assumed to be no longer needed and the memory occupied by the object are released. This technique is called Garbage Collection. This is accomplished by the JVM.</span></h4>
+<h4><span style="color: #333333;">Unlike C++ there is no explicit need to destroy object.</span></h4>
+<h4><span style="color: #333333;">Advantages of Garbage Collection:</span></h4>
+<ol>
+<li>
+<h4><span style="color: #333333;">Programmer doesn't need to worry about dereferencing an object.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">It is done automatically by JVM.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Increases memory efficiency and decreases the chances for memory leak.</span></h4>
+</li>
+</ol>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">finalize() method</span></strong></span></h3>
+<h4><span style="color: #333333;">Sometime an object will need to perform some specific task before it is destroyed such as closing an open connection or releasing any resources held. To handle such situation finalize() method is used. finalize() method is called by garbage collection thread before collecting object. Its the last chance for any object to perform cleanup utility.</span></h4>
+<h4><span style="color: #333333;">Syntax :<br /></span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">protected void finalize( )<br />{<br />&nbsp; &nbsp; &nbsp; &nbsp; //finalize-code<br />}<br /></span>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Important Points to Remember</span></strong></span></h3>
+<h4><span style="color: #333333;">1. finalize() method is defined in java.lang.Object class, therefore it is available to all the classes.<br /></span></h4>
+<h4><span style="color: #333333;">2. finalize() method is declare as proctected inside Object class.</span></h4>
+<h4><span style="color: #333333;">3. finalize() method gets called only once by GC threads.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Can the Garbage Collection be forced explicitly ??</span></strong></span></h3>
+<h4><span style="color: #333333;">No, the Garbage Collection can not be forced explicitly. We may request JVM for garbage collection by calling System.gc() method. But This does not guarantee that JVM will perform the garbage collection.</span></h4>
+<p>&nbsp;</p>

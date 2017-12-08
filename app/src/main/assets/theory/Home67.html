@@ -1,0 +1,54 @@
+<h2><strong><span style="color: #2980b9;">instanceof Operator</span></strong></h2>
+<h4><span style="color: #333333;">The java instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).</span></h4>
+<h4><span style="color: #333333;">The instanceof in java is also known as type comparison operator because it compares the instance with type. instanceof operator return boolean value, either true or false.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+    {
+      Test t= <span style='color:#7f0055; font-weight:bold; '>new</span> Test();
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(t <span style='color:#7f0055; font-weight:bold; '>instanceof</span> Test);
+      }
+}
+Output : true
+
+Example:
+
+<span style='color:#7f0055; font-weight:bold; '>class</span> Animal{}  
+<span style='color:#7f0055; font-weight:bold; '>class</span> Dog1 <span style='color:#7f0055; font-weight:bold; '>extends</span> Animal{<span style='color:#3f7f59; '>//Dog inherits Animal  </span>
+  
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+ Dog1 d=<span style='color:#7f0055; font-weight:bold; '>new</span> Dog1();  
+ <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(d <span style='color:#7f0055; font-weight:bold; '>instanceof</span> Animal);<span style='color:#3f7f59; '>//true  </span>
+ }  
+}  
+Output: true
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Downcasting with java instanceof operator</span></strong></span></h3>
+<h4><span style="color: #333333;">When Subclass type refers to the object of Parent class, it is known as downcasting. If we perform it directly, compiler gives Compilation error.</span></h4>
+<h4><span style="color: #333333;">Dog d=new Animal();//Compilation error</span></h4>
+<h4><span style="color: #333333;">If you perform it by typecasting, ClassCastException is thrown at runtime.</span></h4>
+<h4><span style="color: #333333;">Dog d=(Dog)new Animal(); <br />//Compiles successfully but ClassCastException is thrown at runtime.</span></h4>
+<h4><span style="color: #333333;">But if we use instanceof operator, downcasting is possible&nbsp;<br /></span></h4>
+<h4><span style="color: #333333;">Example :&nbsp;Downcasting with instanceof</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Animal {
+
+ }  
+  
+<span style='color:#7f0055; font-weight:bold; '>class</span> Dog <span style='color:#7f0055; font-weight:bold; '>extends</span> Animal {  
+  <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> method(Animal a) {  
+    <span style='color:#7f0055; font-weight:bold; '>if</span>(a <span style='color:#7f0055; font-weight:bold; '>instanceof</span> Dog){  
+       Dog d=(Dog)a;<span style='color:#3f7f59; '>//downcasting  </span>
+       <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"ok downcasting performed"</span>);  
+    }  
+  }  
+   
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span> [] args) {  
+    Animal a=<span style='color:#7f0055; font-weight:bold; '>new</span> Dog();  
+    Dog.method(a);  
+  }  
+    
+ }  
+Output: ok downcasting performed
+</pre>
+<p>&nbsp;</p>

@@ -1,0 +1,162 @@
+<h2><strong><span style="color: #2980b9;">Map Interface</span></strong></h2>
+<h4><span style="color: #333333;">A Map stores data in key and value association. Both key and values are objects. The key must be unique but the values can be duplicate. Although Maps are a part of Collection Framework, they can not actually be called as collections because of some properties that they posses. However we can obtain a collection-view of maps.</span></h4>
+<h4><span style="color: #333333;">Map is useful if you have to search, update or delete elements on the basis of key.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Interface</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Map</td>
+<td>&nbsp;Maps unique key to value</td>
+</tr>
+<tr>
+<td>&nbsp;Map.Entry</td>
+<td>&nbsp;Describe an element in key and value pair in a map. This is an inner class of map</td>
+</tr>
+<tr>
+<td>&nbsp;NavigableMap</td>
+<td>&nbsp;Extends SortedMap to handle the retrienal of entries based on closest match searches</td>
+</tr>
+<tr>
+<td>&nbsp;SortedMap</td>
+<td>&nbsp;Extends Map so that key are maintained in an ascending order</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">The Map Interface is divided into two parts:</span></h4>
+<h4><span style="color: #008080;">1) SortedMap Interface</span></h4>
+<ul>
+<li>
+<h4><span style="color: #333333;">Extends Map Interface</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Ensures that the entries are in ascending order based on the keys.</span></h4>
+</li>
+</ul>
+<h4><span style="color: #008080;">2) NavigableMap Interface</span></h4>
+<ul>
+<li>
+<h4><span style="color: #333333;">Extends SortedMap Inteface</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Declares behaviour that supports retrieval of entries based on closest match.</span></h4>
+</li>
+</ul>
+<h4><span style="color: #333333;">Commonly used Methods defined by Map</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Methods</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>boolean containsKey(Object k)</td>
+<td>returns true if map contain k as key, otherwise false</td>
+</tr>
+<tr>
+<td>Object get(Object k)</td>
+<td>returns values associated with the key k</td>
+</tr>
+<tr>
+<td>Object put(Object k, Object v)</td>
+<td>stores an entry in map</td>
+</tr>
+<tr>
+<td>Object putAll(Map m)</td>
+<td>put all entries from m in this map</td>
+</tr>
+<tr>
+<td>Set keySet()</td>
+<td>returns Set that contains the key in a map</td>
+</tr>
+<tr>
+<td>Set entrySet()</td>
+<td>returns Set that contains the entries in a map</td>
+</tr>
+</tbody>
+</table>
+<h3><br /><span style="color: #008080;">HashMap class</span></h3>
+<h4><span style="color: #333333;">1. HashMap class extends AbstractMap and implements Map interface.</span></h4>
+<h4><span style="color: #333333;">2. It uses a hashtable to store the map. This allows the execution time of get() and put() to remain same.</span></h4>
+<h4><span style="color: #333333;">3. HashMap has four constructor.</span></h4>
+<h4><span style="color: #333399;">HashMap()</span></h4>
+<h4><span style="color: #333399;">HashMap(Map&lt; ? extends k, ? extends V&gt; m)</span></h4>
+<h4><span style="color: #333399;">HashMap(int capacity)</span></h4>
+<h4><span style="color: #333399;">HashMap(int capacity, float fillratio)</span></h4>
+<h4><span style="color: #333333;">4. HashMap does not maintain order of its element.</span></h4>
+<h4><span style="color: #333333;">Example of HashMap Class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> HashMapDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  HashMap&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; hm = <span style="color: #7f0055; font-weight: bold;">new</span> HashMap&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt;();
+  hm.put(<span style="color: #2a00ff;">"a"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(100));
+  hm.put(<span style="color: #2a00ff;">"b"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(200));
+  hm.put(<span style="color: #2a00ff;">"c"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(300));
+  hm.put(<span style="color: #2a00ff;">"d"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(400));
+
+  Set&lt; Map.Entry&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; &gt; st = hm.entrySet(); <span style="color: #3f7f59;">//returns Set view</span>
+  <span style="color: #7f0055; font-weight: bold;">for</span>(Map.Entry&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; me:st)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(me.getKey()+<span style="color: #2a00ff;">":"</span>);
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(me.getValue());
+  }
+ }
+}
+Output :
+c:300
+a:100
+d:400
+b:200
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">LinkedHashMap class</span></h3>
+<h4><span style="color: #333333;">1. LinkedHashMap extends HashMap class.</span></h4>
+<h4><span style="color: #333333;">2. It maintains a linked list of entries in map in order in which they are inserted.</span></h4>
+<h4><span style="color: #333333;">3. LinkedHashMap defines the following constructor.</span></h4>
+<h4><span style="color: #333399;">LinkedHashMap()</span></h4>
+<h4><span style="color: #333399;">LinkedHashMap(Map&lt; ? extends k, ? extends V&gt; m)</span></h4>
+<h4><span style="color: #333399;">LinkedHashMap(int capacity)</span></h4>
+<h4><span style="color: #333399;">LinkedHashMap(int capacity, float fillratio)</span></h4>
+<h4><span style="color: #333399;">LinkedHashMap(int capacity, float fillratio, boolean order)</span></h4>
+<h4><span style="color: #333333;">4. It adds one new method removeEldestEntry(). This method is called by put() and putAll() By default this method does nothing. However we can override this method to remove oldest element in the map. Syntax</span></h4>
+<h4><span style="color: #333399;">protected boolean removeEldestEntry(Map.Entry e)</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">TreeMap class</span></h3>
+<h4><span style="color: #333333;">1. TreeMap class extends AbstractMap and implements NavigableMap interface.</span></h4>
+<h4><span style="color: #333333;">2. It creates Map, stored in a tree structure.</span></h4>
+<h4><span style="color: #333333;">3. A TreeMap provides an efficient means of storing key/value pair in efficient order.</span></h4>
+<h4><span style="color: #333333;">4. It provides key/value pairs in sorted order and allows rapid retrieval.</span></h4>
+<h4><span style="color: #333333;">Example of TreeMap Class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> TreeMapDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  TreeMap&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; tm = <span style="color: #7f0055; font-weight: bold;">new</span> TreeMap&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt;();
+  tm.put(<span style="color: #2a00ff;">"a"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(100));
+  tm.put(<span style="color: #2a00ff;">"b"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(200));
+  tm.put(<span style="color: #2a00ff;">"c"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(300));
+  tm.put(<span style="color: #2a00ff;">"d"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(400));
+
+  Set&lt; Map.Entry&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; &gt; st = tm.entrySet();
+  <span style="color: #7f0055; font-weight: bold;">for</span>(Map.Entry me:st) 
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.print(me.getKey()+<span style="color: #2a00ff;">":"</span>);
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(me.getValue());
+  }
+ }
+}
+Output :
+a 100
+b 200
+c 300
+d 400
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">EnumMap class</span></h3>
+<h4>1. EnumMap extends AbstractMap and implements Map interface.</h4>
+<h4>2. It is used for key as enum</h4>

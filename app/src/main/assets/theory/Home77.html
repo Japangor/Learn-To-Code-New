@@ -1,0 +1,95 @@
+<h2><strong><span style="color: #2980b9;">String&nbsp;Class&nbsp;function</span></strong></h2>
+<h4><span style="color: #333333;">The following methods are some of the most commonly used methods of String class.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1) charAt( )</span></strong></span></h3>
+<h4><span style="color: #333333;">charAt() function returns the character located at the specified index.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "studytonight";
+System.out.println(str.charAt(2));
+Output : u<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2) equalsIgnoreCase( )</span></strong></span></h3>
+<h4><span style="color: #333333;">equalsIgnoreCase() determines the equality of two Strings, ignoring thier case (upper or lower case doesn't matters with this fuction ).</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;">String str = "java";
+System.out.println(str.equalsIgnoreCase("JAVA"));
+Output : true<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3) length( )</span></strong></span></h3>
+<h4><span style="color: #333333;">length() function returns the number of characters in a String.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "Count me";
+System.out.println(str.length());
+Output : 8<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">4) replace( )</span></strong></span></h3>
+<h4><span style="color: #333333;">replace() method replaces occurances of character with a specified new character.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "Change myself";
+System.out.println(str.replace('my','your'));
+Output : Change yourself<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">5) startsWith() and endsWith( )</span></strong></span></h3>
+<h4><span style="color: #333333;">It returns boolean either true or false.</span></h4>
+<h4><span style="color: #333333;">startsWith() method checks if this string starts with given prefix</span></h4>
+<pre style="color: #000000; background: #ffffff;">String s="Sachin";  
+System.out.println(s.startsWith("Sa"));<span style="color: #3f7f59;">//true  </span>
+Output : true</pre>
+<h4><span style="color: #333333;">endsWith() method checks if this string ends with given suffix.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String s="Sachin";  
+System.out.println(s.endsWith("ar"));<span style="color: #3f7f59;">//false  </span>
+Output : false
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">6) substring( )</span></strong></span></h3>
+<h4><span style="color: #333333;">substring() method returns a part of the string. substring() method has two forms.</span></h4>
+<h4><span style="color: #333333;">public String substring(int begin);</span></h4>
+<h4><span style="color: #333333;">public String substring(int begin, int end);</span></h4>
+<h4><span style="color: #333333;">The first argument represents the starting point of the subtring. If the substring() method is called with only one argument, the subtring returned, will contain characters from specified starting point to the end of original string.</span></h4>
+<h4><span style="color: #333333;">But, if the call to substring() method has two arguments, the second argument specify the end point of substring.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "0123456789";
+
+System.out.println(str.substring(4));
+Output : 456789
+
+System.out.println(str.substring(4,7));
+Output : 456
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">7) toLowerCase( )</span></strong></span></h3>
+<h4><span style="color: #333333;">toLowerCase() method returns string with all uppercase characters converted to lowercase.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "ABCDEF";
+System.out.println(str.toLowerCase());
+Output : abcdef</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />8) valueOf( )</span></strong></span></h3>
+<h4><span style="color: #333333;">Overloaded version of valueOf() method is present in String class for all primitive data types and for type Object.</span></h4>
+<pre style="color: #000000; background: #ffffff;">int a=10;  
+String s=String.valueOf(a);  
+System.out.println(s+10);  
+Output : 1010</pre>
+<h4><span style="color: #333333;">NOTE : valueOf() function is used to convert primitive data types into Strings.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">9) toString( )</span></strong></span></h3>
+<h4><span style="color: #333333;">toString() method returns the string representation of the object used to invoke this method. toString() is used to represent any Java Object into a meaningful string representation. It is declared in the Object class, hence can be overrided by any java class. (Object class is super class of all java classes.)</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Car {
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  Car c=<span style="color: #7f0055; font-weight: bold;">new</span> Car();  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(c);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">String</span> toString()
+ {
+  <span style="color: #7f0055; font-weight: bold;">return</span> <span style="color: #2a00ff;">"This is my car object"</span>;
+ }
+}
+Output : This is my car object</pre>
+<h4><span style="color: #333333;">Whenever we will try to print any object of class Car, its toString() function will be called. toString() can also be used with normal string objects.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "Hello World";
+System.out.println(str.toString());
+Output : Hello World</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">10)&nbsp;toString() with Concatenation</span></strong></span></h3>
+<h4><span style="color: #333333;">Whenever we concatenate any other primitive data type, or object of other classes with a String object, toString() function or valueOf() function is called automatically to change the other object or primitive type into string, for successful concatenation.</span></h4>
+<pre style="color: #000000; background: #ffffff;">int age = 10;
+String str = "He is" + age + "years old.";
+In above case 10 will be automatically converted into string for concatenation using valueOf() function</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />11) toUpperCase( )</span></strong></span></h3>
+<h4><span style="color: #333333;">This method returns string with all lowercase character changed to uppercase.</span></h4>
+<pre style="color: #000000; background: #ffffff;">String str = "abcdef";
+System.out.println(str.toUpperCase());
+Output : ABCDEF</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />12) trim( )</span></strong></span></h3>
+<h4><span style="color: #333333;">This method returns a string from which any leading and trailing whitespaces has been removed.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>String str = "   hello  ";
+System.out.println(str.trim());
+Output : hello
+</pre>

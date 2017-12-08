@@ -1,0 +1,116 @@
+<h2><strong><span style="color: #2980b9;">Exception Handling with Method Overriding in Java</span></strong></h2>
+<h4><span style="color: #333333;">RULE 1 : &nbsp;If super class method does not declare any exception, then sub class overriden method cannot declare checked exception but it can declare unchecked exceptions&nbsp;:</span>&nbsp;</h4>
+<h4><span style="color: #333333;">Example of Subclass overriden Method declaring Checked Exception :</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Super
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>); }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Sub <span style='color:#7f0055; font-weight:bold; '>extends</span> Super 
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>		<span style='color:#3f7f59; '>//Compile time error	  </span>
+  { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>); } 
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main( <span style='color:#7f0055; font-weight:bold; '>String</span>[] args )
+ {
+  Super s=<span style='color:#7f0055; font-weight:bold; '>new</span> Sub();
+  s.show();
+ }  
+}
+</pre>
+<h4><span style="color: #333333;">As the method show() doesn't throws any exception while in Super class, hence its overriden version can also not throw any checked exception.</span></h4>
+<h4><span style="color: #333333;">Example of Subclass overriden Method declaring Unchecked Exception.</span>&nbsp;</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Super
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show(){ <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>); }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Sub <span style='color:#7f0055; font-weight:bold; '>extends</span> Super 
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>ArrayIndexOutOfBoundsException</span>      <span style='color:#3f7f59; '>//Correct</span>
+   { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"child class"</span>); }
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Super s=<span style='color:#7f0055; font-weight:bold; '>new</span> Sub();
+  s.show();
+ }  
+}
+Output : child class
+</pre>
+<h4><span style="color: #333333;">Because ArrayIndexOutOfBoundsException is an unchecked exception hence, overrided show() method can throw it.</span></h4>
+<h4><span style="color: #333333;">RULE 2 : If Super class method throws an exception, then Subclass overriden method can throw the same exception or no exception, but must not throw parent exception of the exception thrown by Super class method&nbsp;:</span></h4>
+<h4><span style="color: #333333;">It means, if Super class method throws object of NullPointerException class, then Subclass method can either throw same exception, or can throw no exception, but it can never throw object of Exception class (parent of NullPointerException class).</span></h4>
+<h4><span style="color: #333333;">Example of Subclass overriden method with no Exception</span>&nbsp;</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Super
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span> 
+  {  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>);  }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Sub <span style='color:#7f0055; font-weight:bold; '>extends</span> Super {
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show()             		<span style='color:#3f7f59; '>//Correct  	  </span>
+   { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"child class"</span>); } 
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span> {
+   Super s=<span style='color:#7f0055; font-weight:bold; '>new</span> Sub();
+   s.show();
+   }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>Exception</span> e){}
+ }  
+}
+Output : child class
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Example of Subclass overriden method with same Exception.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Super
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span> 
+  {  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>);  }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Sub <span style='color:#7f0055; font-weight:bold; '>extends</span> Super {
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span>		<span style='color:#3f7f59; '>//Correct  	  </span>
+   { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"child class"</span>); } 
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span> {
+   Super s=<span style='color:#7f0055; font-weight:bold; '>new</span> Sub();
+   s.show();
+   }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>Exception</span> e){}
+ }  
+}
+Output : child class
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Example of Subclass overriden method with parent Exception.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Super
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>ArithmeticException</span> 
+  {  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"parent class"</span>);  }
+}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Sub <span style='color:#7f0055; font-weight:bold; '>extends</span> Super {
+ <span style='color:#7f0055; font-weight:bold; '>void</span> show() <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>Exception</span>    <span style='color:#3f7f59; '>//Compile time Error  	  </span>
+   { <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"child class"</span>); } 
+
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span> {
+   Super s=<span style='color:#7f0055; font-weight:bold; '>new</span> Sub();
+   s.show();
+   }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>Exception</span> e){}
+ }  
+}
+</pre>
+<p>&nbsp;</p>

@@ -1,0 +1,74 @@
+<h2><strong><span style="color: #2980b9;">Collection Framework</span></strong></h2>
+<h4><span style="color: #333333;">Collection framework was not part of original Java release. Collections was added to J2SE 1.2. Prior to Java 2, Java provided adhoc classes such as Dictionary, Vector, Stack and Properties to store and manipulate groups of objects. Collection framework provides many important classes and interfaces to collect and organize group of alike objects.</span></h4>
+<h4><span style="color: #333333;">All the operations that you perform on a data such as searching, sorting, insertion, manipulation, deletion etc. can be performed by Java Collections.</span></h4>
+<h3><span style="color: #008080;">Important Interfaces of Collection API</span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Interface</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Collection</td>
+<td>&nbsp;Enables you to work with groups of object; it is at the top of collection hierarchy.</td>
+</tr>
+<tr>
+<td>&nbsp;List</td>
+<td>&nbsp;Extends collection to handle sequences list of object.</td>
+</tr>
+<tr>
+<td>&nbsp;Queue</td>
+<td>&nbsp;Extends collection to handle special kind of list in which element are removed only from the head.</td>
+</tr>
+<tr>
+<td>&nbsp;Deque</td>
+<td>&nbsp;Extends queue to handle double ended queue.</td>
+</tr>
+<tr>
+<td>&nbsp;Set</td>
+<td>&nbsp;Extends collection to handle sets, which must contain unique element.</td>
+</tr>
+<tr>
+<td>&nbsp;SortedSet</td>
+<td>&nbsp;Extends sets to handle sorted set.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h3><span style="color: #008080;">What is Collection framework?</span></h3>
+<h4><span style="color: #333333;">Collection framework represents a unified architecture for storing and manipulating group of objects. It has:</span></h4>
+<h4><span style="color: #333333;">1. Interfaces and its implementations i.e. classes</span><br /><span style="color: #333333;">2. Algorithm</span></h4>
+<h3><span style="color: #008080;">Why Collections were made Generic ?</span></h3>
+<h4><span style="color: #333333;">Generics added type safety to Collection framework. Earlier collections stored Object class references. Which means any collection could store any type of object. Hence there were chances of storing incompatible types in a collection, which could result in run time mismatch. Hence Generics was introduced, now you can explicitly state the type of object being stored.</span></h4>
+<h3><span style="color: #008080;">Collections and Autoboxing</span></h3>
+<h4><span style="color: #333333;">We have studied that Autoboxing converts primitive types into Wrapper class Objects. As collections doesn't store primitive data types(stores only refrences), hence Autoboxing facilitates the storing of primitive data types in collection by boxing it into its wrapper type.</span></h4>
+<h3><span style="color: #008080;">Most Commonly thrown Exceptions in Collection Framework</span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Exception Name</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;UnSupportedOperationException</td>
+<td>&nbsp;occurs if a Collection cannot be modified</td>
+</tr>
+<tr>
+<td>&nbsp;ClassCastException</td>
+<td>&nbsp;occurs when one object is incompatible with another</td>
+</tr>
+<tr>
+<td>&nbsp;NullPointerException&nbsp;</td>
+<td>&nbsp;occurs when you try to store null object in Collection</td>
+</tr>
+<tr>
+<td>&nbsp;IllegalArgumentException</td>
+<td>&nbsp;thrown if an invalid argument is used</td>
+</tr>
+<tr>
+<td>&nbsp;IllegalStateException</td>
+<td>&nbsp;thrown if you try to add an element to an already full Collection</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

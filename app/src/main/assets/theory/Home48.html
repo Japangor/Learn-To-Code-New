@@ -1,0 +1,79 @@
+<h2><strong><span style="color: #2980b9;">Connecting to Oracle Database using Thin Driver</span></strong></h2>
+<h4><span style="color: #333333;">To connect a Java application with Oracle database using Thin Driver. You need to follow the following steps,<br /><br /></span></h4>
+<h4><span style="color: #333333;">1. Load Driver Class: The Driver Class for oracle database is oracle.jdbc.driver.OracleDriver and Class.forName("oracle.jdbc.driver.OracleDriver") method is used to load the driver class for Oracle database.</span></h4>
+<h4><span style="color: #333333;">2. Create Connection: For creating a connection you will need a Connection URL. The Connection URL for Oracle is.</span></h4>
+<h4><span style="color: #333333;">jdbc:oracle:thin:@localhost:1521:XE</span></h4>
+<h4><span style="color: #333333;">jdbc - API<br />oracle - Database<br />thin - Driver Type<br />localhost - server name on which oracle is running<br />1521 - Port Number<br />XE - Oracle Service Name</span></h4>
+<h4><span style="color: #333333;">You will also require Username and Password of your Oracle Database Server for creating connection.<br /></span></h4>
+<h4><span style="color: #333333;">3. Loading jar file: To connect your java application with Oracle, you will also need to load ojdbc14.jar file. This file can be loaded into 2 ways.</span></h4>
+<ol>
+<li>
+<h4><span style="color: #333333;">Copy the jar file into C:\Program Files\Java\jre7\lib\ext folder. or,</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Set it into classpath.</span></h4>
+</li>
+</ol>
+<h4><span style="color: #333333;">NOTE: Here we are discussing about Oracle 10g as database. For other version of Oracle you will be require to do some small changes in the Connection URL.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<h4><span style="color: #333333;">Create a table in Oracle Database</span></h4>
+<pre style="color: #000000; background: #ffffff;">create table Student(sid number(10),sname varchar2(20))</pre>
+<h4><span style="color: #333333;">Insert some record into the table</span></h4>
+<p>insert into Student values(101,'vraj');<br /> insert into Student values(102,'abhi');</p>
+<h4><span style="color: #333333;">Accessing record from Student table in Java application</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">sql</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test{
+        <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> []args){
+         
+           <span style="color: #7f0055; font-weight: bold;">try</span>{
+                 <span style="color: #3f7f59;">//Loading driver</span>
+                 <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"oracle.jdbc.driver.OracleDriver"</span>);
+
+                 <span style="color: #3f7f59;">//creating connection</span>
+                 <span style="color: #7f0055; font-weight: bold;">Connection</span> con = <span style="color: #7f0055; font-weight: bold;">DriverManager</span>.getConnection
+                     (<span style="color: #2a00ff;">"jdbc:oracle:thin:@localhost:1521:XE"</span>,<span style="color: #2a00ff;">"username"</span>,<span style="color: #2a00ff;">"password"</span>);
+
+                 <span style="color: #7f0055; font-weight: bold;">Statement</span> s=con.createStatement();	<span style="color: #3f7f59;">//creating statement</span>
+
+                 <span style="color: #7f0055; font-weight: bold;">ResultSet</span> rs=s.executeQuery(<span style="color: #2a00ff;">"select * from Student"</span>);	<span style="color: #3f7f59;">//executing statement</span>
+
+                 <span style="color: #7f0055; font-weight: bold;">while</span>(rs.next()){
+                       
+                      <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(rs.getInt(1)+<span style="color: #2a00ff;">" "</span>+rs.getString(2));
+                 }
+
+                con.close();	<span style="color: #3f7f59;">//closing connection</span>
+             }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){
+                 e.printStacktrace();
+             }
+      }
+}
+
+Output:
+101 vraj
+102 abhi<br /><br /></pre>
+<h4><span style="color: #333333;">Inserting record into a table using java application</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">sql</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test{
+     <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> []args){
+         <span style="color: #7f0055; font-weight: bold;">try</span>{
+               <span style="color: #3f7f59;">//Loading driver...</span>
+               <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"oracle.jdbc.driver.OracleDriver"</span>);
+
+               <span style="color: #3f7f59;">//creating connection...</span>
+               <span style="color: #7f0055; font-weight: bold;">Connection</span> con = <span style="color: #7f0055; font-weight: bold;">DriverManager</span>.getConnection
+                     (<span style="color: #2a00ff;">"jdbc:oracle:thin:@localhost:1521:XE"</span>,<span style="color: #2a00ff;">"username"</span>,<span style="color: #2a00ff;">"password"</span>);
+
+               <span style="color: #7f0055; font-weight: bold;">PreparedStatement</span> pst=con.prepareStatement(<span style="color: #2a00ff;">"insert into Student values(?,?)"</span>);
+         
+               pst.setInt(1,104);
+               pst.setString(2,<span style="color: #2a00ff;">"Alex"</span>);
+	       pst.executeUpdate();
+
+               con.close();	<span style="color: #3f7f59;">//closing connection</span>
+             }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){
+               e.printStacktrace();
+             }
+     }
+}&nbsp;</pre>
+<p>&nbsp;</p>

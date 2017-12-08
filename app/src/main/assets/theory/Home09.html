@@ -1,0 +1,39 @@
+<h2><strong><span style="color: #2980b9;">Variable in Java&nbsp;</span></strong></h2>
+<h4><span style="color: #333333;">Variable is name of reserved area allocated in memory.</span></h4>
+<h4><span style="color: #333333;">int data=50; // Here data is variable.</span></h4>
+<h3><span style="color: #2980b9;"><strong>Types of Variable in Java:</strong></span></h3>
+<ol>
+<li><span style="color: #333333;"><strong>Local Variable</strong></span></li>
+<li><span style="color: #333333;"><strong>Instance Variables (Non-static variables)</strong></span></li>
+<li><span style="color: #333333;"><strong>Class Variables (Static Variables)<br /><br /></strong></span></li>
+</ol>
+<h3><span style="color: #2980b9;"><strong>1) Local Variables:</strong></span></h3>
+<h4><span style="color: #333333;">Local variables are declared in method constructor or blocks. Local variables are initialized when method or constructor block start and will be destroyed once its end. Local variable reside in stack. Access modifiers are not used for local variable.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Ex: 
+
+float getDiscount(int price)
+{
+ <span style="color: #7f0055; font-weight: bold;">float</span> discount;   <span style="color: #3f7f59;">//here discount is a local variable</span>
+ discount=price*(20/100);
+ <span style="color: #7f0055; font-weight: bold;">return</span> discount; 
+}<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong>2) Instance Variables:</strong></span></h3>
+<h4><span style="color: #333333;">A variable that is declared inside the class but outside the method, constructor or block is called instance variable . It is not declared as static.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Ex:
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Student
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> name;  <span style="color: #3f7f59;">//here name and age are </span>
+ <span style="color: #7f0055; font-weight: bold;">int</span> age;     <span style="color: #3f7f59;">// instance variable</span>
+}<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong>3) Static variables:</strong></span></h3>
+<h4><span style="color: #333333;">A variable that is declared as static is called static variable. It cannot be local. Static variables are initialized only once. Static variables are also used in declaring constant along with final keyword.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Ex: 
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Student
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> name;
+ <span style="color: #7f0055; font-weight: bold;">int</span> age;
+ <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">int</span> instituteCode=1101; 
+} <span style="color: #3f7f59;">//here instituteCode is a static variable<br /><br /></span>
+</pre>

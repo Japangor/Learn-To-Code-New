@@ -1,0 +1,56 @@
+<h2><strong><span style="color: #2980b9;">Multiple catch blocks</span></strong></h2>
+<h4><span style="color: #333333;">A try block can be followed by multiple catch blocks. You can have any number of catch blocks after a single try block.If an exception occurs in the guarded code the exception is passed to the first catch block in the list. If the exception type of exception, matches with the first catch block it gets caught, if not the exception is passed down to the next catch block. This continue until the exception is caught or falls through all catches.</span></h4>
+<h4><span style="color: #333333;">Example for Multiple Catch blocks.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Excep
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">int</span> arr[]={1,2};
+   arr[2]=3/0;
+  } 
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">ArithmeticException</span> ae)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"divide by zero"</span>);
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">ArrayIndexOutOfBoundsException</span> e)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"array index out of bound exception"</span>);
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> ex)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"any other exception"</span>);
+  }	
+ }
+}
+Output : divide by zero
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">NOTE: At a time only one Exception is occured and at a time only one catch block is executed.</span></h4>
+<h4><span style="color: #333333;">Example for Unreachable Catch block</span></h4>
+<h4><span style="color: #333333;">While using multiple catch statements, it is important to remember that exception sub classes inside catch must come before any of their super classes otherwise it will lead to compile time error.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Excep
+{
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>try</span>
+  {
+   <span style='color:#7f0055; font-weight:bold; '>int</span> arr[]={1,2};
+   arr[2]=3/0;
+  }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>Exception</span> e)    <span style='color:#3f7f59; '>//This block handles all Exception</span>
+  {
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Generic exception"</span>);
+  }
+  <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>ArrayIndexOutOfBoundsException</span> e)    <span style='color:#3f7f59; '>//This block is unreachable</span>
+  {
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"array index out of bound exception"</span>);
+  }
+ }
+}
+Output : Compile-time error
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">NOTE: All catch blocks must be ordered from most specific to most general i.e. catch for ArithmeticException must come before catch for Exception.</span></h4>
+<h3>&nbsp;</h3>

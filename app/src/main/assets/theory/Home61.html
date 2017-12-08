@@ -1,0 +1,18 @@
+<h2><strong><span style="color: #2980b9;">Aggregation in Java</span></strong></h2>
+<h4><span style="color: #333333;">If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.</span></h4>
+<pre style='color:#000000;background:#ffffff;'>Example:
+
+<span style='color:#7f0055; font-weight:bold; '>class</span> Employee{  
+  <span style='color:#7f0055; font-weight:bold; '>int</span> id;  
+  <span style='color:#7f0055; font-weight:bold; '>String</span> name;  
+  Address address; <span style='color:#3f7f59; '>//Address is a class  </span>
+  ...  
+}
+</pre>
+<h4><span style="color: #333333;">In such case, Employee has an entity reference address, so relationship is Employee HAS-A address.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Why use Aggregation??<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">For Code Reusability.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">When use Aggregation??<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">1. Code reuse is also best achieved by aggregation when there is no IS-A relationship.</span></h4>
+<h4><span style="color: #333333;">2. Inheritance should be used only if the relationship IS-A is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice.</span></h4>
+<p>&nbsp;</p>

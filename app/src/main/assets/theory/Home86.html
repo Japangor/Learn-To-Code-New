@@ -1,0 +1,58 @@
+<h2><strong><span style="color: #2980b9;">Deadlock in java</span></strong></h2>
+<h4><span style="color: #333333;">Deadlock in java is a part of multithreading. Deadlock can occur in a situation when first thread is waiting for an object lock, that is acquired by second thread and second thread is waiting for an object lock that is acquired by first thread. Since, both threads are waiting for each other to release the lock, the condition is called deadlock.</span></h4>
+<h4><span style="color: #333333;">Example of deadlock&nbsp;:</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Pen{}
+<span style='color:#7f0055; font-weight:bold; '>class</span> Paper{}
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Write {
+
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+  {
+     <span style='color:#7f0055; font-weight:bold; '>final</span> Pen pn =<span style='color:#7f0055; font-weight:bold; '>new</span> Pen();
+     <span style='color:#7f0055; font-weight:bold; '>final</span> Paper pr =<span style='color:#7f0055; font-weight:bold; '>new</span> Paper();
+     
+        <span style='color:#3f7f59; '>// t1 tries to lock pn then pr  </span>
+	<span style='color:#7f0055; font-weight:bold; '>Thread</span> t1 = <span style='color:#7f0055; font-weight:bold; '>new</span> Thread(){
+            <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> run()
+            {
+                <span style='color:#7f0055; font-weight:bold; '>synchronized</span>(pn)
+                {
+                    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Thread1 is holding Pen"</span>);
+                  <span style='color:#7f0055; font-weight:bold; '>try</span>{
+                      <span style='color:#7f0055; font-weight:bold; '>Thread</span>.sleep(1000);
+                  }<span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>InterruptedException</span> e){}
+                    <span style='color:#7f0055; font-weight:bold; '>synchronized</span>(pr)
+                {  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Requesting for Paper"</span>); }
+                    
+                }
+            }
+        };
+	
+	<span style='color:#3f7f59; '>// t1 tries to lock pr then pn</span>
+        <span style='color:#7f0055; font-weight:bold; '>Thread</span> t2 = <span style='color:#7f0055; font-weight:bold; '>new</span> Thread(){
+            <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> run()
+            {
+                <span style='color:#7f0055; font-weight:bold; '>synchronized</span>(pr)
+                {
+                    <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Thread2 is holding Paper"</span>);
+                  <span style='color:#7f0055; font-weight:bold; '>try</span>{
+                      <span style='color:#7f0055; font-weight:bold; '>Thread</span>.sleep(1000);
+                  }<span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>InterruptedException</span> e){}
+                    <span style='color:#7f0055; font-weight:bold; '>synchronized</span>(pn)
+                {  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"requesting for Pen"</span>); }
+                    
+                }
+            }
+        };
+        
+        t1.start();
+        t2.start();
+  }
+    
+}
+
+Output :
+
+Thread1 is holding Pen
+Thread2 is holding Paper
+</pre>

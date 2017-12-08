@@ -1,0 +1,121 @@
+<h2><strong><span style="color: #2980b9;">Generics</span></strong></h2>
+<h4><span style="color: #333333;">A class or interface that operates on parameterized type is called Generic. Generics was first introduced in Java5. Now it is one of the most profound feature of java programming language. It provides facility to write algorithm independent of any specific type of data. Generics also provide type safety.</span></h4>
+<h4><span style="color: #333333;">Using Generics, it becomes possible to create a single class or method that automatically works with all types of data(Integer, String, Float etc). It expanded the ability to reuse code safely and easily.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Example of Generic class</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Gen &lt;T&gt;
+{
+ T ob;     <span style="color: #3f7f59;">//an object of type T is declared</span>
+ Gen(T o)  <span style="color: #3f7f59;">//constructor</span>
+ {
+  ob = o;
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> T getOb()
+ {
+  <span style="color: #7f0055; font-weight: bold;">return</span> ob;
+ }
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main (<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  Gen &lt;<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; iob = <span style="color: #7f0055; font-weight: bold;">new</span> Gen(100);     <span style="color: #3f7f59;">//instance of Integer type Gen Class. </span>
+  <span style="color: #7f0055; font-weight: bold;">int</span>  x = iob.getOb();
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(x);
+  Gen &lt;<span style="color: #7f0055; font-weight: bold;">String</span>&gt; sob = <span style="color: #7f0055; font-weight: bold;">new</span> Gen(<span style="color: #2a00ff;">"Hello"</span>);  <span style="color: #3f7f59;">//instance of String type Gen Class.</span>
+  <span style="color: #7f0055; font-weight: bold;">String</span> str = sob.getOb();
+ }
+}
+
+Output :
+100
+Hello</pre>
+<h4><span style="color: #333333;">Generics Work Only with Objects.</span></h4>
+<h4><span style="color: #333333;">You cannot use primitive datatype such as int or char etc with Generics type. It should always be an object.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Gen&lt; int&gt; iob = new Gen&lt; int&gt;(07);    <span style="color: #3f7f59;">//Error, can't use primitive type</span>
+</pre>
+<h4><span style="color: #333333;">Generics Types of different Type Arguments are never same.</span></h4>
+<h4><span style="color: #333333;">Reference of one generic type is never compatible with other generic type unless their type argument is same. In the example above we created two objects of class Gen, one of type Integer, and other of type String, hence,</span></h4>
+<pre style="color: #000000; background: #ffffff;">iob = sob;    <span style="color: #3f7f59;">//Absolutely Wrong</span>
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Generic Methods</span></strong></span></h3>
+<h4><span style="color: #333333;">You can also create generic methods that can be called with different types of arguments based on the type of arguments passed to generic method, the compiler handles each method.<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;">Example of Generic method
+
+<span style="color: #7f0055; font-weight: bold;">class</span> GenTest
+{
+ <span style="color: #7f0055; font-weight: bold;">static</span> &lt;V, T&gt; <span style="color: #7f0055; font-weight: bold;">void</span> display (V v, T t)
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(v.getClass().getName()+<span style="color: #2a00ff;">" = "</span> +v);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(t.getClass().getName()+<span style="color: #2a00ff;">" = "</span> +t);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  display(88,<span style="color: #2a00ff;">"This is string"</span>);
+ }
+}
+
+Output :
+java.lang.Integer = 88
+Java.lang.String = this is string
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Generic Constructors</span></strong></span></h3>
+<h4><span style="color: #333333;">It is possible to create a generic constructor even if the class is not generic.</span></h4>
+<pre style="color: #000000; background: #ffffff;">Example of Generic Constructor
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Gen
+{
+ <span style="color: #7f0055; font-weight: bold;">private</span> <span style="color: #7f0055; font-weight: bold;">double</span> val;
+ &lt;T <span style="color: #7f0055; font-weight: bold;">extends</span> <span style="color: #7f0055; font-weight: bold;">Number</span>&gt; Gen(T ob)
+ {
+  val=ob.doubleValue();
+ }
+ <span style="color: #7f0055; font-weight: bold;">void</span> show()
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(val);
+ }
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> HelloWorld
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  Gen g1 = <span style="color: #7f0055; font-weight: bold;">new</span> Gen(100); 
+  Gen g2 = <span style="color: #7f0055; font-weight: bold;">new</span> Gen(121.5F);
+  g1.show();
+  g2.show(); 
+ }
+}
+
+Output :
+100.0
+121.5</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Generic Interface</span></strong></span></h3>
+<h4><span style="color: #333333;">Like classes and methods, you can also create generic interfaces.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">interface</span> MyInterface &lt; T &gt;
+{ .. }</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Generic Bounded type Parameter</span></strong></span></h3>
+<h4><span style="color: #333333;">You can also set restriction on the type that will be allowed to pass to a type-parameter. This is done with the help of extends keyword when specifying the type parameter.</span></h4>
+<pre style="color: #000000; background: #ffffff;">&lt; T <span style="color: #7f0055; font-weight: bold;">extends</span> Number &gt;</pre>
+<h4><span style="color: #333333;">Here we have taken Number class, it can be any wrapper class name. This specifies that T can be only be replaced by Number class data itself or any of its subclass.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Generic Method with bounded type Parameters</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Gen
+{
+ <span style="color: #7f0055; font-weight: bold;">static</span> &lt;T, V <span style="color: #7f0055; font-weight: bold;">extends</span> <span style="color: #7f0055; font-weight: bold;">Number</span>&gt; <span style="color: #7f0055; font-weight: bold;">void</span> display(T t, V v)  
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(v.getClass().getName()+<span style="color: #2a00ff;">" = "</span> +v);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(t.getClass().getName()+<span style="color: #2a00ff;">" = "</span> +t);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+ <span style="color: #3f7f59;">// display(88,"This is string");</span>
+  display (<span style="color: #2a00ff;">"this is string"</span>,99.0); 
+ }
+}
+
+Output :
+java.lang.Double = 99.O
+java.lang.String = This is string
+</pre>
+<h4><span style="color: #333333;">1.&nbsp;Type V is bounded to Number type and its subclass only.<br />2.If display(88,"This is string") is uncommented, it will give an error of type incompatibility, as String is not a subclass of Number class.</span></h4>
+<p>&nbsp;</p>

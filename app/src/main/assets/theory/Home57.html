@@ -1,0 +1,115 @@
+<h2><strong><span style="color: #2980b9;">static&nbsp;keyword</span></strong></h2>
+<h4><span style="color: #333333;">The static keyword in java is used for memory management mainly. We can apply java static keyword with variables, methods, blocks and nested class. The static keyword belongs to the class than instance of the class.</span></h4>
+<h4><span style="color: #333333;">The static can be:</span></h4>
+<ol>
+<li>
+<h4><span style="color: #333333;">variable (also known as class variable).</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">method (also known as class method).</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">block.<br /></span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">nested class.</span></h4>
+</li>
+</ol>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">static variable</span></strong></span></h3>
+<h4><span style="color: #333333;">If you declare any variable as static, it is known static variable.</span></h4>
+<h4><span style="color: #333333;">1. The static variable can be used to refer the common property of all objects (that is not unique for each object) e.g. company name of employees,college name of students etc.</span></h4>
+<h4><span style="color: #333333;">2. The static variable gets memory only once in class area at the time of class loading.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of static variable</span></strong></span></h3>
+<h4><span style="color: #333333;">It makes your program memory efficient (i.e it saves memory).</span></h4>
+<h4><span style="color: #333333;">NOTE : Java static property is shared to all objects.</span></h4>
+<h4><span style="color: #333333;">Example: Program of counter by static variable.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Counter{  
+<span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">int</span> count=0;<span style="color: #3f7f59;">//will get memory only once and retain its value  </span>
+  
+Counter(){  
+count++;  
+<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(count);  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+  
+Counter c1=<span style="color: #7f0055; font-weight: bold;">new</span> Counter();  
+Counter c2=<span style="color: #7f0055; font-weight: bold;">new</span> Counter();  
+Counter c3=<span style="color: #7f0055; font-weight: bold;">new</span> Counter();  
+  
+ }  
+}  
+Output:
+1      
+2       
+3
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Static variable vs Instance Variable</span></strong></span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Static variable</strong></td>
+<td><strong>&nbsp;Instance Variable</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Represent common property.</td>
+<td>&nbsp;Instance Variable.</td>
+</tr>
+<tr>
+<td>&nbsp;Accessed using class name.&nbsp;</td>
+<td>&nbsp;Accessed using object.</td>
+</tr>
+<tr>
+<td>&nbsp;get memory only once.</td>
+<td>&nbsp;get new memory each time a new object is created.</td>
+</tr>
+</tbody>
+</table>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Static&nbsp;Method</span></strong></span></h3>
+<h4><span style="color: #333333;">If you apply static keyword with any method, it is known as static method.</span></h4>
+<h4><span style="color: #333333;">1. A static method belongs to the class rather than object of a class.</span></h4>
+<h4><span style="color: #333333;">2. A static method can be invoked without the need for creating an instance of a class (or objects).</span></h4>
+<h4><span style="color: #333333;">3. static method can access static data member and can change the value of it.<br /><br /></span></h4>
+<h4><span style="color: #333333;">Example: Program to get cube of a given number by static method.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Calculate{  
+  <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">int</span> cube(<span style="color: #7f0055; font-weight: bold;">int</span> x){  
+  <span style="color: #7f0055; font-weight: bold;">return</span> x*x*x;  
+  }  
+  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+  <span style="color: #7f0055; font-weight: bold;">int</span> result=Calculate.cube(5);  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(result);  
+  }  
+}  
+Output: 125
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Restrictions for static method</span></strong></span></h3>
+<h4><span style="color: #333333;">1. The static method can not use non static data member or call non-static method directly.</span></h4>
+<h4><span style="color: #333333;">2. this and super cannot be used in static context.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> A{  
+ <span style="color: #7f0055; font-weight: bold;">int</span> a=40;  <span style="color: #3f7f59;">//non static  </span>
+   
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(a);  
+ }  
+}        
+Output: Compile Time Error
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;Why java main method is static??</span></strong></span></h3>
+<h4><span style="color: #333333;">Ans) because object is not required to call static method if it were non-static method, jvm create object first then call main() method that will lead the problem of extra memory allocation.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">static Block</span></strong></span></h3>
+<h4><span style="color: #333333;">Is used to initialize the static data member.<br />It is executed before main method at the time of classloading.</span></h4>
+<p>&nbsp;</p>
+<p>Example of static block</p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> S2{  
+  <span style='color:#7f0055; font-weight:bold; '>static</span>{<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"static block is invoked"</span>);}  
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"main method is invoked"</span>);  
+  }  
+}  
+Output:
+<span style='color:#7f0055; font-weight:bold; '>static</span> block is invoked
+main method is invoked
+</pre>
+<p>&nbsp;</p>

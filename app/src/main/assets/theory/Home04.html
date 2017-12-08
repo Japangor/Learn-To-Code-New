@@ -1,0 +1,102 @@
+<h2><strong><span style="color: #2980b9;">Serialization and Deserialization in Java</span></strong></h2>
+<h4><span style="color: #333333;">Serialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. The reverse process of creating object from sequence of bytes is called deserialization.</span></h4>
+<h4><span style="color: #333333;">A class must implement Serializable interface present in java.io package in order to serialize its object successfully. Serializable is a marker interface that adds serializable behaviour to the class implementing it.</span></h4>
+<h4><span style="color: #333333;">Java provides Serializable API encapsulated under java.io package for serializing and deserializing objects which include,</span></h4>
+<h4><span style="color: #333333;">java.io.Serializable</span></h4>
+<h4><span style="color: #333333;">java.io.Externalizable</span></h4>
+<h4><span style="color: #333333;">ObjectInputStream</span></h4>
+<h4><span style="color: #333333;">ObjectOutputStream etc.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of Java Serialization</span></strong></span></h3>
+<h4><span style="color: #333333;">It is mainly used to travel object's state on the network (known as marshaling).<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Marker interface</span></strong></span></h3>
+<h4><span style="color: #333333;">Marker Interface is a special interface in Java without any field and method. Marker interface is used to inform compiler that the class implementing it has some special behaviour or meaning. Some example of Marker interface are,</span></h4>
+<h4><span style="color: #333333;">java.io.Serializable&nbsp;</span></h4>
+<h4><span style="color: #333333;">java.lang.Cloneable&nbsp;</span></h4>
+<h4><span style="color: #333333;">java.rmi.Remote&nbsp;</span></h4>
+<h4><span style="color: #333333;">java.util.RandomAccess</span></h4>
+<h4><span style="color: #333333;">All these interfaces does not have any method and field. They only add special behavior to the classes implementing them. However marker interfaces have been deprecated since Java 5, they were replaced by Annotations. Annotations are used in place of Marker Interface that play the exact same role as marker interfaces did before</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Signature of writeObject() and readObject()</span></strong></span></h3>
+<h4><span style="color: #333333;">writeObject() method of ObjectOutputStream class serializes an object and send it to the output stream.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">final</span> void writeObject(object x) <span style="color: #7f0055; font-weight: bold;">throws</span> IOException
+</pre>
+<h4><span style="color: #333333;">readObject() method of ObjectInputStream class references object out of stream and deserialize it.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">final</span> Object readObject() <span style="color: #7f0055; font-weight: bold;">throws</span> IOException, ClassNotFoundException<br /><br /></pre>
+<h4><span style="color: #333333;">while serializing if you do not want any field to be part of object state then declare it either static or transient based on your need and it will not be included during java serialization process.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Serializing an Object.</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> studentinfo <span style="color: #7f0055; font-weight: bold;">implements</span> Serializable 
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> name;
+ <span style="color: #7f0055; font-weight: bold;">int</span> rid;
+ <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">String</span> contact;
+ studentinfo(string n, <span style="color: #7f0055; font-weight: bold;">int</span> r, string c)
+ {
+  <span style="color: #7f0055; font-weight: bold;">this</span>.name = n;
+  <span style="color: #7f0055; font-weight: bold;">this</span>.rid = r;
+  <span style="color: #7f0055; font-weight: bold;">this</span>.contact = c;
+ }
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+ <span style="color: #7f0055; font-weight: bold;">try</span>
+ {
+  Studentinfo si = <span style="color: #7f0055; font-weight: bold;">new</span> studentinfo(<span style="color: #2a00ff;">"Abhi"</span>, 104, <span style="color: #2a00ff;">"110044"</span>);
+  <span style="color: #7f0055; font-weight: bold;">FileOutputStream</span> fos = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FileOutputStream</span>(<span style="color: #2a00ff;">"student.ser"</span>);
+  <span style="color: #7f0055; font-weight: bold;">ObjectOutputStream</span> oos = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">ObjectOutputStream</span>(fos);
+  oos.writeObject(si);
+  oos.close();
+  fos.close();
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span> (<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  { e. printStackTrace(); }
+ }
+}</pre>
+<h4><span style="color: #333333;">Object of Studentinfo class is serialized using writeObject() method and written to student.ser file.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Deserialization of Object</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> DeserializationTest
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  studentinfo si=<span style="color: #7f0055; font-weight: bold;">null</span> ;
+  <span style="color: #7f0055; font-weight: bold;">try</span>  
+  {
+   <span style="color: #7f0055; font-weight: bold;">FileInputStream</span> fis = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FileInputStream</span>(<span style="color: #2a00ff;">"student.ser"</span>);
+   <span style="color: #7f0055; font-weight: bold;">ObjectOutputStream</span> ois = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">ObjectOutputStream</span>(fis);
+   si = (studentinfo)ois.readObject();
+  } 
+  <span style="color: #7f0055; font-weight: bold;">catch</span> (<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+   { e.printStackTrace(); }
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(si.name);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out. println(si.rid);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(si.contact);
+ }
+}
+Output :
+Abhi
+104
+null
+</pre>
+<h4><span style="color: #333333;">Contact field is null because,it was marked as static and as we have discussed earlier static fields does not get serialized.</span></h4>
+<h4><span style="color: #333333;">NOTE : Static members are never serialized because they are connected to class not object of class.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Externalizable in java</span></strong></span></h3>
+<h4><span style="color: #333333;">The Externalizable interface provides the facility of writing the state of an object into a byte stream in compress format. It is not a marker interface.</span></h4>
+<h4><span style="color: #333333;">The Externalizable interface provides two methods:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> void writeExternal(ObjectOutput out) <span style="color: #7f0055; font-weight: bold;">throws</span> IOException
+<span style="color: #7f0055; font-weight: bold;">public</span> void readExternal(ObjectInput in) <span style="color: #7f0055; font-weight: bold;">throws</span> IOException</pre>
+<pre style="color: #000000; background: #ffffff;">&nbsp;</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">transient Keyword</span></strong></span></h3>
+<h4><span style="color: #333333;">While serializing an object, if we don't want certain data member of the object to be serialized we can mention it transient. transient keyword will prevent that data member from being serialized.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> studentinfo <span style="color: #7f0055; font-weight: bold;">implements</span> Serializable 
+{
+ <span style="color: #7f0055; font-weight: bold;">String</span> name;
+ <span style="color: #7f0055; font-weight: bold;">transient</span> <span style="color: #7f0055; font-weight: bold;">int</span> rid;
+ <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">String</span> contact;
+}
+</pre>
+<h4><span style="color: #333333;">Making a data member transient will prevent its serialization.</span></h4>
+<h4><span style="color: #333333;">In this example rid will not be serialized because it is transient, and contact will also remain unserialized because it is static.</span></h4>
+<p>&nbsp;</p>

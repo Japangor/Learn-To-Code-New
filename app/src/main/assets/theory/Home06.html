@@ -1,0 +1,106 @@
+<h2><strong><span style="color: #2980b9;">Java&nbsp;Socket Programming</span></strong></h2>
+<h4><span style="color: #333333;">Java Socket programming is used for communication between the applications running on different JRE.</span></h4>
+<h4><span style="color: #333333;">Java Socket programming can be connection-oriented or connection-less.</span></h4>
+<h4><span style="color: #333333;">Socket and ServerSocket classes are used for connection-oriented socket programming and DatagramSocket and DatagramPacket classes are used for connection-less socket programming.</span></h4>
+<h4><span style="color: #333333;">The client in socket programming must know two information:</span></h4>
+<h4><span style="color: #333333;">1. IP Address of Server, and<br />2. Port number.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Socket class</span></strong></span></h3>
+<h4><span style="color: #333333;">Socket is foundation of modern networking, a socket allows single computer to serve many different clients at once.<br /></span></h4>
+<h4><span style="color: #333333;">Socket establishes connection through the use of port, which is a numbered socket on a particular machine.</span></h4>
+<h4><span style="color: #333333;">Socket communication takes place via a protocol. Socket provides communication mechanism between two computers using TCP.</span></h4>
+<h4><span style="color: #333333;">Socket class is for client.<br />ServerSocket is for servers.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Important&nbsp;methods of Socket class</span></strong></span></h3>
+<h4><span style="color: #333333;"><span style="color: #008080;">1) public InputStream getInputStream() :</span> returns the InputStream attached with this socket.<br /><span style="color: #008080;">2) public OutputStream getOutputStream() :</span> returns the OutputStream attached with this socket.<br /><span style="color: #008080;">3) public synchronized void close() :</span> closes this socket.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">ServerSocket&nbsp;Class</span></strong></span></h3>
+<h4><span style="color: #333333;">ServerSocket is for servers and is used to establish communication with the clients.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Important methods of ServersSocket&nbsp;class</span></strong></span></h3>
+<h4><span style="color: #333333;"><span style="color: #008080;">1) public Socket accept( )&nbsp;:</span>&nbsp;returns the socket and establish a connection between server and client.<br /><span style="color: #008080;">2) public synchronized void close( )&nbsp;:</span>&nbsp;closes the server socket.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Example of Java Socket Programming<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">Let's see a simple of java socket programming in which client sends a text and server receives it.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//File: MyServer.java</span>
+
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyServer {  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args){  
+   <span style="color: #7f0055; font-weight: bold;">try</span>{  
+         <span style="color: #7f0055; font-weight: bold;">ServerSocket</span> ss=<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">ServerSocket</span>(6666);  
+         <span style="color: #7f0055; font-weight: bold;">Socket</span> s=ss.accept();<span style="color: #3f7f59;">//establishes connection   </span>
+         <span style="color: #7f0055; font-weight: bold;">DataInputStream</span> dis=<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DataInputStream</span>(s.getInputStream());  
+         <span style="color: #7f0055; font-weight: bold;">String</span>  str=(<span style="color: #7f0055; font-weight: bold;">String</span>)dis.readUTF();  
+         <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Message = "</span>+str);  
+         ss.close();  
+      }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){
+         <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(e);
+      }  
+   }
+}  
+
+<span style="color: #3f7f59;">//File: MyClient.java</span>
+
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">io</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyClient {  
+      <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) {  
+           <span style="color: #7f0055; font-weight: bold;">try</span>{      
+                 <span style="color: #7f0055; font-weight: bold;">Socket</span> s=<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Socket</span>(<span style="color: #2a00ff;">"localhost"</span>,6666);  
+                 <span style="color: #7f0055; font-weight: bold;">DataOutputStream</span> dout=<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DataOutputStream</span>(s.getOutputStream());  
+                 dout.writeUTF(<span style="color: #2a00ff;">"Hello Server"</span>);  
+                 dout.flush();  
+                 dout.close();  
+                 s.close();  
+              }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){
+                 <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(e); 
+              }  
+       }  
+}<br /><br /></pre>
+<h4><span style="color: #333333;">To execute this program open two command prompts and execute each program at each command prompt as,</span></h4>
+<pre style="color: #000000; background: #ffffff;">1) javac MyServer.java
+   java MyServer
+
+2) javac MyClient.java
+   java MyClient
+</pre>
+<h4><span style="color: #333333;">After running the client application, a message will be displayed on the server console.</span></h4>
+<h4><span style="color: #333333;">Output: Message = Hello Server<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">DatagramSocket class</span></strong></span></h3>
+<h4><span style="color: #333333;">Java DatagramSocket class represents a connection-less socket for sending and receiving datagram packets.</span></h4>
+<h4><span style="color: #333333;">A datagram is basically an information but there is no guarantee of its content, arrival or arrival time.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Commonly used Constructors of DatagramSocket class</span></strong></span></h3>
+<h4><span style="color: #333333;"><span style="color: #008080;">1) DatagramSocket() throws SocketEeption :</span> it creates a datagram socket and binds it with the available Port Number on the localhost machine.<br /><span style="color: #008080;">2)&nbsp;DatagramSocket(int port) throws SocketEeption :</span> it creates a datagram socket and binds it with the given Port Number.<br /><span style="color: #008080;">3) DatagramSocket(int port, InetAddress address) throws SocketEeption :</span> it creates a datagram socket and binds it with the specified port number and host address.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />DatagramPacket class</span></strong></span></h3>
+<h4><span style="color: #333333;">Java DatagramPacket is a message that can be sent or received. If you send multiple packet, it may arrive in any order. Additionally, packet delivery is not guaranteed.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Commonly used Constructors of DatagramPacket class</span></strong></span></h3>
+<h4><span style="color: #333333;"><span style="color: #008080;">1) DatagramPacket(byte[] barr, int length) :</span> it creates a datagram packet. This constructor is used to receive the packets.<br /><span style="color: #008080;">2)DatagramPacket(byte[] barr, int length, InetAddress address, int port) :</span> it creates a datagram packet. This constructor is used to send the packets.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Example of Sending DatagramPacket by DatagramSocket</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//DSender.java  </span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> DSender{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) <span style="color: #7f0055; font-weight: bold;">throws</span> <span style="color: #7f0055; font-weight: bold;">Exception</span> {  
+    <span style="color: #7f0055; font-weight: bold;">DatagramSocket</span> ds = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DatagramSocket</span>();  
+    <span style="color: #7f0055; font-weight: bold;">String</span> str = <span style="color: #2a00ff;">"Welcome java"</span>;  
+    <span style="color: #7f0055; font-weight: bold;">InetAddress</span> ip = <span style="color: #7f0055; font-weight: bold;">InetAddress</span>.getByName(<span style="color: #2a00ff;">"127.0.0.1"</span>);  
+     
+    <span style="color: #7f0055; font-weight: bold;">DatagramPacket</span> dp = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DatagramPacket</span>(str.getBytes(),     str.length(), ip, 3000);  
+    ds.send(dp);  
+    ds.close();  
+  }  
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Example of Sending DatagramPacket by DatagramSocket</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//DReceiver.java  </span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">net</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> DReceiver{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) <span style="color: #7f0055; font-weight: bold;">throws</span> <span style="color: #7f0055; font-weight: bold;">Exception</span> {  
+    <span style="color: #7f0055; font-weight: bold;">DatagramSocket</span> ds = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DatagramSocket</span>(3000);  
+    <span style="color: #7f0055; font-weight: bold;">byte</span>[] buf = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">byte</span>[1024];  
+    
+    <span style="color: #7f0055; font-weight: bold;">DatagramPacket</span> dp = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">DatagramPacket</span>(buf, 1024);  
+    ds.receive(dp);  
+    <span style="color: #7f0055; font-weight: bold;">String</span> str = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">String</span>(dp.getData(), 0, dp.getLength());  
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(str);  
+    ds.close();  
+  }  
+}<br /><br />
+</pre>

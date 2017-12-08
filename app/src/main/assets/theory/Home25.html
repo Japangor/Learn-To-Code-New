@@ -1,0 +1,29 @@
+<h2><strong><span style="color: #2980b9;">Exception Handling</span></strong></h2>
+<h4><span style="color: #333333;">Exception Handling is the mechanism to handle runtime errors. We need to handle such exceptions to prevent abrupt termination of program.</span></h4>
+<h4><span style="color: #333333;">A bunch of things can lead to exceptions, including programmer error, hardware failures, files that need to be opened cannot be found, resource exhaustion etc&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">What is exception ??</span></strong></span></h3>
+<h4><span style="color: #333333;">In java, exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime</span></h4>
+<h4><span style="color: #333333;">The code that's responsible for doing something about the exception is called an exception handler.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">What is exception handling&nbsp;??</span></strong></span></h3>
+<h4><span style="color: #333333;">Exception Handling is a mechanism to handle runtime errors such as ClassNotFound, IO, SQL, Remote etc.</span>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of Exception Handling</span></strong></span></h3>
+<h4><span style="color: #333333;">The core advantage of exception handling is to maintain the normal flow of the application. Exception normally disrupts the normal flow of the application that is why we use exception handling. Let's take a scenario.</span></h4>
+<h4><span style="color: #333333;">statement 1; <br />statement 2; <br />statement 3; //exception occurs <br />statement 4; <br />statement 5;.</span></h4>
+<h4><span style="color: #333333;">Suppose there is 5 statements in your program and there occurs an exception at statement 3, rest of the code will not be executed i.e. statement 4 and 5 will not run. If we perform exception handling, rest of the statement will be executed. That is why we use exception handling in java.</span></h4>
+<h3><span style="color: #008080;"><strong>Exception class Hierarchy:</strong></span></h3>
+<div class="table-responsive">
+<h4><span style="color: #333333;">- All exception types are subclasses of class Throwable, which is at the top of exception class hierarchy.</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">Throwable -&gt; Exception -&gt; RuntimeException</span></h3>
+</div>
+<h4><span style="color: #333333;">- Exception class is for exceptional conditions that program should catch. This class is extended to create user specific exception classes.</span></h4>
+<h4><span style="color: #333333;">- RuntimeException is a subclass of Exception. Exceptions under this class are automatically defined for programs.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Exception are categorized into 3 category:</span></strong></span></h3>
+<h4><span style="color: #008080;">1)&nbsp;Checked Exception (Compile-time)</span></h4>
+<h4><span style="color: #333333;">The exception that can be predicted by the programmer.Example : File that need to be opened is not found. These type of exceptions must be checked at compile time.</span></h4>
+<h4><strong><span style="color: #008080;">1. Using equals() method:</span></strong></h4>
+<h4><span style="color: #333333;">equals() method compares two strings for equality. Its general syntax is,</span></h4>
+<h4><span style="color: #008080;">2)&nbsp;Unchecked Exception (Run-time)</span></h4>
+<h4><span style="color: #333333;">Unchecked exceptions are the class that extends RuntimeException. Unchecked exception are ignored at compile time. Example : ArithmeticException, NullPointerException, Array Index out of Bound exception. Unchecked exceptions are checked at runtime.</span></h4>
+<h4><span style="color: #008080;">3)&nbsp;Error</span></h4>
+<h4><span style="color: #333333;">Errors are typically ignored in code because you can rarely do anything about an error. Example : if stack overflow occurs, an error will arise. This type of error is not possible handle in code.</span></h4>
+<h3 class="table-responsive">&nbsp;</h3>

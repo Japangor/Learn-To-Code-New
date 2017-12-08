@@ -1,0 +1,36 @@
+<h2><strong><span style="color: #2980b9;">Connecting to Access Database using Type-1 Driver</span></strong></h2>
+<h4><span style="color: #333333;">To connect a Java application with Access database using JDBC-ODBC Bridge(type-1) Driver. You need to follow the following steps,</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Create DSN Name</span></strong></span></h3>
+<h4><span style="color: #333333;">1.&nbsp;Go to control panel</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;Go to Administrative tools<br /></span></h4>
+<h4><span style="color: #333333;">3.&nbsp;Select Data Source(ODBC)</span></h4>
+<h4><span style="color: #333333;">4.&nbsp;Add new DSN name, select add</span></h4>
+<h4><span style="color: #333333;">5.&nbsp;Select Access driver from the list, click on finish<br /></span></h4>
+<h4><span style="color: #333333;">6.&nbsp;Give a DSN name, click ok.</span></h4>
+<h4><span style="color: #333333;">NOTE: Here steps involving to create DSN is in Window 7 OS. For other Operating System you need to do small changes.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<h4><span style="color: #333333;">We suppose that you have created a student table with sid and name column name in access database</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">sql</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> []args){
+         <span style="color: #7f0055; font-weight: bold;">try</span>{
+                <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"sun.jdbc.odbc.JdbcOdbcDriver"</span>);
+                <span style="color: #7f0055; font-weight: bold;">Connection</span> con = <span style="color: #7f0055; font-weight: bold;">DriverManager</span>.getConnection(<span style="color: #2a00ff;">"jdbc:odbc:Test"</span>, <span style="color: #2a00ff;">""</span>, <span style="color: #2a00ff;">""</span>);
+                <span style="color: #7f0055; font-weight: bold;">Statement</span> s=con.createStatement();	<span style="color: #3f7f59;">//creating statement	</span>
+
+                <span style="color: #7f0055; font-weight: bold;">ResultSet</span> rs=s.executeQuery(<span style="color: #2a00ff;">"select * from student"</span>);	<span style="color: #3f7f59;">//executing statement	</span>
+
+                <span style="color: #7f0055; font-weight: bold;">while</span>(rs.next()){
+                      <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(rs.getInt(1)+<span style="color: #2a00ff;">" "</span>+rs.getString(2));
+                }
+
+                con.close();	<span style="color: #3f7f59;">//closing connection	</span>
+
+            }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){
+               e.printStackTrace();
+            }
+    }
+}
+</pre>
+<h3>&nbsp;</h3>

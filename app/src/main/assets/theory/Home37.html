@@ -1,0 +1,113 @@
+<h2><strong><span style="color: #2980b9;">Event Handling</span></strong></h2>
+<h4><span style="color: #333333;">Any program that uses GUI (graphical user interface) such as Java application written for windows, is event driven. Event describes the change of state of any object. Example : Pressing a button, Entering a character in Textbox.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Components of Event Handling</span></strong></span></h3>
+<h4><span style="color: #333333;">Event handling has three main components,</span></h4>
+<h4><span style="color: #333333;">1. Events : An event is a change of state of an object.</span></h4>
+<h4><span style="color: #333333;">2. Events Source : Event source is an object that generates an event.</span></h4>
+<h4><span style="color: #333333;">3. Listeners : A listener is an object that listens to the event. A listener gets notified when an event occurs.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">How Events are handled ??</span></strong></span></h3>
+<h4><span style="color: #333333;">A source generates an Event and send it to one or more listeners registered with the source. Once event is received by the listener, they process the event and then return. Events are supported by a number of Java packages, like java.util, java.awt and java.awt.event.</span></h4>
+<h4><span style="color: #333333;">Important Event Classe and Interface</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Event Classe</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+<td><strong>&nbsp;Listener Interface</strong></td>
+</tr>
+<tr>
+<td>ActionEvent</td>
+<td>generated when button is pressed, menu-item is selected, list-item is double clicked.</td>
+<td>ActionListener</td>
+</tr>
+<tr>
+<td>MouseEvent</td>
+<td>generated when mouse is dragged, moved,clicked,pressed or released also when the enters or exit a component.</td>
+<td>MouseListener</td>
+</tr>
+<tr>
+<td>KeyEvent</td>
+<td>generated when input is received from keyboard.</td>
+<td>KeyListener</td>
+</tr>
+<tr>
+<td>ItemEvent</td>
+<td>generated when check-box or list item is clicked.</td>
+<td>ItemListener</td>
+</tr>
+<tr>
+<td>TextEvent</td>
+<td>generated when value of textarea or textfield is changed.</td>
+<td>TextListener</td>
+</tr>
+<tr>
+<td>MouseWheelEvent</td>
+<td>generated when mouse wheel is moved.</td>
+<td>MouseWheelListener</td>
+</tr>
+<tr>
+<td>WindowEvent</td>
+<td>generated when window is activated, deactivated, deiconified, iconified, opened or closed.</td>
+<td>WindowListener</td>
+</tr>
+<tr>
+<td>ComponentEvent</td>
+<td>generated when component is hidden, moved, resized or set visible.</td>
+<td>ComponentEventListener</td>
+</tr>
+<tr>
+<td>ContainerEvent</td>
+<td>generated when component is added or removed from container.</td>
+<td>ContainerListener</td>
+</tr>
+<tr>
+<td>AdjustmentEvent</td>
+<td>generated when scroll bar is manipulated.</td>
+<td>AdjustmentListener</td>
+</tr>
+<tr>
+<td>FocusEvent</td>
+<td>generated when component gains or loses keyboard focus.</td>
+<td>FocusListener</td>
+</tr>
+</tbody>
+</table>
+<h4>&nbsp;</h4>
+<h4><span style="color: #333333;">Example of Event Handling</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>event</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>applet</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>applet</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>event</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Test <span style='color:#7f0055; font-weight:bold; '>extends</span> Applet <span style='color:#7f0055; font-weight:bold; '>implements</span> KeyListener
+{
+ <span style='color:#7f0055; font-weight:bold; '>String</span> msg=<span style='color:#2a00ff; '>""</span>;
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> init()
+ {
+   addKeyListener(<span style='color:#7f0055; font-weight:bold; '>this</span>);       
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> keyPressed(<span style='color:#7f0055; font-weight:bold; '>KeyEvent</span> k)
+ {
+   showStatus(<span style='color:#2a00ff; '>"KeyPressed"</span>);
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> keyReleased(<span style='color:#7f0055; font-weight:bold; '>KeyEvent</span> k)
+ {
+   showStatus(<span style='color:#2a00ff; '>"KeyRealesed"</span>);
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> keyTyped(<span style='color:#7f0055; font-weight:bold; '>KeyEvent</span> k)
+ {
+   msg = msg+k.getKeyChar();
+   repaint();
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>void</span> paint(<span style='color:#7f0055; font-weight:bold; '>Graphics</span> g)
+ {
+   g.drawString(msg, 20, 40);
+ }
+}
+
+HTML code :
+&lt; applet code="Test" width=300, height=100 >
+</pre>
+<p>&nbsp;</p>

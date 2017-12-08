@@ -1,0 +1,325 @@
+<h2><strong><span style="color: #2980b9;">Java Operators</span></strong></h2>
+<h4><span style="color: #333333;">Java provides a rich set of operators enviroment. Java operators can be devided into following categories.</span></h4>
+<ul>
+<li>
+<h4><span style="color: #333333;">Arithmetic operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Relation operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Logical operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Bitwise operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Assignment operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Conditional operators.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">Misc operators.</span></h4>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1)&nbsp;Arithmetic operators</span></strong></span></h3>
+<h4><span style="color: #333333;">Arithmetic operators are used in mathematical expression in the same way that are used in algebra.</span></h4>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Operator</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>+</td>
+<td>adds two operands</td>
+</tr>
+<tr>
+<td>-</td>
+<td>subtract second operands from first</td>
+</tr>
+<tr>
+<td>*</td>
+<td>multiply two operand</td>
+</tr>
+<tr>
+<td>/</td>
+<td>divide numerator by denumerator</td>
+</tr>
+<tr>
+<td>%</td>
+<td>remainder of division</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Increment operator increases integer value by one</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Decrement operator decreases integer value by one</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2) Relation&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">The following table shows all relation operators supported by Java.</span></h4>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Operator</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>==</td>
+<td>Check if two operand are equal</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Check if two operand are not equal.</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Check if operand on the left is greater than operand on the right</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Check operand on the left is smaller than</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Check left operand is greater than or equal to right operand</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Check if operand on left is smaller than or equal to right operand</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3) Logical&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">Java supports following 3 logical operator. Suppose a=1 and b=0.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Operator</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Example</strong></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>Logical AND</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>||</td>
+<td>Logical&nbsp;OR</td>
+<td>(a || b) is true</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Logical&nbsp;NOT</td>
+<td>(!a) is false</td>
+</tr>
+</tbody>
+</table>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">4) Bitwise&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">Java defines several bitwise operators that can be applied to the integer types long, int, short, char and byte.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Operator</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>Bitwise AND</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Bitwise OR</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Bitwise exclusive OR</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>left shift</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>right shift</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">Now lets see truth table for bitwise &amp;, | and ^</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td>&nbsp;<strong>a</strong></td>
+<td><strong>b</strong>&nbsp;</td>
+<td><strong>a &amp; b</strong>&nbsp;</td>
+<td><strong>a |&nbsp;b</strong>&nbsp;</td>
+<td><strong>a ^ b</strong>&nbsp;</td>
+</tr>
+<tr>
+<td>0</td>
+<td>&nbsp;0</td>
+<td>&nbsp;0</td>
+<td>&nbsp;0</td>
+<td>&nbsp;0</td>
+</tr>
+<tr>
+<td>0&nbsp;</td>
+<td>&nbsp;1</td>
+<td>&nbsp;0</td>
+<td>&nbsp;1</td>
+<td>&nbsp;1</td>
+</tr>
+<tr>
+<td>1&nbsp;</td>
+<td>&nbsp;0</td>
+<td>&nbsp;0</td>
+<td>&nbsp;1</td>
+<td>&nbsp;1</td>
+</tr>
+<tr>
+<td>1&nbsp;</td>
+<td>&nbsp;1</td>
+<td>&nbsp;1</td>
+<td>&nbsp;1</td>
+<td>&nbsp;0</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">The bitwise shift operators shifts the bit value. The left operand specifies the value to be shifted and the right operand specifies the number of positions that the bits in the value are to be shifted. Both operands have the same precedence.</span></h4>
+<h4><span style="color: #333333;">Example.</span></h4>
+<h4><span style="color: #333333;">a = 0001000 <br />b= 2 <br />a &lt;&lt; b= 0100000 <br />a &gt;&gt; b= 0000010<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">5) Assignment&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">Assignment operator supported by Java are as follows.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Operator</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Example</strong></td>
+</tr>
+<tr>
+<td>=</td>
+<td>assigns values from right side operands to left side operand</td>
+<td>a=b</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>adds right operand to the left operand and assign the result to left</td>
+<td>a+=b is same as a=a+b</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>subtracts right operand from the left operand and assign the result to left operand</td>
+<td>a-=b is same as a=a-b</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>mutiply left operand with the right operand and assign the result to left operand</td>
+<td>a*=b is same as a=a*b</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>divides left operand with the right operand and assign the result to left operand</td>
+<td>a/=b is same as a=a/b</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>calculate modulus using two operands and assign the result to left operand</td>
+<td>a%=b is same as a=a%b</td>
+</tr>
+</tbody>
+</table>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Misc operators</span></strong></span></h3>
+<h4><span style="color: #333333;">There are few other operator supported by java language.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">6) Conditional&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">It is also known as ternary operator and used to evaluate Boolean expression.</span></h4>
+<h3><span style="color: #0000ff;">epr1 ? expr2 : expr3</span></h3>
+<h4><span style="color: #333333;">If epr1Condition is true? Then value expr2 : Otherwise value expr3.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">7) instanceOf&nbsp;operators</span></strong></span></h3>
+<h4><span style="color: #333333;">This operator is used for object reference variables. <br />The operator checks whether the object is of particular type (class type or interface type).</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">About Java programs, it is very important to keep in mind the following points:</span></strong></span></h3>
+<h3>&nbsp;</h3>
+<h2><strong><span style="color: #2980b9;">Precedence of&nbsp;Operators</span></strong></h2>
+<h4><span style="color: #333333;">Operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.</span></h4>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td>&nbsp;<strong>Operators</strong></td>
+<td>&nbsp;<strong>Precedence</strong></td>
+</tr>
+<tr>
+<td>&nbsp;postfix</td>
+<td>&nbsp;expr++ expr--</td>
+</tr>
+<tr>
+<td>&nbsp;unary</td>
+<td>&nbsp;++expr --expr +expr -expr ~ !</td>
+</tr>
+<tr>
+<td>multiplicative&nbsp;</td>
+<td>&nbsp;* / %</td>
+</tr>
+<tr>
+<td>&nbsp;additive</td>
+<td>&nbsp;+ -</td>
+</tr>
+<tr>
+<td>&nbsp;shift</td>
+<td>&nbsp;&lt;&lt; &gt;&gt; &gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td>&nbsp;relational</td>
+<td>&nbsp;&lt; &gt; &lt;= &gt;= instanceof</td>
+</tr>
+<tr>
+<td>&nbsp;equality</td>
+<td>&nbsp;== &nbsp;!=</td>
+</tr>
+<tr>
+<td>&nbsp;bitwise AND</td>
+<td>&nbsp;&amp;</td>
+</tr>
+<tr>
+<td>&nbsp;bitwise exclusive OR</td>
+<td>&nbsp;^</td>
+</tr>
+<tr>
+<td>&nbsp;bitwise inclusive OR</td>
+<td>&nbsp;|</td>
+</tr>
+<tr>
+<td>&nbsp;logical AND</td>
+<td>&nbsp;&amp;&amp;</td>
+</tr>
+<tr>
+<td>&nbsp;logical OR</td>
+<td>&nbsp;||</td>
+</tr>
+<tr>
+<td>&nbsp;ternary ? :</td>
+<td>&nbsp;? :</td>
+</tr>
+<tr>
+<td>&nbsp;assignment</td>
+<td>= += -= *= /= %= &amp;= ^= |= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4>&nbsp;</h4>

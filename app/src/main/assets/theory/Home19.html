@@ -1,0 +1,130 @@
+<h2><strong><span style="color: #2980b9;">Interfaces of Collection Framework</span></strong></h2>
+<h4><span style="color: #333333;">The collection framework has a lot of Interfaces, setting the fundamental nature of various collection classes. Lets study the most important Interfaces in the collection framework</span></h4>
+<h3><span style="color: #008080;">The Collection Interface</span></h3>
+<h4><span style="color: #333333;">1. It is at the top of collection heirarchy and must be implemented by any class that defines a collection. Its general declaration is,</span></h4>
+<h3><span style="color: #333399;">interface Collection &lt; E &gt;</span></h3>
+<h4><span style="color: #333333;">2. Following are some of the commonly used methods in this interface.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Methods</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;add( E obj )</td>
+<td>&nbsp;Used to add objects to a collection. Doesn't add duplicate elements to the collection</td>
+</tr>
+<tr>
+<td>&nbsp;addAll( Collection C )</td>
+<td>&nbsp;Add all elements of collection C to the invoking collection</td>
+</tr>
+<tr>
+<td>&nbsp;remove( Object obj )</td>
+<td>&nbsp;To remove an object from collection</td>
+</tr>
+<tr>
+<td>&nbsp;removeAll( Collection C )</td>
+<td>&nbsp;Removes all element of collection C from the invoking collection</td>
+</tr>
+<tr>
+<td>&nbsp;contains( Object obj )</td>
+<td>&nbsp;To determine whether an object is present in collection or not</td>
+</tr>
+<tr>
+<td>&nbsp;isEmpty()</td>
+<td>&nbsp;Returns true if collection is empty, else returns false</td>
+</tr>
+<tr>
+<td>&nbsp;equals( Object obj )</td>
+<td>&nbsp;Returns true if two collections matches, else returns false</td>
+</tr>
+<tr>
+<td>&nbsp;size()</td>
+<td>&nbsp;Returns total number of elements present in collection</td>
+</tr>
+<tr>
+<td>&nbsp;clear()</td>
+<td>&nbsp;Removes total number of elements from collection</td>
+</tr>
+</tbody>
+</table>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">The List Interface</span></h3>
+<h4><span style="color: #333333;">1. It extends the Collection Interface, and defines storage as sequence of elements. Following is its general declaration,</span></h4>
+<h3><span style="color: #333399;">interface List &lt; E &gt;</span></h3>
+<h4><span style="color: #333333;">2. Allows random access and insertion, based on position.</span></h4>
+<h4><span style="color: #333333;">3. It allows Duplicate elements.</span></h4>
+<h4><span style="color: #333333;">4. Apart from methods of Collection Interface, it adds following methods of its own.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Methods</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;get( int index )</td>
+<td>&nbsp;Returns object stored at the specified index</td>
+</tr>
+<tr>
+<td>&nbsp;set( int index, E obj)</td>
+<td>&nbsp;Stores object at the specified index in the calling collection</td>
+</tr>
+<tr>
+<td>&nbsp;indexOf( Object obj )</td>
+<td>&nbsp;Returns index of first occurence of obj in the collection</td>
+</tr>
+<tr>
+<td>&nbsp;lastIndexOf( Object obj )</td>
+<td>&nbsp;Returns index of last occurence of obj in the collection</td>
+</tr>
+<tr>
+<td>&nbsp;subList( int start, int end )</td>
+<td>&nbsp;Returns a list containing elements between start and end index in the collection</td>
+</tr>
+</tbody>
+</table>
+<h2>&nbsp;</h2>
+<h3><span style="color: #008080;">The Set Interface</span></h3>
+<h4><span style="color: #333333;">1. This interface defines a Set. It extends Collection interface and doesn't allow insertion of duplicate elements. It's general declaration is,</span></h4>
+<h3><span style="color: #333399;">interface Set &lt; E &gt;</span></h3>
+<h4><span style="color: #333333;">2. It doesn't define any method of its own. It has two sub interfaces, SortedSet and NavigableSet.</span></h4>
+<h4><span style="color: #333333;">3. SortedSet interface extends Set interface and arranges added elements in an ascending order.</span></h4>
+<h4><span style="color: #333333;">4. NavigabeSet interface extends SortedSet interface, and allows retrieval of elements based on the closest match to a given value or values.</span></h4>
+<h3><br /><span style="color: #008080;">The Queue Interface</span></h3>
+<h4><span style="color: #333333;">1. It extends collection interface and defines behaviour of queue, that is first-in, first-out. It's general declaration is,</span></h4>
+<h3><span style="color: #333399;">interface Queue &lt; E &gt;</span></h3>
+<h4><span style="color: #333333;">2. There are couple of new and interestin methods added by this interface. Some of them are mentioned in below table.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Methods</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;poll()</td>
+<td>&nbsp;removes element at the head of the queue and returns null if queue is empty</td>
+</tr>
+<tr>
+<td>&nbsp;remove()</td>
+<td>&nbsp;removes element at the head of the queue and throws NoSuchElementException if queue is empty</td>
+</tr>
+<tr>
+<td>&nbsp;peek()</td>
+<td>&nbsp;returns the element at the head of the queue without removing it. Returns null if queue is empty</td>
+</tr>
+<tr>
+<td>&nbsp;element()</td>
+<td>&nbsp;same as peek(), but throws NoSuchElementException if queue is empty</td>
+</tr>
+<tr>
+<td>&nbsp;offer( E obj )</td>
+<td>&nbsp;Adds object to queue.</td>
+</tr>
+</tbody>
+</table>
+<h2>&nbsp;</h2>
+<h3><span style="color: #008080;">The Dequeue Interface</span></h3>
+<h4><span style="color: #333333;">1. It extends Queue interface and declares behaviour of a double-ended queue. Its general declaration is,</span></h4>
+<h3><span style="color: #333399;">interface Dequeue &lt; E &gt;</span></h3>
+<h4><span style="color: #333333;">2. Double ended queues can function as simple queues as well as like standard Stacks.</span></h4>
+<p>&nbsp;</p>

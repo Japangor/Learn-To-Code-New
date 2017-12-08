@@ -1,0 +1,86 @@
+<h2><strong><span style="color: #2980b9;">Interthread Communication</span></strong></h2>
+<h4><span style="color: #333333;">Java provide benefit of avoiding thread pooling using interthread communication. The wait(), notify(), notifyAll() of Object class. These method are implemented as final in Object.</span></h4>
+<h4><span style="color: #333333;">All three method can be called only from within a synchronized context :</span></h4>
+<h4><span style="color: #333333;">1) wait() tells calling thread to give up monitor and go to sleep until some other thread enters the same monitor and call notify.</span></h4>
+<h4><span style="color: #333333;">2) notify() wakes up a thread that called wait() on same object.</span></h4>
+<h4><span style="color: #333333;">Syntax : <span style="color: #003366;">public final void notify()</span></span></h4>
+<h4><span style="color: #333333;">3) notifyAll() wakes up all the thread that called wait() on same object.</span></h4>
+<h4><span style="color: #333333;">Syntax : <span style="color: #003366;">public final void notifyAll()</span></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Difference between wait( ) and sleep( )</span></strong></span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>wait( )</strong></td>
+<td><strong>&nbsp;sleep( )</strong></td>
+</tr>
+<tr>
+<td>wait() method releases the lock sleep().</td>
+<td>method doesn't release the lock.</td>
+</tr>
+<tr>
+<td>called from synchronised block.&nbsp;</td>
+<td>no such requirement.</td>
+</tr>
+<tr>
+<td>method of Object class.</td>
+<td>method of Thread class.</td>
+</tr>
+<tr>
+<td>Throw is used within the method.</td>
+<td>Throws is used with the method signature.</td>
+</tr>
+<tr>
+<td>awake when notify() or notifyAll() method is called.</td>
+<td>not awake when notify() or notifyAll() method is called.</td>
+</tr>
+<tr>
+<td>not a static method.</td>
+<td>static method.</td>
+</tr>
+<tr>
+<td>wait() is generaly used on condition.</td>
+<td>sleep() method is simply used to put your thread on sleep.</td>
+</tr>
+</tbody>
+</table>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Thread Pooling</span></strong></span></h3>
+<h4><span style="color: #333333;">Pooling is usually implemented by loop i.e to check some condition repeatedly. Once condition is true appropriate action is taken. This waste CPU time.<br /><br />Example of inter thread communication in java</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Customer{  
+<span style="color: #7f0055; font-weight: bold;">   int</span> amount=10000;  
+  
+<span style="color: #7f0055; font-weight: bold;">   synchronized</span> <span style="color: #7f0055; font-weight: bold;">void</span> withdraw(<span style="color: #7f0055; font-weight: bold;">int</span> amount){  
+<span style="color: #7f0055; font-weight: bold;">      System</span>.out.println(<span style="color: #2a00ff;">"going to withdraw..."</span>);  
+  
+<span style="color: #7f0055; font-weight: bold;">      if</span>(<span style="color: #7f0055; font-weight: bold;">this</span>.amount&lt;amount){  
+<span style="color: #7f0055; font-weight: bold;">          System</span>.out.println(<span style="color: #2a00ff;">"Less balance; waiting for deposit..."</span>);  
+<span style="color: #7f0055; font-weight: bold;">          try</span>{<br />              wait();<br />          }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e){}  
+      }  <br />
+<span style="color: #7f0055; font-weight: bold;">    this</span>.amount-=amount;  
+<span style="color: #7f0055; font-weight: bold;">    System</span>.out.println(<span style="color: #2a00ff;">"withdraw completed..."</span>);  
+  }  
+  
+<span style="color: #7f0055; font-weight: bold;">  synchronized</span> <span style="color: #7f0055; font-weight: bold;">void</span> deposit(<span style="color: #7f0055; font-weight: bold;">int</span> amount){  
+<span style="color: #7f0055; font-weight: bold;">      System</span>.out.println(<span style="color: #2a00ff;">"going to deposit..."</span>);  
+<span style="color: #7f0055; font-weight: bold;">      this</span>.amount+=amount;  
+<span style="color: #7f0055; font-weight: bold;">      System</span>.out.println(<span style="color: #2a00ff;">"deposit completed... "</span>);  
+      notify();  
+  }  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> Test{  
+<span style="color: #7f0055; font-weight: bold;">   public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+<span style="color: #7f0055; font-weight: bold;">     final</span> Customer c=<span style="color: #7f0055; font-weight: bold;">new</span> Customer();  
+<span style="color: #7f0055; font-weight: bold;">     new</span> Thread(){  
+<span style="color: #7f0055; font-weight: bold;">          public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run(){<br />             c.withdraw(15000);<br />          }  
+     }.start();  
+<br /><span style="color: #7f0055; font-weight: bold;">     new</span> Thread(){  
+<span style="color: #7f0055; font-weight: bold;">       public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run(){c.deposit(10000);<br />     }  
+   }.start();    
+  }<br />}  
+<br />Output: going to withdraw...
+        Less balance; waiting for deposit...
+        going to deposit...
+        deposit completed...
+        withdraw completed
+</pre>

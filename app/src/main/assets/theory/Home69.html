@@ -1,0 +1,165 @@
+<h2><strong><span style="color: #2980b9;">Interface in Java</span></strong></h2>
+<h4><span style="color: #333333;">An interface in java is a blueprint of a class. It has static constants and abstract methods only.</span></h4>
+<h4><span style="color: #333333;">Java Interface also represents IS-A relationship. </span></h4>
+<h4><span style="color: #333333;">Syntax</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">interface interface_name { </span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}</span></h3>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">/*Actual Code*/</span>
+<span style="color: #7f0055; font-weight: bold;">interface</span> Moveable 
+{ 
+ <span style="color: #7f0055; font-weight: bold;">int</span> AVERAGE-SPEED=0;   <span style="color: #3f7f59;">//what you declare</span>
+ <span style="color: #7f0055; font-weight: bold;">void</span> move();
+}
+
+<span style="color: #3f7f59;">/*Compiler Code*/</span>
+<span style="color: #7f0055; font-weight: bold;">interface</span> Moveable 
+{ 
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">final</span> <span style="color: #7f0055; font-weight: bold;">int</span> AVERAGE-SPEED=40;   <span style="color: #3f7f59;">//what compiler sees</span>
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">abstract</span> <span style="color: #7f0055; font-weight: bold;">void</span> move();
+}</pre>
+<h4><span style="color: #333333;">NOTE : Compiler automatically converts methods of Interface as public and abstract, and the data members as public, static and final by default.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Interface differs from a class in following ways:</span></strong></span></h3>
+<h4><span style="color: #333333;">1. You cannot instantiate an interface.</span></h4>
+<h4><span style="color: #333333;">2. An interface does not contain any constructors.</span></h4>
+<h4><span style="color: #333333;">3. All of the methods in an interface are abstract.</span></h4>
+<h4><span style="color: #333333;">4. An interface cannot contain instance fields. The only fields that can appear in an interface must be declared both static and final.</span></h4>
+<h4><span style="color: #333333;">5. An interface is not extended by a class; it is implemented by a class.</span></h4>
+<h4><span style="color: #333333;">6. An interface can extend multiple interfaces.</span></h4>
+<h4><span style="color: #333333;">NOTE : A class extends another class, an interface extends another interface but a class implements an interface.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Why we use Java interface??<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">1. It is used to achieve complete abstraction.<br /></span></h4>
+<h4><span style="color: #333333;">2. By interface, we can support the functionality of multiple inheritance.</span></h4>
+<h4><span style="color: #333333;">3. It can be used to achieve loose coupling.</span></h4>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Rules for using Interface:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">1. Methods inside Interface must not be static, final, native or strictfp.<br /></span></h4>
+<h4><span style="color: #333333;">2. All variables declared inside interface are implicitly public static final variables(constants).</span></h4>
+<h4><span style="color: #333333;">3. All methods declared inside Java Interfaces are implicitly public and abstract, even if you don't use public or abstract keyword.</span></h4>
+<h4><span style="color: #333333;">4. Interface can extend one or more other interface.</span></h4>
+<h4><span style="color: #333333;">5. Interface cannot implement a class.</span></h4>
+<h4><span style="color: #333333;">6. Interface can be nested inside another interface.</span></h4>
+<h4><span style="color: #333333;">Example of Interface implementation :</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">interface</span> Moveable 
+{
+ <span style="color: #7f0055; font-weight: bold;">int</span> AVG-SPEED = 60;
+ <span style="color: #7f0055; font-weight: bold;">void</span> move();
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Vehicle <span style="color: #7f0055; font-weight: bold;">implements</span> Moveable 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> move()
+ {
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Average speed is"</span>+AVG-SPEED<span style="color: #2a00ff;">")</span><span style="color: #ffffff; background: #dd0000; font-weight: bold; font-style: italic;">;</span>
+ <span style="color: #ffffff; background: #dd0000; font-weight: bold; font-style: italic;">}</span>
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main (<span style="color: #7f0055; font-weight: bold;">String</span>[] arg)
+ {
+  Vehicle vc = <span style="color: #7f0055; font-weight: bold;">new</span> Vehicle();
+  vc.move();
+ }
+<span style="color: #ffffff; background: #dd0000; font-weight: bold; font-style: italic;">}</span>
+Output :
+Average speed is 60.
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Multiple inheritance in Java by interface:</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">If a class implements multiple interfaces, or an interface extends multiple interfaces i.e. known as multiple inheritance. </span></h4>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">interface</span> Printable{  
+<span style="color: #7f0055; font-weight: bold;">   void</span> print();  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">interface</span> Showable{  
+<span style="color: #7f0055; font-weight: bold;">   void</span> show();  
+}  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> A <span style="color: #7f0055; font-weight: bold;">implements</span> Printable,Showable{  
+  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> print(){<br /><span style="color: #7f0055; font-weight: bold;">   System</span>.out.println(<span style="color: #2a00ff;">"Hello"</span>);<br />}  
+<br /><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> show(){<br /><span style="color: #7f0055; font-weight: bold;">   System</span>.out.println(<span style="color: #2a00ff;">"Java"</span>);<br />}  
+  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+ A a = <span style="color: #7f0055; font-weight: bold;">new</span> A();  
+ a.print();  
+ a.show();  
+ }  
+}  
+
+Output:
+Hello
+Java
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Interface inheritance:</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">A class implements interface but one interface extends another interface.</span></h4>
+<h4><span style="color: #333333;">Example:</span>&nbsp;</h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">interface</span> Printable{  
+<span style="color: #7f0055; font-weight: bold;">   void</span> print();  
+}  <br />
+<span style="color: #7f0055; font-weight: bold;">interface</span> Showable <span style="color: #7f0055; font-weight: bold;">extends</span> Printable{  
+<span style="color: #7f0055; font-weight: bold;">   void</span> show();  
+}  <br />
+<span style="color: #7f0055; font-weight: bold;">class</span> Testinterface2 <span style="color: #7f0055; font-weight: bold;">implements</span> Showable{  
+  
+<span style="color: #7f0055; font-weight: bold;">  public</span> <span style="color: #7f0055; font-weight: bold;">void</span> print(){<br /><span style="color: #7f0055; font-weight: bold;">    System</span>.out.println(<span style="color: #2a00ff;">"Hello"</span>);<br />  }  <br />
+<span style="color: #7f0055; font-weight: bold;">  public</span> <span style="color: #7f0055; font-weight: bold;">void</span> show(){<br /><span style="color: #7f0055; font-weight: bold;">   System</span>.out.println(<span style="color: #2a00ff;">"Java"</span>);<br />  }  
+  
+<span style="color: #7f0055; font-weight: bold;">  public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+    Testinterface2 obj = <span style="color: #7f0055; font-weight: bold;">new</span> Testinterface2();  
+    obj.print();  
+    obj.show();  
+  }  
+}  
+Output:
+Hello
+Java
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Nested Interface in Java:</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">Note: An interface can have another interface i.e. known as nested interface.</span></h4>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">interface</span> printable{  
+ <span style="color: #7f0055; font-weight: bold;">void</span> print();  
+ <span style="color: #7f0055; font-weight: bold;">interface</span> MessagePrintable{  
+   <span style="color: #7f0055; font-weight: bold;">void</span> msg();  
+ }  
+}<br /><br /></pre>
+<h3><strong><span style="color: #008080;">Difference between abstract class and interface?</span></strong></h3>
+<div class="table-responsive">
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Abstract class</strong></td>
+<td><strong>&nbsp;Interface</strong></td>
+</tr>
+<tr>
+<td>Abstract class can have abstract and non-abstract methods.</td>
+<td>Interface can have only abstract methods.</td>
+</tr>
+<tr>
+<td>Abstract class doesn't support multiple inheritance.&nbsp;</td>
+<td>Interface supports multiple inheritance.</td>
+</tr>
+<tr>
+<td>Abstract class can have final, non-final, static and non-static variables.</td>
+<td>Interface has only static and final variables.</td>
+</tr>
+<tr>
+<td>Abstract class can have static methods, main method and constructor.</td>
+<td>Interface can't have static methods, main method or constructor.</td>
+</tr>
+<tr>
+<td>Abstract class can provide the implementation of interface.</td>
+<td>Interface can't provide the implementation of abstract class.</td>
+</tr>
+<tr>
+<td>The abstract keyword is used to declare abstract class.</td>
+<td>The interface keyword is used to declare interface.</td>
+</tr>
+<tr>
+<td>Example:<br />public abstract class Shape {<br />&nbsp; &nbsp; public abstract void draw();<br />}</td>
+<td>Example:<br />public interface Drawable{<br />&nbsp; &nbsp;&nbsp;void draw();<br />}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">Simply, abstract class achieves partial abstraction (0 to 100%) whereas interface achieves fully abstraction (100%).</span></h4>

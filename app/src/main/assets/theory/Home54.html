@@ -1,0 +1,133 @@
+<h2><strong><span style="color: #2980b9;">Method Overloading in Java</span></strong></h2>
+<h4><span style="color: #333333;">If a class have multiple methods by same name but different parameters, it is known as Method Overloading.&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage of method overloading:</span></strong></span></h3>
+<h4><span style="color: #333333;">Method overloading increases the readability of the program.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Different ways to overload the method:</span></strong></span></h3>
+<ol>
+<li>
+<h4><span style="color: #333333;">By changing number of arguments.</span></h4>
+</li>
+<li>
+<h4><span style="color: #333333;">By changing the data type.</span></h4>
+</li>
+</ol>
+<h4><span style="color: #333333;">NOTE : In java, Methood Overloading is not possible by changing the return type of the method.</span></h4>
+<h4><span style="color: #333333;">In this reference of an argument is pass to a method. Any changes made inside the method will affect the agrument value.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Different ways of Method overloading</span></strong></span></h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1. Method overloading by changing data type of Arguments:</span></strong></span></h3>
+<h4><span style="color: #333333;">Example</span>&nbsp;</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Calculate
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> sum (<span style='color:#7f0055; font-weight:bold; '>int</span> a, <span style='color:#7f0055; font-weight:bold; '>int</span> b)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"sum is"</span>+(a+b)) ;
+ }
+ <span style='color:#7f0055; font-weight:bold; '>void</span> sum (<span style='color:#7f0055; font-weight:bold; '>float</span> a, <span style='color:#7f0055; font-weight:bold; '>float</span> b)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"sum is"</span>+(a+b));
+ }
+ Public <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Calculate  cal = <span style='color:#7f0055; font-weight:bold; '>new</span> Calculate();
+  cal.sum (8,5);      <span style='color:#3f7f59; '>//sum(int a, int b) is method is called. </span>
+  cal.sum (4.6, 3.8); <span style='color:#3f7f59; '>//sum(float a, float b) is called.</span>
+ }
+}
+Output :
+Sum is 13
+Sum is 8.4
+</pre>
+<h4><span style="color: #333333;">You can see that sum() method is overloaded two times. The first takes two integer arguments, the second takes two float arguments.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Method overloading by changing no. of argument:</span></strong></span></h3>
+<h4><span style="color: #333333;">Example</span>&nbsp;</h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Area
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> find(<span style='color:#7f0055; font-weight:bold; '>int</span> l, <span style='color:#7f0055; font-weight:bold; '>int</span> b)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Area is"</span>+(l*b)) ;
+ }
+ <span style='color:#7f0055; font-weight:bold; '>void</span> find(<span style='color:#7f0055; font-weight:bold; '>int</span> l, <span style='color:#7f0055; font-weight:bold; '>int</span> b,<span style='color:#7f0055; font-weight:bold; '>int</span> h)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Area is"</span>+(l*b*h));
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Area  ar = <span style='color:#7f0055; font-weight:bold; '>new</span> Area();
+  ar.find(8,5);     <span style='color:#3f7f59; '>//find(int l, int b) is method is called. </span>
+  ar.find(4,6,2);    <span style='color:#3f7f59; '>//find(int l, int b,int h) is called.</span>
+ }
+}
+Output :
+Area is 40
+Area is 48
+</pre>
+<p>&nbsp;</p>
+<h4><span style="color: #333333;">In this example the find() method is overloaded twice. The first takes two arguments to calculate area, and the second takes three arguments to calculate area.<br /><br /></span></h4>
+<h4><span style="color: #333333;">Example&nbsp;of Method overloading with type promotion.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Area
+{
+ <span style='color:#7f0055; font-weight:bold; '>void</span> find(<span style='color:#7f0055; font-weight:bold; '>long</span> l,<span style='color:#7f0055; font-weight:bold; '>long</span> b)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Area is"</span>+(l*b)) ;
+ }
+ <span style='color:#7f0055; font-weight:bold; '>void</span> find(<span style='color:#7f0055; font-weight:bold; '>int</span> l, <span style='color:#7f0055; font-weight:bold; '>int</span> b,<span style='color:#7f0055; font-weight:bold; '>int</span> h)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Area is"</span>+(l*b*h));
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Area  ar = <span style='color:#7f0055; font-weight:bold; '>new</span> Area();
+  ar.find(8,5);     <span style='color:#3f7f59; '>//automatic type conversion from find(int,int) to find(long,long). </span>
+  ar.find(2,4,6)    <span style='color:#3f7f59; '>//find(int l, int b,int h) is called.</span>
+ }
+}
+Output :
+Area is 40
+Area is 48
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. Why Method Overloaing is not possible by changing the return type of method???</span></strong></span></h3>
+<h4><span style="color: #333333;">In java, method overloading is not possible by changing the return type of the method because there may occur ambiguity. Let's see how ambiguity may occur. because there was problem.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> Calculation3{  
+  <span style='color:#7f0055; font-weight:bold; '>int</span> sum(<span style='color:#7f0055; font-weight:bold; '>int</span> a,<span style='color:#7f0055; font-weight:bold; '>int</span> b){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(a+b);}  
+  <span style='color:#7f0055; font-weight:bold; '>double</span> sum(<span style='color:#7f0055; font-weight:bold; '>int</span> a,<span style='color:#7f0055; font-weight:bold; '>int</span> b){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(a+b);}  
+  
+  <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+  Calculation3 obj=<span style='color:#7f0055; font-weight:bold; '>new</span> Calculation3();  
+  <span style='color:#7f0055; font-weight:bold; '>int</span> result=obj.sum(20,20); <span style='color:#3f7f59; '>//Compile Time Error  </span>
+  
+  }  
+}
+</pre>
+<h4><span style="color: #333333;">int result=obj.sum(20,20); //Here how can java determine which sum() method should be called.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Variable Arguments(var-args):</span></strong></span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">typeName... parameterName</span></h3>
+<h4><span style="color: #333333;">In the method declaration, you specify the type followed by an ellipsis (...) Only one variable-length parameter may be specified in a method, and this parameter must be the last parameter. Any regular parameters must precede it.</span></h4>
+<h4><span style="color: #333333;">Example</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> VarargsDemo {
+
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]) {
+      <span style='color:#3f7f59; '>// Call method with variable args  </span>
+	  printMax(34, 3, 3, 2, 56.5);
+      printMax(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>double</span>[]{1, 2, 3});
+   }
+
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> printMax(<span style='color:#7f0055; font-weight:bold; '>double</span>... numbers) {
+   <span style='color:#7f0055; font-weight:bold; '>if</span> (numbers.length == 0) {
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"No argument passed"</span>);
+      <span style='color:#7f0055; font-weight:bold; '>return</span>;
+   }
+
+   <span style='color:#7f0055; font-weight:bold; '>double</span> result = numbers[0];
+
+   <span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> i = 1; i &lt;  numbers.length; i++)
+      <span style='color:#7f0055; font-weight:bold; '>if</span> (numbers[i] >  result)
+      result = numbers[i];
+      <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"The max value is "</span> + result);
+   }
+}
+Output:
+
+The max value is 56.5
+The max value is 3.0
+</pre>

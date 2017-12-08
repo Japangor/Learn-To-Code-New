@@ -1,0 +1,33 @@
+<h2><strong><span style="color: #2980b9;">Nested try statement</span></strong></h2>
+<h4><span style="color: #333333;">try statement can be nested inside another block of try. Nested try block is used when a part of a block may cause one error while entire block may cause another error. In case if inner try block does not have a catch handler for a particular exception then the outer try is checked for match.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Excep
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">int</span> arr[]={5,0,1,2};
+   <span style="color: #7f0055; font-weight: bold;">try</span>
+   {
+    <span style="color: #7f0055; font-weight: bold;">int</span> x=arr[3]/arr[1];
+   }
+   <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">ArithmeticException</span> ae)
+   {
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"divide by zero"</span>);
+   }
+   arr[4]=3;
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">ArrayIndexOutOfBoundsException</span> e)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"array index out of bound exception"</span>);
+  }
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Important points to Remember</span></strong></span></h3>
+<h4><span style="color: #333333;">1. If you do not explicitly use the try catch blocks in your program, java will provide a default exception handler, which will print the exception details on the terminal, whenever exception occurs.</span></h4>
+<h4><span style="color: #333333;">2. Super class Throwable overrides toString() function, to display error message in form of string.</span></h4>
+<h4><span style="color: #333333;">3. While using multiple catch block, always make sure that exception subclasses comes before any of their super classes. Else you will get compile time error.</span></h4>
+<h4><span style="color: #333333;">4. In nested try catch, the inner try block, uses its own catch block as well as catch block of the outer try, if required.</span></h4>
+<h4><span style="color: #333333;">5. Only the object of Throwable class or its subclasses can be thrown.</span></h4>
+<p>&nbsp;</p>

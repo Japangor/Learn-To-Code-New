@@ -1,0 +1,117 @@
+<h2><strong><span style="color: #2980b9;">Java throw keyword</span></strong></h2>
+<h4><span style="color: #333333;">The Java throw keyword is used to explicitly throw an exception.Only object of Throwable class or its sub classes can be thrown. Program execution stops on encountering throw statement, and the closest catch statement is checked for matching type of exception.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h4><span style="color: #333333;"><span style="color: #333399;">throw ThrowableInstance</span></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating Instance of Throwable class:</span></strong></span></h3>
+<h4><span style="color: #333333;">There are two possible ways to get an instance of class Throwable,</span></h4>
+<h4><span style="color: #333333;">1. Using a parameter in catch block..</span></h4>
+<h4><span style="color: #333333;">2. Creating instance with new operator.</span></h4>
+<h4><span style="color: #333333;">5. Only the object of Throwable class or its subclasses can be thrown.</span></h4>
+<h4><span style="color: #333333;">new NullPointerException("test");</span></h4>
+<h4><span style="color: #333333;">Example demonstrating throw Keyword</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> HelloWorld
+{
+ <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> validate(<span style="color: #7f0055; font-weight: bold;">int</span> age) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">if</span>(age &lt; 18)
+  {
+   <span style="color: #7f0055; font-weight: bold;">try</span>
+   {
+    <span style="color: #7f0055; font-weight: bold;">throw</span> <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">ArithmeticException</span>(<span style="color: #2a00ff;">"NOT Valid"</span>);
+   }
+   <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">ArithmeticException</span> e)
+   {
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Age Invalid Exception Caught"</span>);
+   }
+  }
+  <span style="color: #7f0055; font-weight: bold;">else</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Welcome to vote"</span>); 
+  } 
+ }
+
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  validate(13); 
+ }
+}
+Output : Age Invalid Exception Caught
+</pre>
+<h4><span style="color: #333333;">In the above example the validate() method throw an instance of ArithmeticException, which is successfully handled using the catch statement.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Java&nbsp;throws keyword</span></strong></span></h3>
+<h4><span style="color: #333333;">Any method capable of causing exceptions must list all the exceptions possible during its execution, so that anyone calling that method gets a prior knowledge about which exceptions to handle. A method can do so by using the throws keyword.</span></h4>
+<h4><span style="color: #333333;">Syntax&nbsp;:</span></h4>
+<h4><span style="color: #333333;"><span style="color: #333399;">return_type &nbsp;method_name ( parameter_list ) throws exception_list<br />{<br />&nbsp; &nbsp; &nbsp; &nbsp;//definition of method<br />}</span></span></h4>
+<h4><span style="color: #333333;">NOTE : It is necessary for CheckedExceptions (Compile-time) and not necessary for RuntimeException (Run-time) and Error, or any of their subclass.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Java&nbsp;throws example</span></strong></span></h3>
+<h4><span style="color: #333333;">Let's see the example of java throws clause which describes that checked exceptions can be propagated by throws keyword.</span></h4>
+<h4><span style="color: #333333;">There are two cases:</span></h4>
+<h4><span style="color: #333333;">1. Case 1 : You caught the exception i.e. handle the exception using try/catch.</span></h4>
+<h4><span style="color: #333333;">2. Case 2 : You declare the exception i.e. specifying throws with the method.</span></h4>
+<h4><span style="color: #008080;">Case1: You handle the exception</span></h4>
+<h4><span style="color: #333333;">In case you handle the exception, the code will be executed fine whether exception occurs during the program or not.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> test{  
+ <span style='color:#7f0055; font-weight:bold; '>void</span> method()<span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>{  
+  <span style='color:#7f0055; font-weight:bold; '>throw</span> <span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>(<span style='color:#2a00ff; '>"device error"</span>); <span style='color:#3f7f59; '>//checked exception </span>
+ }  
+}  
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Testthrows{  
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]){  
+    <span style='color:#7f0055; font-weight:bold; '>try</span>{  
+     M m=<span style='color:#7f0055; font-weight:bold; '>new</span> M();  
+     m.method();  
+    }<span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>Exception</span> e){<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Exception handled"</span>);}     
+  }  
+}  
+Output: Exception handled
+</pre>
+<h4><span style="color: #008080;">Case2:&nbsp;You declare the exception</span></h4>
+<h4><span style="color: #333333;">A) In case you declare the exception, if exception does not occur, the code will be executed fine.</span></h4>
+<h4><span style="color: #333333;">B) In case you declare the exception if exception occures, an exception will be thrown at runtime because throws does not handle the exception.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> test{  
+ <span style='color:#7f0055; font-weight:bold; '>void</span> method()<span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>{  
+  <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Device Operation Performed"</span>);  
+ }  
+}  
+<span style='color:#7f0055; font-weight:bold; '>class</span> Testthrows{  
+   <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[]) <span style='color:#7f0055; font-weight:bold; '>throws</span> <span style='color:#7f0055; font-weight:bold; '>IOException</span>{ <span style='color:#3f7f59; '>//declare exception  </span>
+     M m=<span style='color:#7f0055; font-weight:bold; '>new</span> M();  
+     m.method();  
+  }  
+}  
+
+Output :
+A) Device Operation Performed
+B) Runtime Exception
+</pre>
+<h4><span style="color: #333333;">NOTE : If you are calling a method that declares an exception, you must either caught or declare the exception.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Difference between throw and throws in Java:</span></strong></span></h3>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>throw</strong></td>
+<td><strong>&nbsp;throws</strong></td>
+</tr>
+<tr>
+<td>Java throw keyword is used to explicitly throw an exception.</td>
+<td>Java throws keyword is used to declare an exception.</td>
+</tr>
+<tr>
+<td>Checked exception cannot be propagated using throw only.&nbsp;</td>
+<td>Checked exception can be propagated with throws.</td>
+</tr>
+<tr>
+<td>Throw is followed by an instance.</td>
+<td>Throws is followed by class.</td>
+</tr>
+<tr>
+<td>Throw is used within the method.</td>
+<td>Throws is used with the method signature.</td>
+</tr>
+<tr>
+<td>You cannot throw multiple exceptions.</td>
+<td>You can declare multiple exceptions e.g.<br />public void method()throws IOException,SQLException.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

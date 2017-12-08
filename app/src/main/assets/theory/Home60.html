@@ -1,0 +1,84 @@
+<h2><strong><span style="color: #2980b9;">Inheritance</span></strong></h2>
+<h4><span style="color: #333333;">Inheritance can be defined as the process where one class acquires the properties (methods and fields) of another. With the use of inheritance the information is made manageable in a hierarchical order.</span></h4>
+<h4><span style="color: #333333;">The class whose properties are inherited is known as superclass (base class, parent class) and the class which inherits the properties of other is known as subclass (derived class, child class).</span></h4>
+<h4><span style="color: #333333;">Inheritance represents the IS-A relationship, also known as parent-child relationship.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />extends Keyword</span></strong></span></h3>
+<h4><span style="color: #333333;">extends is the keyword used to inherit the properties of a class. Below given is the syntax of extends keyword.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Super
+{
+    <span style="color: #7f0055; font-weight: bold;">String</span> name;
+}
+<span style="color: #7f0055; font-weight: bold;">class</span> Sub <span style="color: #7f0055; font-weight: bold;">extends</span> Super     
+{            
+    <span style="color: #3f7f59;">//methods and fields</span>
+    <span style="color: #7f0055; font-weight: bold;">String</span> name;  
+    <span style="color: #7f0055; font-weight: bold;">void</span> show()
+    {
+          <span style="color: #7f0055; font-weight: bold;">super</span>.name = <span style="color: #2a00ff;">"Super Class"</span>;   <span style="color: #3f7f59;">//name of Super class</span>
+          name = <span style="color: #2a00ff;">"Sub Class"</span>;    <span style="color: #3f7f59;">//name of Sub class</span>
+    }
+}&nbsp;</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">super&nbsp;Keyword</span></strong></span></h3>
+<h4><span style="color: #333333;">In Java, super keyword is used by a subclass whenever it need to refer to its immediate super class.</span></h4>
+<h4><span style="color: #333333;">1. It is used to differentiate the members of superclass from the members of subclass, if they have same names.</span></h4>
+<h4><span style="color: #333333;">2. It is used to invoke the superclass constructor from subclass.</span></h4>
+<h4><span style="color: #333333;">super.variable<br />super.method();<br /></span></h4>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Purpose of Inheritance</span></strong></span></h3>
+<h4><span style="color: #333333;">1. To promote Code Reusability.</span></h4>
+<h4><span style="color: #333333;">2. To use Polymorphism.</span></h4>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Types&nbsp;of Inheritance</span></strong></span></h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1.&nbsp;Single&nbsp;Inheritance</span></strong></span></h3>
+<h4><span style="color: #333333;">When a class extends only one class then we call it a single inheritance. The below examples shows that class B extends only one class which is A. Here A is a parent class of B and B would be a child class of A.</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">class A {<br /></span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br />class &nbsp;B &nbsp;extends &nbsp;A {</span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br /><br /></span></h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Multilevel&nbsp;Inheritance</span></strong></span></h3>
+<h4><span style="color: #333333;">When a class extends only one class then we call it a single inheritance. The below examples shows that class B extends only one class which is A. Here A is a parent class of B and B would be a child class of A</span>.</h4>
+<h3 class="table-responsive"><span style="color: #333399;">class A {<br /></span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br />class &nbsp;B &nbsp;extends &nbsp;A {</span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br />class &nbsp;C &nbsp;extends B {<br /><br />}<br /><br /></span></h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3. Heirarchical&nbsp;Inheritance</span></strong></span></h3>
+<h4><span style="color: #333333;">In such kind of inheritance one class is inherited by many sub classes. In below example class B,C and D inherits the same class A. A is parent class (or base class) of B,C &amp; D.</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">class A {<br /></span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br />class &nbsp;B &nbsp;extends &nbsp;A {</span></h3>
+<h3 class="table-responsive"><span style="color: #333399;">}<br />class &nbsp;C &nbsp;extends A {<br /><br />}<br />class &nbsp;D &nbsp;extends A {<br /><br />}<br /></span></h3>
+<h4><span style="color: #333333;">NOTE : Multiple inheritance is not supported in java.</span></h4>
+<h4>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q.&nbsp;Why multiple inheritance is not supported in java???</span></strong></span></h3>
+<h4><span style="color: #333333;">To reduce the complexity and simplify the language, multiple inheritance is not supported in java.</span></h4>
+<h4><span style="color: #333333;">Consider a scenario where A, B and C are three classes. The C class inherits A and B classes. If A and B classes have same method and you call it from child class object, there will be ambiguity to call method of A or B class.</span></h4>
+<h4><span style="color: #333333;">Since compile time errors are better than runtime errors, java renders compile time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error now.</span></h4>
+<h4>&nbsp;</h4>
+<p>Example:</p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>class</span> A
+{  
+	<span style='color:#7f0055; font-weight:bold; '>void</span> msg()
+	{
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Hello"</span>);
+	}  
+}  
+<span style='color:#7f0055; font-weight:bold; '>class</span> B
+{  
+	<span style='color:#7f0055; font-weight:bold; '>void</span> msg()	
+	{
+		<span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"Welcome"</span>);
+	}  
+}  
+<span style='color:#7f0055; font-weight:bold; '>class</span> C <span style='color:#7f0055; font-weight:bold; '>extends</span> A,B	<span style='color:#3f7f59; '>//suppose if it were  </span>
+{     
+   
+	Public Static <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span> args[])
+	{  
+  		C obj=<span style='color:#7f0055; font-weight:bold; '>new</span> C();  
+   		obj.msg();            
+		<span style='color:#3f7f59; '>//Now which msg() method would be invoked?  </span>
+	}  
+}  
+ 
+Output:
+
+Compile Time Error
+</pre>
+<p>&nbsp;</p>

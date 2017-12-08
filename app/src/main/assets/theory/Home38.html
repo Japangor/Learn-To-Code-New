@@ -1,0 +1,91 @@
+<h2><strong><span style="color: #2980b9;">Java AWT</span></strong></h2>
+<h4><span style="color: #333333;">Java AWT (Abstract Windowing Toolkit) is an API to develop GUI or window-based application in java. AWT contains large number of classes and methods that allows you to create and manage windows GUI application.</span></h4>
+<h4><span style="color: #333333;">AWT is the foundation upon which Swing is made. It is used for GUI programming in Java. But now a days it is merely used because most GUI java programs are implemented using Swing because of its rich implementation of GUI controls and light-weighted nature.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Component&nbsp;class</span></strong></span></h3>
+<h4><span style="color: #333333;">Component class is at the top of AWT hierarchy. Component is an abstract class that encapsulates all attribute of visual component. A component object is responsible for remembering the current foreground and background colours and the currently selected text font.<br /></span></h4>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>Method</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>public void add(Component c)</td>
+<td>inserts a component on this component.</td>
+</tr>
+<tr>
+<td>public void setSize(int width,int height)</td>
+<td>sets the size (width and height) of the component.</td>
+</tr>
+<tr>
+<td>public void setLayout(LayoutManager m)</td>
+<td>defines the layout manager for the component.</td>
+</tr>
+<tr>
+<td>public void setVisible(boolean status)</td>
+<td>changes the visibility of the component, by default false.</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Container</span></strong></span></h3>
+<h4><span style="color: #333333;">Container is a component in AWT that contains another component like button, text field, tables etc. Container is a subclass of component class. Container class keeps track of components that are added to another component.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Panel</span></strong></span></h3>
+<h4><span style="color: #333333;">Panel class is concrete sub class of Container. Panel does not contain title bar, menu bar or border. Panel can have other components like button, textfield etc.<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Window</span></strong></span></h3>
+<h4><span style="color: #333333;">Window class creates a top level window. Window does not have borders and menubar. You must use frame, dialog or another window for creating a window.<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Frame</span></strong></span></h3>
+<h4><span style="color: #333333;">Frame is a sub class of Window and have resizing canvas. It is a container that contain several different components like button, title bar, textfield, label etc. In Java, most of the AWT applications are created using Frame window. Frame class has two different constructors,</span></h4>
+<pre style="color: #000000; background: #ffffff;">Frame() <span style="color: #7f0055; font-weight: bold;">throws</span> HeadlessException 
+
+Frame(String title) <span style="color: #7f0055; font-weight: bold;">throws</span> HeadlessException
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating a&nbsp;Frame</span></strong></span></h3>
+<h4><span style="color: #333333;">There are two ways to create a Frame. They are,</span></h4>
+<h4><span style="color: #333333;">1. By Instantiating Frame class (Association)<br /></span></h4>
+<h4><span style="color: #333333;">2. By Extending Frame class (Inheritance)<br /><br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Creating Frame Window by Instantiating Frame class</span></strong></span></h3>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Testawt 
+{
+ Testawt()
+ {
+  <span style="color: #7f0055; font-weight: bold;">Frame</span> fm=<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Frame</span>();         <span style="color: #3f7f59;">//Creating a frame.</span>
+  <span style="color: #7f0055; font-weight: bold;">Label</span> lb = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Label</span>(<span style="color: #2a00ff;">"Welcome to java graphics"</span>);     <span style="color: #3f7f59;">//Creating a label</span>
+  fm.add(lb);		              <span style="color: #3f7f59;">//adding label to the frame.</span>
+  fm.setSize(300, 300);               <span style="color: #3f7f59;">//setting frame size.</span>
+  fm.setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);                <span style="color: #3f7f59;">//set frame visibilty true.</span>
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  Testawt ta = <span style="color: #7f0055; font-weight: bold;">new</span> Testawt(); 
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Creating Frame window by extending&nbsp;Frame class</span></strong></span></h3>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>package</span><span style='color:#7f0055; '> testawt</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>event</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Testawt <span style='color:#7f0055; font-weight:bold; '>extends</span> Frame 
+{
+  <span style='color:#7f0055; font-weight:bold; '>public</span> Testawt() 
+ {
+  <span style='color:#7f0055; font-weight:bold; '>Button</span> btn=<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>Button</span>(<span style='color:#2a00ff; '>"Hello World"</span>);		
+  add(btn); 		<span style='color:#3f7f59; '>//adding a new Button.</span>
+  setSize(400, 500);        <span style='color:#3f7f59; '>//setting size.</span>
+  setTitle(<span style='color:#2a00ff; '>"Java AWT"</span>);  <span style='color:#3f7f59; '>//setting title.</span>
+  setLayout(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FlowLayout</span>());	 <span style='color:#3f7f59; '>//set default layout for frame.	</span>
+  setVisible(<span style='color:#7f0055; font-weight:bold; '>true</span>);           <span style='color:#3f7f59; '>//set frame visibilty true.	  	</span>
+  
+ } 
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main (<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  Testawt ta = <span style='color:#7f0055; font-weight:bold; '>new</span> Testawt();   <span style='color:#3f7f59; '>//creating a frame.</span>
+ }
+}
+</pre>
+<h4>&nbsp;</h4>

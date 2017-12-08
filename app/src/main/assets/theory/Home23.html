@@ -1,0 +1,46 @@
+<h2><strong><span style="color: #2980b9;">Comparator Interface</span></strong></h2>
+<h4><span style="color: #333333;">In Java, Comparator interface is used to order the object in your own way. It gives you ability to decide how element are stored within sorted collection and map.</span></h4>
+<h4><span style="color: #333333;">Comparator Interface defines compare() method. This method compare two object and return 0 if two object are equal. It returns a positive value if object1 is greater than object2. Otherwise a negative value is return. The method can throw a ClassCastException if the type of object are not compatible for comparison.</span></h4>
+<h4><span style="color: #333333;">Example of Comparator Interface</span></h4>
+<h4><span style="color: #008080;">Student class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Student
+int roll;
+String name;
+Student(int r,String n)
+{
+ roll = r;
+ name = n;
+}
+<span style="color: #7f0055; font-weight: bold;">public</span> String toString()
+{
+ <span style="color: #7f0055; font-weight: bold;">return</span> roll+<span style="color: #2a00ff;">" "</span>+name;
+}
+</pre>
+<h4><span style="color: #008080;">MyComparator class</span></h4>
+<h4><span style="color: #333333;">This class defines the comparison logic for Student class based on their roll. Student object will be sotred in ascending order of their roll.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> MyComparator <span style="color: #7f0055; font-weight: bold;">implements</span> Comparator
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">int</span> compare(Student s1,Student s2)
+ {
+  <span style="color: #7f0055; font-weight: bold;">if</span>(s1.roll == s2.roll) <span style="color: #7f0055; font-weight: bold;">return</span> 0;
+  <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">if</span>(s1.roll &gt; s2.roll) <span style="color: #7f0055; font-weight: bold;">return</span> 1;
+  <span style="color: #7f0055; font-weight: bold;">else</span> <span style="color: #7f0055; font-weight: bold;">return</span> -1;
+ } 
+}
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  TreeSet&lt; Student&gt; ts = <span style="color: #7f0055; font-weight: bold;">new</span> TreeSet&lt; Student&gt;(<span style="color: #7f0055; font-weight: bold;">new</span> MyComparator());
+  ts.add(<span style="color: #7f0055; font-weight: bold;">new</span> Student(45, <span style="color: #2a00ff;">"Rahul"</span>));
+  ts.add(<span style="color: #7f0055; font-weight: bold;">new</span> Student(11, <span style="color: #2a00ff;">"Adam"</span>));
+  ts.add(<span style="color: #7f0055; font-weight: bold;">new</span> Student(19, <span style="color: #2a00ff;">"Alex"</span>));
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ts);
+ }
+}
+
+Output : [ 11 Adam, 19 Alex, 45 Rahul ]
+</pre>
+<h4><span style="color: #333333;">As you can see in the ouput Student object are stored in ascending order of their roll.</span></h4>
+<p>&nbsp;</p>

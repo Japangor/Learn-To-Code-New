@@ -1,0 +1,60 @@
+<h2><strong><span style="color: #2980b9;">Introduction to JDBC</span></strong></h2>
+<h4><span style="color: #333333;">Java Database Connectivity(JDBC) is an Application Programming Interface(API) used to connect Java application with Database. JDBC is used to interact with various type of Database such as Oracle, MS Access, My SQL and SQL Server. JDBC can also be defined as the platform-independent interface between a relational database and Java programming. It allows java program to execute SQL statement and retrieve result from database.</span></h4>
+<h4><span style="color: #333333;">Java Application -&gt; JDBC API -&gt; DriverManager -&gt; JDBC Driver -&gt; Database.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Why use JDBC??<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">Before JDBC, ODBC API was the database API to connect and execute query with the database. But, ODBC API uses ODBC driver which is written in C language (i.e. platform dependent and unsecured). That is why Java has defined its own API (JDBC API) that uses JDBC drivers (written in Java language).</span>&nbsp;</h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">What is API??</span></strong></span></h3>
+<h4><span style="color: #333333;">API (Application Programming Interface) is a document that contains description of all the features of a product or software. It represents classes and interfaces that software programs can follow to communicate with each other. An API can be created for applications, libraries, operating systems, etc.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">What's new in JDBC 4.0 ??</span></strong></span></h3>
+<h4><span style="color: #333333;">JDBC 4.0 is new and advance specification of JDBC. It provides the following advance features.</span></h4>
+<h4><span style="color: #333333;">1.&nbsp;Connection Management.<br /></span></h4>
+<h4><span style="color: #333333;">2. Auto loading of Driver Interface.</span></h4>
+<h4><span style="color: #333333;">3. Better exception handling.</span></h4>
+<h4><span style="color: #333333;">4. Support for large object.</span></h4>
+<h4><span style="color: #333333;">5. Annotation in SQL query.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JDBC Driver</span></strong></span></h3>
+<h4><span style="color: #333333;">JDBC Driver is required to process SQL requests and generate result. The following are the different types of driver available in JDBC.</span></h4>
+<h4><span style="color: #333333;">1. Type-1 Driver or JDBC-ODBC bridge.<br /></span></h4>
+<h4><span style="color: #333333;">2. Type-2 Driver or Native API Partly Java Driver.</span></h4>
+<h4><span style="color: #333333;">3. Type-3 Driver or Network Protocol Driver.</span></h4>
+<h4><span style="color: #333333;">4. Type-4 Driver or Thin Driver.<br /><br /></span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JDBC-ODBC bridge</span></strong></span></h3>
+<h4><span style="color: #333333;">Type-1 Driver act as a bridge between JDBC and other database connectivity mechanism(ODBC). This driver converts JDBC calls into ODBC calls and redirects the request to the ODBC driver.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Advantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Easy to use.<br /></span></h4>
+<h4><span style="color: #333333;">2.&nbsp;Allow easy connectivity to all database supported by the ODBC Driver.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Disadvantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Slow execution time.<br /></span></h4>
+<h4><span style="color: #333333;">2. Dependent on ODBC Driver.<br /></span></h4>
+<h4><span style="color: #333333;">3. Uses Java Native Interface(JNI) to make ODBC call.</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Native API Driver</span></strong></span></h3>
+<h4><span style="color: #333333;">This type of driver make use of Java Native Interface(JNI) call on database specific native client API. These native client API are usually written in C and C++.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. faster as compared to Type-1 Driver.<br /></span></h4>
+<h4><span style="color: #333333;">2. Contains additional features.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Disadvantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Requires native library.<br /></span></h4>
+<h4><span style="color: #333333;">2. Increased cost of Application.</span></h4>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Network Protocol Driver</span></strong></span></h3>
+<h4><span style="color: #333333;">This driver translate the JDBC calls into a database server independent and Middleware server-specific calls. Middleware server further translate JDBC calls into database specific calls.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Does not require any native library to be installed.<br /></span></h4>
+<h4><span style="color: #333333;">2. Database Independency.<br /></span></h4>
+<h4><span style="color: #333333;">3. Provide facility to switch over from one database to another database.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Disadvantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Slow due to increase number of network call.</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Thin&nbsp;Driver</span></strong></span></h3>
+<h4><span style="color: #333333;">This is Driver called Pure Java Driver because. This driver interact directly with database. It does not require any native database library, that is why it is also known as Thin Driver.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Advantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Does not require any native library.<br /></span></h4>
+<h4><span style="color: #333333;">2. Does not require any Middleware server.<br /></span></h4>
+<h4><span style="color: #333333;">3. Better Performance than other driver.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Disadvantage</span></strong></span></h3>
+<h4><span style="color: #333333;">1. Slow due to increase number of network call.</span></h4>
+<h4>&nbsp;</h4>
+<h4>&nbsp;</h4>
+<h4>&nbsp;</h4>

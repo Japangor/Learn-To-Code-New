@@ -1,0 +1,42 @@
+<h2><strong><span style="color: #2980b9;">Steps to connect a Java Application to Database</span></strong></h2>
+<h4><span style="color: #333333;">The following 5 steps are the basic steps involve in connecting a Java application with Database using JDBC.</span></h4>
+<h4><span style="color: #333333;">1.&nbsp;Register the Driver</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;Create a Connection<br /></span></h4>
+<h4><span style="color: #333333;">3.&nbsp;Create SQL Statement</span></h4>
+<h4><span style="color: #333333;">4.&nbsp;Execute SQL Statement</span></h4>
+<h4><span style="color: #333333;">5.&nbsp;Closing the connection<br />&nbsp;<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Register the Driver</span></strong></span></h3>
+<h4><span style="color: #333333;">Class.forName() is used to load the driver class explicitly.</span></h4>
+<h4><span style="color: #333333;">Example to register with JDBC-ODBC Driver<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;">Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Create a Connection</span></strong></span></h3>
+<h4><span style="color: #333333;">getConnection() method of DriverManager class is used to create a connection.</span></h4>
+<h4><span style="color: #333333;">getConnection() method of DriverManager class is used to create a connection.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #000080;">getConnection(String url)</span><br /><span style="color: #000080;">getConnection(String url, String username, String password)</span><br /><span style="color: #000080;">getConnection(String url, Properties info)</span></h3>
+<h4><span style="color: #333333;">Example establish connection with Oracle Driver</span></h4>
+<pre style="color: #000000; background: #ffffff;">Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","username","password");<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Create&nbsp;SQL Statement</span></strong></span></h3>
+<h4><span style="color: #333333;">createStatement() method is invoked on current Connection object to create a SQL Statement.</span></h4>
+<h4><span style="color: #333333;">Syntax</span></h4>
+<h3 class="table-responsive"><span style="color: #000080;">public Statement createStatement() throws SQLException</span></h3>
+<h4><span style="color: #333333;">Example to create a SQL statement</span></h4>
+<pre style="color: #000000; background: #ffffff;">Statement s=con.createStatement();</pre>
+<h4><span style="color: #333333;">Execute SQL Statement.</span></h4>
+<h4><span style="color: #333333;">executeQuery() method of Statement interface is used to execute SQL statements.<br /><br /></span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h3 class="table-responsive"><span style="color: #000080;">public&nbsp;ResultSet executeQuery(String query) throws SQLException</span></h3>
+<h4><span style="color: #333333;">Example to execute a SQL statement</span></h4>
+<pre style="color: #000000; background: #ffffff;">ResultSet rs=s.executeQuery("select * from user");
+  while(rs.next())
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(rs.getString(1)+<span style="color: #2a00ff;">" "</span>+rs.getString(2));
+  }<br /><br /></pre>
+<h4><span style="color: #008080;">Closing the connection</span></h4>
+<h4><span style="color: #333333;">After executing SQL statement you need to close the connection and release the session. The close() method of Connection interface is used to close the connection.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> void close() <span style="color: #7f0055; font-weight: bold;">throws</span> SQLException</pre>
+<h4><span style="color: #333333;"><br />Example of closing a connection:</span></h4>
+<pre style="color: #000000; background: #ffffff;">con.close();<br />
+</pre>

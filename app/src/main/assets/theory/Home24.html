@@ -1,0 +1,182 @@
+<h2><strong><span style="color: #2980b9;">Legacy Classes</span></strong></h2>
+<h4><span style="color: #333333;">Early version of java did not include the Collection framework. It only defined several classes and interface that provide method for storing objects. When Collection framework were added in J2SE 1.2, the original classes were reengineered to support the collection interface. These classes are also known as Legacy classes. All legacy claases and interface were redesign by JDK 5 to support Generics.</span></h4>
+<h4><span style="color: #333333;">The following are the legacy classes defined by java.util package</span></h4>
+<h4><span style="color: #333333;">1. <span style="color: #008080;">Dictionary</span></span><br /><span style="color: #333333;">2. <span style="color: #008080;">ashTable</span></span><br /><span style="color: #333333;">3. <span style="color: #008080;">Properties</span></span><br /><span style="color: #333333;">4. <span style="color: #008080;">Stack</span></span><br /><span style="color: #333333;">5. <span style="color: #008080;">Vector</span></span></h4>
+<h4><span style="color: #333333;">There is only one legacy interface called Enumeration</span></h4>
+<h4><span style="color: #333399;">NOTE:</span> <span style="color: #333333;">All the legacy classes are syncronized</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">Enumeration interface</span></h3>
+<h4><span style="color: #333333;">1. Enumeration interface defines method to enumerate through collection of object.</span></h4>
+<h4>2. This interface is suspended by Iterator interface.</h4>
+<h4><span style="color: #333333;">3. However some legacy classes such as Vector and Properties defines several method in which Enumeration interface is used.</span></h4>
+<h4><span style="color: #333333;">4. It specifies the following two methods</span></h4>
+<h4><span style="color: #333399;">boolean hasMoreElements()</span></h4>
+<h4><span style="color: #333399;">Object nextElement()</span></h4>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">Vector class</span></h3>
+<h4><span style="color: #333333;">1. Vector is similar to ArrayList which represents a dynamic array.</span></h4>
+<h4><span style="color: #333333;">2. The only difference between Vector and ArrayList is that Vector is synchronised while Array is not.</span></h4>
+<h4><span style="color: #333333;">3. Vector class has following four constructor</span></h4>
+<h4><span style="color: #333399;">Vector()</span></h4>
+<h4><span style="color: #333399;">Vector(int size)</span></h4>
+<h4><span style="color: #333399;">Vector(int size, int incr)</span></h4>
+<h4><span style="color: #333399;">Vector(Collection&lt; ? extends E&gt; c)</span></h4>
+<h4><span style="color: #333333;">Vector defines several legacy method. Lets see some important legacy method define by Vector class.</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Methods</strong></td>
+<td><strong>&nbsp;Description</strong></td>
+</tr>
+<tr>
+<td>&nbsp;addElement()</td>
+<td>&nbsp;add element to the Vector</td>
+</tr>
+<tr>
+<td>&nbsp;elementAt()</td>
+<td>&nbsp;return the element at specified index</td>
+</tr>
+<tr>
+<td>&nbsp;elements()</td>
+<td>&nbsp;return an enumeration of element in vector</td>
+</tr>
+<tr>
+<td>&nbsp;firstElement()</td>
+<td>&nbsp;return first element in the Vector</td>
+</tr>
+<tr>
+<td>&nbsp;lastElement()</td>
+<td>&nbsp;return last element in the Vector</td>
+</tr>
+<tr>
+<td>&nbsp;removeAllElement()</td>
+<td>&nbsp;remove all element of the Vector</td>
+</tr>
+</tbody>
+</table>
+<h4><span style="color: #333333;">Example of Vector</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">Vector</span> ve = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Vector</span>();
+  ve.add(10);
+  ve.add(20);
+  ve.add(30);
+  ve.add(40);
+  ve.add(50);
+  ve.add(60);
+
+  <span style="color: #7f0055; font-weight: bold;">Enumeration</span> en = ve.elements();
+
+  <span style="color: #7f0055; font-weight: bold;">while</span>(en.hasMoreElements())
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(en.nextElement());
+  }
+ }
+}
+Output :
+10
+20
+30
+40
+50
+60
+</pre>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">Hashtable class</span></h3>
+<h4><span style="color: #333333;">1. Like HashMap, Hashtable also stores key/value pair in hashtable. However neither keys nor values can be null.</span></h4>
+<h4><span style="color: #333333;">2. There is one more difference between HashMap and Hashtable that is Hashtable is synchronized while HashMap is not.</span></h4>
+<h4><span style="color: #333333;">3. Hashtable has following four constructor</span></h4>
+<h4><span style="color: #333399;">Hashtable()</span></h4>
+<h4><span style="color: #333399;">Hashtable(int size)</span></h4>
+<h4><span style="color: #333399;">Hashtable(int size, float fillratio)</span></h4>
+<h4><span style="color: #333399;">Hashtable(Map&lt; ? extends K, ? extends V&gt; m)</span></h4>
+<h4><span style="color: #333333;">Example of Hashtable</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> HashTableDemo
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">Hashtable</span>&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt; ht = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Hashtable</span>&lt; <span style="color: #7f0055; font-weight: bold;">String</span>,<span style="color: #7f0055; font-weight: bold;">Integer</span>&gt;();
+  ht.put(<span style="color: #2a00ff;">"a"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(100));
+  ht.put(<span style="color: #2a00ff;">"b"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(200));
+  ht.put(<span style="color: #2a00ff;">"c"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(300));
+  ht.put(<span style="color: #2a00ff;">"d"</span>,<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Integer</span>(400));
+
+  Set st = ht.entrySet();
+  Iterator itr=st.iterator();
+  <span style="color: #7f0055; font-weight: bold;">while</span>(itr.hasNext())
+  {
+   Map.Entry m=(Map.Entry)itr.next();
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(itr.getKey()+<span style="color: #2a00ff;">" "</span>+itr.getValue());
+  }
+ }
+}
+Output:
+a 100
+b 200
+c 300
+d 400
+</pre>
+<h4><span style="color: #333333;">Difference between HashMap and Hashtable</span></h4>
+<table border="1" cellspacing="0" cellpadding="3">
+<tbody>
+<tr>
+<td><strong>&nbsp;Hashtable</strong></td>
+<td><strong>&nbsp;HashMap</strong></td>
+</tr>
+<tr>
+<td>&nbsp;Hashtable class is synchronized</td>
+<td>&nbsp;HastMap is not synchronize</td>
+</tr>
+<tr>
+<td>&nbsp;Because of Thread-safe, Hashtable is slower than HashMap</td>
+<td>&nbsp;HashMap works faster</td>
+</tr>
+<tr>
+<td>&nbsp;Neither key nor values can be null</td>
+<td>&nbsp;Both key and values can be null</td>
+</tr>
+<tr>
+<td>&nbsp;Order of table remain constant over time</td>
+<td>&nbsp;Does not guarantee that order of map remain constant over time</td>
+</tr>
+</tbody>
+</table>
+<h3>&nbsp;</h3>
+<h3><span style="color: #008080;">Properties class</span></h3>
+<h4><span style="color: #333333;">1. Properties class extends Hashtable class.</span></h4>
+<h4><span style="color: #333333;">2. It is used to maintain list of value in which both key and value are String</span></h4>
+<h4><span style="color: #333333;">3. Properties class define two constructor</span></h4>
+<h4><span style="color: #333399;">Properties()</span></h4>
+<h4><span style="color: #333399;">Properties(Properties default)</span></h4>
+<h4><span style="color: #333333;">4. One advantage of Properties over Hashtable is that we can specify a default property that will be useful when no value is associated with a certain key.</span></h4>
+<h4><span style="color: #333333;">Example of Properties class</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">util</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">Properties</span> pr = <span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">Properties</span>();
+  pr.put(<span style="color: #2a00ff;">"Java"</span>, <span style="color: #2a00ff;">"James Ghosling"</span>);
+  pr.put(<span style="color: #2a00ff;">"C++"</span>, <span style="color: #2a00ff;">"Bjarne Stroustrup"</span>);
+  pr.put(<span style="color: #2a00ff;">"C"</span>, <span style="color: #2a00ff;">"Dennis Ritchie"</span>);
+  pr.put(<span style="color: #2a00ff;">"C#"</span>, <span style="color: #2a00ff;">"Microsoft Inc."</span>);
+  Set&lt; ?&gt; creator = pr.keySet();
+
+  <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">Object</span> ob: creator)
+  {
+   <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ob+<span style="color: #2a00ff;">" was created by "</span>+ pr.getProperty((<span style="color: #7f0055; font-weight: bold;">String</span>)ob) );
+  }
+ }
+}
+
+Output :
+Java was created by James Ghosling
+C++ was created by Bjarne Stroustrup
+C was created by Dennis Ritchie
+C# was created by Microsoft Inc<br /><br />
+</pre>

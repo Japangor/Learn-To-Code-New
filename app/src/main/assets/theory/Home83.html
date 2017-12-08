@@ -1,0 +1,106 @@
+<h2><strong><span style="color: #2980b9;">Joining threads</span></strong></h2>
+<h4><span style="color: #333333;">Sometimes one thread needs to know when another thread is ending. In java, isAlive() and join() are two different methods to check whether a thread has finished its execution.&nbsp;</span></h4>
+<h4><span style="color: #333333;">The isAlive() methods return true if the thread upon which it is called is still running otherwise it return false.</span></h4>
+<h4><span style="color: #008080;">final boolean isAlive( )</span></h4>
+<h4><span style="color: #333333;">But, join() method is used more commonly than isAlive(). This method waits until the thread on which it is called terminates.</span></h4>
+<h4><span style="color: #008080;">final void join() throws InterruptedException</span></h4>
+<h4><span style="color: #333333;">Using join() method, we tell our thread to wait until the specifid thread completes its execution. There are overloaded versions of join() method, which allows us to specify time for which you want to wait for the specified thread to terminate.</span>&nbsp;</h4>
+<h4><span style="color: #008080;">final void join(long milliseconds) throws InterruptedException</span></h4>
+<h4><span style="color: #333333;">Example of isAlive method:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyThread <span style="color: #7f0055; font-weight: bold;">extends</span> Thread
+{
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run()
+   {
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r1 "</span>);
+       <span style="color: #7f0055; font-weight: bold;">try</span>{
+        <span style="color: #7f0055; font-weight: bold;">Thread</span>.sleep(500);
+    }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">InterruptedException</span> ie){}
+       
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r2 "</span>);
+  }
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+{
+MyThread t1=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+MyThread t2=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+t1.start(); 
+t2.start();
+<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(t1.isAlive());
+<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(t2.isAlive());
+}
+}
+
+Output :
+r1 
+true
+true
+r1 
+r2 
+r2
+</pre>
+<h4><span style="color: #008080;">Example of thread without join() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyThread <span style="color: #7f0055; font-weight: bold;">extends</span> Thread
+{
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run()
+   {
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r1 "</span>);
+       <span style="color: #7f0055; font-weight: bold;">try</span>{
+        <span style="color: #7f0055; font-weight: bold;">Thread</span>.sleep(500);
+    }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">InterruptedException</span> ie){}
+       
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r2 "</span>);
+  }
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+{
+MyThread t1=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+MyThread t2=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+t1.start(); 
+t2.start();
+}
+}
+
+Output :
+r1
+r1
+r2
+r2
+</pre>
+<h4><span style="color: #333333;">In this above program two thread t1 and t2 are created. t1 starts first and after printing "r1" on console thread t1 goes to sleep for 500 mls.At the same time Thread t2 will start its process and print "r1" on console and then goes into sleep for 500 mls. Thread t1 will wake up from sleep and print "r2" on console similarly thread t2 will wake up from sleep and print "r2" on console. So you will get output like r1 r1 r2 r2.</span></h4>
+<h4><span style="color: #008080;">Example of thread with join() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyThread <span style="color: #7f0055; font-weight: bold;">extends</span> Thread
+{
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> run()
+   {
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r1 "</span>);
+       <span style="color: #7f0055; font-weight: bold;">try</span>{
+        <span style="color: #7f0055; font-weight: bold;">Thread</span>.sleep(500);
+    }<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">InterruptedException</span> ie){}
+       
+       <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"r2 "</span>);
+  }
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+{
+MyThread t1=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+MyThread t2=<span style="color: #7f0055; font-weight: bold;">new</span> MyThread();
+t1.start();
+ 
+<span style="color: #7f0055; font-weight: bold;">try</span>{
+  t1.join();		<span style="color: #3f7f59;">//Waiting for t1 to finish</span>
+}<span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">InterruptedException</span> ie){}
+
+t2.start();
+}
+}
+
+Output :
+r1 
+r2 
+r1 
+r2
+</pre>
+<h4><span style="color: #333333;">In this above program join() method on thread t1 ensure that t1 finishes it process before thread t2 starts.</span></h4>
+<h4><span style="color: #008080;">Example of thread with join() method</span></h4>
+<h4><span style="color: #333333;">Doing so, the thread won't be allocated a new call stack, and it will start running in the current call stack, that is the call stack of the main thread. Hence Multithreading won't be there.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Q. Can we Start a thread twice ??</span></strong></span></h3>
+<h4><span style="color: #333333;">If in the above program, we specify time while using join() with m1, then m1 will execute for that time, and then m2 and m3 will join it.</span></h4>
+<h4><span style="color: #333333;">m1.join(1500);</span></h4>
+<h4><span style="color: #333333;">Doing so, initially m1 will execute for 1.5 seconds, after which m2 and m3 will join it.</span></h4>

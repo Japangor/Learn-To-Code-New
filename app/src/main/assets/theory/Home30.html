@@ -1,0 +1,47 @@
+<h2><strong><span style="color: #2980b9;">Try with Resource Statement</span></strong></h2>
+<h4><span style="color: #333333;">JDK 7 introduces a new version of try statement known as try-with-resources statement. This feature add another way to exception handling with resources management,it is also referred to as automatic resource management.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span></h4>
+<h4><span style="color: #333333;"><span style="color: #333399;">try ( resource-specification )<br />{<br />&nbsp; &nbsp; &nbsp;//use the resource<br />} catch( ){<br />...<br />}<br /></span><br /></span></h4>
+<h4><span style="color: #333333;">This try statement contains a paranthesis in which one or more resources is declare. Any object that implements java.lang.AutoCloseable or java.io.Closeable, can be passed as a parameter to try statement. A resource is an object that is used in program and must be closed after the program is finished. The try-with-resources statement ensures that each resource is closed at the end of the statement, you do not have to explicitly close the resources.</span></h4>
+<h4><span style="color: #333333;">Example without using try with Resource Statement.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+    {
+       <span style='color:#7f0055; font-weight:bold; '>try</span>{
+            <span style='color:#7f0055; font-weight:bold; '>String</span> str;
+            <span style='color:#3f7f59; '>//opening file in read mode using BufferedReader stream</span>
+            <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span> br=<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span>(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FileReader</span>(<span style='color:#2a00ff; '>"d:</span><span style='color:#2a00ff; '>\\</span><span style='color:#2a00ff; '>myfile.txt"</span>));   
+            <span style='color:#7f0055; font-weight:bold; '>while</span>((str=br.readLine())!=<span style='color:#7f0055; font-weight:bold; '>null</span>)
+            {
+                 <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(str);
+            }      
+            br.close();	<span style='color:#3f7f59; '>//closing BufferedReader stream</span>
+          } <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>IOException</span> ie){
+               <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"exception"</span>);
+          }
+    }
+}
+</pre>
+<h4><span style="color: #333333;">Example using try with Resource Statement.</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>io</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+    {
+	<span style='color:#7f0055; font-weight:bold; '>try</span>(<span style='color:#7f0055; font-weight:bold; '>BufferedReader</span> br=<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>BufferedReader</span>(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FileReader</span>(<span style='color:#2a00ff; '>"d:</span><span style='color:#2a00ff; '>\\</span><span style='color:#2a00ff; '>myfile.txt"</span>)))
+	{
+	    <span style='color:#7f0055; font-weight:bold; '>String</span> str;
+	    <span style='color:#7f0055; font-weight:bold; '>while</span>((str=br.readLine())!=<span style='color:#7f0055; font-weight:bold; '>null</span>)
+	    {
+	       <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(str);
+	    }
+	} <span style='color:#7f0055; font-weight:bold; '>catch</span>(<span style='color:#7f0055; font-weight:bold; '>IOException</span> ie){
+	   <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(<span style='color:#2a00ff; '>"exception"</span>);
+	}
+    }
+}
+</pre>
+<h4><span style="color: #333333;">NOTE: In the above example, we do not need to explicitly call close() method to close BufferedReader stream.</span></h4>
+<h3>&nbsp;</h3>

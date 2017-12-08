@@ -1,0 +1,151 @@
+<h2><strong><span style="color: #2980b9;">Swing&nbsp;Component</span></strong></h2>
+<h4><span style="color: #333333;">Swing Framework contains a large set of components which provide rich functionalities and allow high level of customization. All these components are lightweight components. They all are derived from JComponent class. It supports the pluggable look and feel.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JButton</span></strong></span></h3>
+<h4><span style="color: #333333;">JButton class provides functionality of a button. JButton class has three constuctors,<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;">JButton(Icon ic)
+
+JButton(String str)
+
+JButton(String str, Icon ic)</pre>
+<h4><span style="color: #333333;">It allows a button to be created using icon, a string or both. JButton supports ActionEvent. When a button is pressed an ActionEvent is generated.</span></h4>
+<h4><span style="color: #333333;">Commonly used Methods of AbstractButton class:&nbsp;<br /><br />1. public void setText(String s): is used to set specified text on button.<br />2. public String getText(): is used to return the text of the button.<br />3.public void setEnabled(boolean b): is used to enable or disable the button.<br />4.public void setIcon(Icon b): is used to set the specified Icon on the button.<br />5.public Icon getIcon(): is used to get the Icon of the button.<br />6.public void setMnemonic(int a): is used to set the mnemonic on the button.<br />7.public void addActionListener(ActionListener a): is used to add the action listener to this object.</span></h4>
+<h4><span style="color: #333333;">Note: The JButton class extends AbstractButton class<br /></span></h4>
+<h4><span style="color: #333333;">Example using JButton.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> javax</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">swing</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">event</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> testswing <span style="color: #7f0055; font-weight: bold;">extends</span> JFrame 
+{
+ 
+ testswing()
+ {
+  JButton bt1 = <span style="color: #7f0055; font-weight: bold;">new</span> JButton(<span style="color: #2a00ff;">"Yes"</span>);		<span style="color: #3f7f59;">//Creating a Yes Button. </span>
+  JButton bt2 = <span style="color: #7f0055; font-weight: bold;">new</span> JButton(<span style="color: #2a00ff;">"No"</span>);		<span style="color: #3f7f59;">//Creating a No Button.  </span>
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)     <span style="color: #3f7f59;">//setting close operation. </span>
+  setLayout(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FlowLayout</span>());		<span style="color: #3f7f59;">//setting layout using FlowLayout object  </span>
+  setSize(400, 400);			<span style="color: #3f7f59;">//setting size of Jframe </span>
+  add(bt1);		<span style="color: #3f7f59;">//adding Yes button to frame. </span>
+  add(bt2);		<span style="color: #3f7f59;">//adding No button to frame. </span>
+  
+  setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">new</span> testswing();
+ }
+}</pre>
+<pre style="color: #000000; background: #ffffff;">&nbsp;</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JTextField</span></strong></span></h3>
+<h4><span style="color: #333333;">JTextField is used for taking input of single line of text. It is most widely used text component. It has three constructors,</span></h4>
+<pre style="color: #000000; background: #ffffff;">JTextField(int cols)
+JTextField(String str, int cols)
+JTextField(String str)</pre>
+<h4><span style="color: #333333;">cols represent the number of columns in text field.</span></h4>
+<h4><span style="color: #333333;">Example using JTextField,<br /><br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> javax</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">swing</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">event</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> MyTextField <span style="color: #7f0055; font-weight: bold;">extends</span> JFrame 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> MyTextField() 
+ {
+  JTextField jtf = <span style="color: #7f0055; font-weight: bold;">new</span> JTextField(20);	<span style="color: #3f7f59;">//creating JTextField. </span>
+  add(jtf);				<span style="color: #3f7f59;">//adding JTextField to frame. </span>
+  setLayout(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FlowLayout</span>());
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  setSize(400, 400);
+  setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">new</span> MyTextField();
+ }
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JCheckBox</span></strong></span></h3>
+<h4><span style="color: #333333;">JCheckBox class is used to create checkboxes in frame. Following is constructor for JCheckBox,</span></h4>
+<pre style="color: #000000; background: #ffffff;">JCheckBox(String str)
+</pre>
+<h4><span style="color: #333333;">Example using JCheckBox<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> javax</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">swing</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">event</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test <span style="color: #7f0055; font-weight: bold;">extends</span> JFrame  
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> Test() 
+ {
+  JCheckBox jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JCheckBox(<span style="color: #2a00ff;">"yes"</span>);   <span style="color: #3f7f59;">//creating JCheckBox. </span>
+  add(jcb);				  <span style="color: #3f7f59;">//adding JCheckBox to frame. </span>
+  jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JCheckBox(<span style="color: #2a00ff;">"no"</span>);		  <span style="color: #3f7f59;">//creating JCheckBox. </span>
+  add(jcb);				  <span style="color: #3f7f59;">//adding JCheckBox to frame. </span>
+  jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JCheckBox(<span style="color: #2a00ff;">"maybe"</span>);		  <span style="color: #3f7f59;">//creating JCheckBox.  </span>
+  add(jcb);				  <span style="color: #3f7f59;">//adding JCheckBox to frame. </span>
+  setLayout(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FlowLayout</span>());
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  setSize(400, 400);
+  setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args) 
+ {
+  <span style="color: #7f0055; font-weight: bold;">new</span> Test();
+ }
+}
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JRadioButton</span></strong></span></h3>
+<h4><span style="color: #333333;">Radio button is a group of related button in which only one can be selected. JRadioButton class is used to create a radio button in Frames. Following is the constructor for JRadioButton,</span></h4>
+<pre style="color: #000000; background: #ffffff;">JRadioButton(String str)
+
+JRadioButton(String std, boolean selected)
+</pre>
+<h4><span style="color: #333333;">Example using JRadioButton,</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> javax</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">swing</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">event</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">awt</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test <span style="color: #7f0055; font-weight: bold;">extends</span> JFrame 
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> Test() 
+ {
+  JRadioButton jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JRadioButton(<span style="color: #2a00ff;">"A"</span>);	<span style="color: #3f7f59;">//creating JRadioButton.  </span>
+  add(jcb);					<span style="color: #3f7f59;">//adding JRadioButton to frame. </span>
+  jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JRadioButton(<span style="color: #2a00ff;">"B"</span>);			<span style="color: #3f7f59;">//creating JRadioButton. </span>
+  add(jcb);					<span style="color: #3f7f59;">//adding JRadioButton to frame. </span>
+  jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JRadioButton(<span style="color: #2a00ff;">"C"</span>);			<span style="color: #3f7f59;">//creating JRadioButton.  </span>
+  add(jcb);					<span style="color: #3f7f59;">//adding JRadioButton to frame. </span>
+  jcb = <span style="color: #7f0055; font-weight: bold;">new</span> JRadioButton(<span style="color: #2a00ff;">"none"</span>);
+  add(jcb);
+  setLayout(<span style="color: #7f0055; font-weight: bold;">new</span> <span style="color: #7f0055; font-weight: bold;">FlowLayout</span>());
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  setSize(400, 400);
+  setVisible(<span style="color: #7f0055; font-weight: bold;">true</span>);
+ }
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+ {
+  <span style="color: #7f0055; font-weight: bold;">new</span> Test();
+ }
+}</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">JComboBox</span></strong></span></h3>
+<h4><span style="color: #333333;">Combo box is a combination of text fields and drop-down list.JComboBox component is used to create a combo box in Swing. Following is the constructor for JComboBox,</span></h4>
+<pre style="color: #000000; background: #ffffff;">JComboBox(String arr[])
+</pre>
+<h4><span style="color: #333333;">Example using JComboBox</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> javax</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>swing</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>event</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>awt</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Test <span style='color:#7f0055; font-weight:bold; '>extends</span> JFrame 
+{
+ <span style='color:#7f0055; font-weight:bold; '>String</span> name[] = {<span style='color:#2a00ff; '>"Abhi"</span>,<span style='color:#2a00ff; '>"Adam"</span>,<span style='color:#2a00ff; '>"Alex"</span>,<span style='color:#2a00ff; '>"Ashkay"</span>};  <span style='color:#3f7f59; '>//list of name. </span>
+ <span style='color:#7f0055; font-weight:bold; '>public</span> Test() 
+ {
+  JComboBox jc = <span style='color:#7f0055; font-weight:bold; '>new</span> JComboBox(name);	<span style='color:#3f7f59; '>//initialzing combo box with list of name. </span>
+  add(jc);				<span style='color:#3f7f59; '>//adding JComboBox to frame. </span>
+  setLayout(<span style='color:#7f0055; font-weight:bold; '>new</span> <span style='color:#7f0055; font-weight:bold; '>FlowLayout</span>());
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  setSize(400, 400);
+  setVisible(<span style='color:#7f0055; font-weight:bold; '>true</span>);
+ }
+ <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+ {
+  <span style='color:#7f0055; font-weight:bold; '>new</span> Test();
+ }
+}
+</pre>
+<p>&nbsp;</p>

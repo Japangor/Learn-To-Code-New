@@ -1,0 +1,122 @@
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">java.lang.Class class</span></strong></span></h3>
+<h4><span style="color: #333333;">Class is a final class in java.lang package which extends Object class. Instance of this class represents classes and interfaces in a running Java application. It is used to analyze and change dynamic behaviour of a class at runtime.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Some Important Methods of java.lang.Class class</span></strong></span></h3>
+<h4><span style="color: #333333;">This class defines several methods using which we can get information about methods, constructors, modifiers and members of a class at runtime.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">forName( )</span></strong></span></h3>
+<h4><span style="color: #333333;">This method takes fully qualified name of classes or interface as its argument and returns instance of the class assocaited with it.</span></h4>
+<h4><span style="color: #333333;">Syntax</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">static</span> Class&lt; ?&gt; forName(String className)</pre>
+<h4><span style="color: #333333;">Example using forName() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> Student{}
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">Class</span> c = <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"Student"</span>);
+  <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(c.getName());
+ }
+}
+
+Output : Student<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">getConstructors( ) and getDeclaredConstructors( )</span></strong></span></h3>
+<h4><span style="color: #333333;">getConstructors() method returns array of Constructors object that represent all the public constructors of the invoking object. Remember, this method only returns public constructors. If you want to see all the declared constructors of a class then use getDeclaredConstructors(). Following is the general syntax of both,</span></h4>
+<h4><span style="color: #333333;">Constructor&lt; ?&gt;[] getConstructors();<br />Constructor&lt; ?&gt;[] getDeclaredConstructors();</span></h4>
+<h4><span style="color: #333333;">Example using getConstructors() and getDeclaredConstructors() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">lang</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">reflect</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Student
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> Student(){}
+ <span style="color: #7f0055; font-weight: bold;">public</span> Student(<span style="color: #7f0055; font-weight: bold;">String</span> name){}
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+  <span style="color: #7f0055; font-weight: bold;">Class</span> c = <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"Student"</span>);
+  <span style="color: #7f0055; font-weight: bold;">Constructor</span>&lt; Student&gt;[] ct = c.getConstructors();
+  <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0; i&lt; ct.length; i++)
+    { <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ct[i]); }
+  <span style="color: #7f0055; font-weight: bold;">Constructor</span>&lt; Student&gt;[] cdt = c.getDeclaredConstructors();
+  <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0;i&lt; cdt.length;i++)
+    { <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(cdt[i]);}
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  { e.printStackTrace();}
+ }
+}
+
+Output :
+<span style="color: #7f0055; font-weight: bold;">public</span> Student()
+<span style="color: #7f0055; font-weight: bold;">public</span> Student()
+Student(java.lang.String)<br /><br /></pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">getMethods( ) and getDeclaredMethods( )</span></strong></span></h3>
+<h4><span style="color: #333333;">getMethods() method returns array of Method object that reflect all the public method of invoking object. getDeclaredMethods() returns only the declared methods of the invoking class object.</span></h4>
+<h4><span style="color: #333333;">Syntax for both is following,</span></h4>
+<h4><span style="color: #333333;">Method&lt; ?&gt;[] getMethods();<br />Method&lt; ?&gt;[] getDeclaredMethods();</span></h4>
+<h4><span style="color: #333333;">Example using getDeclaredMethods() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">lang</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">reflect</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Student
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> show(){}
+ <span style="color: #7f0055; font-weight: bold;">void</span> display(){}
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">Class</span> c = <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"Student"</span>);
+   <span style="color: #7f0055; font-weight: bold;">Method</span> md[] = c.getDeclaredMethods();
+   <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0; i&lt; md.length; i++ )
+    { <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(md[i]); }
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  { e.printStackTrace();}
+ }
+}
+
+Output :
+<span style="color: #7f0055; font-weight: bold;">public</span> void Student.show()
+void Student.display()<br />
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">getFields( ) and getDeclaredFields( )</span></strong></span></h3>
+<h4><span style="color: #333333;">getFields() returns an array containing Field objects reflecting all the accessible public members of the class or interface represented by this Class object. getDeclaredFields() returns array of Field objects reflecting all the fields declared by the class or interface represented by this Class object.</span></h4>
+<h4><span style="color: #333333;">Field&lt; ?&gt;[] getFields();<br />Field&lt; ?&gt;[] getDeclaredFields();</span></h4>
+<h4><span style="color: #333333;">Example using getFields() and getDeclaredFields() method</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> java</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">lang</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">reflect</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>
+<span style="color: #7f0055; font-weight: bold;">class</span> Student
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span>  <span style="color: #7f0055; font-weight: bold;">String</span> name;
+ <span style="color: #7f0055; font-weight: bold;">int</span> roll;
+}
+
+<span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[])
+ {
+  <span style="color: #7f0055; font-weight: bold;">try</span>
+  {
+   <span style="color: #7f0055; font-weight: bold;">Class</span> c = <span style="color: #7f0055; font-weight: bold;">Class</span>.forName(<span style="color: #2a00ff;">"Student"</span>);
+   <span style="color: #7f0055; font-weight: bold;">Field</span> ff[] = c.getFields();
+   <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0; i&lt; ff.length; i++)
+    { <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(ff[i]); }
+   <span style="color: #7f0055; font-weight: bold;">Field</span> f[] = c.getDeclaredFields();
+   <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0;i&lt; f.length; i++)
+    { <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(f[i]);  }
+  }
+  <span style="color: #7f0055; font-weight: bold;">catch</span>(<span style="color: #7f0055; font-weight: bold;">Exception</span> e)
+  { e.printStackTrace();}
+ }
+}
+
+Output :
+<span style="color: #7f0055; font-weight: bold;">public</span> java.lang.String Student.name
+<span style="color: #7f0055; font-weight: bold;">public</span> java.lang.String Student.name
+int Student.roll
+</pre>
+<p>&nbsp;&nbsp;</p>

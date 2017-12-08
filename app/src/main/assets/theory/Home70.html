@@ -1,0 +1,141 @@
+<h2><strong><span style="color: #2980b9;">Package&nbsp;in Java</span></strong></h2>
+<h4><span style="color: #333333;">A package can be defined as a group of similar types of classes, interface, enumeration and sub-package.<br /></span></h4>
+<h4><span style="color: #333333;">Package are used in Java, in-order to avoid name conflicts and to control access of class, interface and enumeration etc. <br /></span></h4>
+<h4><span style="color: #333333;">Using package it becomes easier to locate the related classes.<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Package are categorized into two forms:</span></strong></span></h3>
+<h4><span style="color: #333333;">1.&nbsp;Built-in Package:-Existing Java package for example java.lang, java.util etc</span></h4>
+<h4><span style="color: #333333;">2.&nbsp;User-defined-package:- Java package created by user to categorized classes and interface</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />Creating a package:</span></strong></span></h3>
+<h4><span style="color: #333333;">Creating a package in java is quite easy. Simply include a package command followed by name of the package as the first statement in java source file.</span></h4>
+<h4><span style="color: #333333;">Example:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//save as Simple.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> mypack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Simple{  
+ <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Welcome to package."</span>);  
+   }  
+}
+</pre>
+<h4><span style="color: #333333;">The above statement create a package called mypack.</span></h4>
+<h4><span style="color: #333333;">Java uses file system directory to store package. For example the .class for any classes you to define to be part of mypack package must be stored in a directory called mypack.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />How to compile java package:</span></strong></span></h3>
+<h4><span style="color: #333333;">If you are not using any IDE, you need to follow the syntax given below.</span></h4>
+<h3 class="table-responsive"><span style="color: #333399;">javac -d Destination_folder file_name.java</span></h3>
+<h4><span style="color: #333333;">Example:</span></h4>
+<h4><span style="color: #333333;">javac -d . Simple.java&nbsp;</span></h4>
+<h4><span style="color: #333333;">The -d switch specifies the destination where to put the generated class file. You can use any directory name like /home (in case of Linux), d:/abc (in case of windows) etc. If you want to keep the package within the same directory, you can use .(dot).<br /><br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">How to run java package program:</span></strong></span></h3>
+<h4><span style="color: #333333;">You need to use fully qualified name e.g. mypack.Simple etc to run the class.There are three ways to access the package from outside the package</span></h4>
+<h4><span style="color: #333333;">1. import package.*;.</span></h4>
+<h4><span style="color: #333333;">2. import package.classname.</span></h4>
+<h4><span style="color: #333333;">3. fully qualified name.</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;"><br />import keyword<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">import keyword is used to import built-in and user-defined packages into your java source file. So that your class can refer to a class that is in another package by directly using its name.</span></h4>
+<h4><span style="color: #333333;">&nbsp;</span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">1. Using packagename.*:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">If you use package.* then all the classes and interfaces of this package will be accessible but not subpackages.<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//save by A.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> pack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> A{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> msg(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Hello"</span>);}  
+}  
+
+<span style="color: #3f7f59;">//save by B.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> mypack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> pack</span><span style="color: #7f0055;">.</span><span style="color: #7f0055; font-weight: bold;">*</span><span style="color: #7f0055;">;</span>  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> B{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   A obj = <span style="color: #7f0055; font-weight: bold;">new</span> A();  
+   obj.msg();  
+  }  
+}  
+
+Output:Hello
+</pre>
+<p>&nbsp;</p>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">2. Using packagename.classname:<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">If you import package.classname then only declared class of this package will be accessible.</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//save by A.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> pack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> A{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> msg(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Hello"</span>);}  
+}  
+
+<span style="color: #3f7f59;">//save by B.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> mypack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">import</span><span style="color: #7f0055;"> pack</span><span style="color: #7f0055;">.</span><span style="color: #7f0055;">A</span><span style="color: #7f0055;">;</span>  
+  
+<span style="color: #7f0055; font-weight: bold;">class</span> B{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   A obj = <span style="color: #7f0055; font-weight: bold;">new</span> A();  
+   obj.msg();  
+  }  
+}  
+
+Output:Hello
+</pre>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">3. Using fully qualified name (But this is not a good practice.):<br /></span></strong></span></h3>
+<h4><span style="color: #333333;">It is generally used when two packages have same class name e.g. java.util and java.sql packages contain Date class.</span></h4>
+<p>&nbsp;</p>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #3f7f59;">//save by A.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> pack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> A{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">void</span> msg(){<span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #2a00ff;">"Hello"</span>);}  
+}  
+
+<span style="color: #3f7f59;">//save by B.java  </span>
+<span style="color: #7f0055; font-weight: bold;">package</span><span style="color: #7f0055;"> mypack</span><span style="color: #7f0055;">;</span>  
+<span style="color: #7f0055; font-weight: bold;">class</span> B{  
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span> args[]){  
+   pack.A obj = <span style="color: #7f0055; font-weight: bold;">new</span> pack.A();<span style="color: #3f7f59;">//using fully qualified name  </span>
+   obj.msg();  
+  }  
+}  
+
+Output:Hello
+</pre>
+<h4><span style="color: #333333;">NOTE:&nbsp;If you import a package, subpackages will not be imported.<br />&nbsp;<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">Static import:</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">static import is a feature that expands the capabilities of import keyword. It is used to import static member of a class. &nbsp;Using static import, it is possible to refer to the static member directly without its class name. </span></h4>
+<h4><span style="color: #333333;">Disadvantage&nbsp;of static import:</span></h4>
+<h4><span style="color: #333333;">1.&nbsp;Less coding is required if you have access any static member of a class oftenly.</span></h4>
+<h4><span style="color: #333333;">Advantage of static import:</span></h4>
+<h4><span style="color: #333333;">1. If you overuse the static import feature, it makes the program unreadable and unmaintainable.<br />&nbsp;<br /></span></h4>
+<h3><span style="color: #2980b9;"><strong><span style="color: #008080;">There are two general form of static import statement:</span></strong></span>&nbsp;</h3>
+<h4><span style="color: #333333;">1. The first form of static import statement, import only a single static member of a class.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">import static package.class-name.static-member-name;</span></h3>
+<h4><span style="color: #333333;">Example:</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">import static java.lang.Math.sqrt; &nbsp; //importing static method sqrt of Math class</span></h3>
+<h4>&nbsp;</h4>
+<h4><span style="color: #333333;">2. The second form of static import statement,imports all the static member of a class.</span></h4>
+<h4><span style="color: #333333;">Syntax:</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">import static package.class-type-name.*;</span></h3>
+<h4><span style="color: #333333;">Example:</span>&nbsp;</h4>
+<h3 class="table-responsive"><span style="color: #333399;">import static java.lang.Math.*; &nbsp;//importing all static member of Math class</span></h3>
+<h3>&nbsp;</h3>
+<h4><span style="color: #333333;">Example without using static import:</span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">class</span> Test
+{
+    <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+    {
+        <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(<span style="color: #7f0055; font-weight: bold;">Math</span>.sqrt(144));
+    }
+}
+
+Output : 12
+</pre>
+<h4><span style="color: #333333;">Example using static import:</span></h4>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; font-weight:bold; '>import</span><span style='color:#7f0055; '> static java</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>lang</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; '>Math</span><span style='color:#7f0055; '>.</span><span style='color:#7f0055; font-weight:bold; '>*</span><span style='color:#7f0055; '>;</span>
+<span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>class</span> Test
+{
+    <span style='color:#7f0055; font-weight:bold; '>public</span> <span style='color:#7f0055; font-weight:bold; '>static</span> <span style='color:#7f0055; font-weight:bold; '>void</span> main(<span style='color:#7f0055; font-weight:bold; '>String</span>[] args)
+    {
+        <span style='color:#7f0055; font-weight:bold; '>System</span>.out.println(sqrt(144));
+    }
+}
+
+Output : 12
+</pre>
+<p>&nbsp;</p>

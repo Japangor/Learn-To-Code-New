@@ -1,0 +1,23 @@
+<h2><strong><span style="color: #2980b9;">Java&nbsp;Command Line Arguments</span></strong></h2>
+<h4><span style="color: #333333;">The java command-line argument is an argument i.e. passed at the time of running the java program.<br /></span></h4>
+<h4><span style="color: #333333;">The arguments passed from the console can be received in the java program and it can be used as an input. <br /></span></h4>
+<h4><span style="color: #333333;">So, it provides a convenient way to check the behavior of the program for the different values. You can pass N (1,2,3 and so on) numbers of arguments from the command prompt.</span></h4>
+<h4><span style="color: #333333;">Example:<br /></span></h4>
+<pre style="color: #000000; background: #ffffff;"><span style="color: #7f0055; font-weight: bold;">class</span> cmd 
+{
+  <span style="color: #7f0055; font-weight: bold;">public</span> <span style="color: #7f0055; font-weight: bold;">static</span> <span style="color: #7f0055; font-weight: bold;">void</span> main(<span style="color: #7f0055; font-weight: bold;">String</span>[] args)
+  {
+    <span style="color: #7f0055; font-weight: bold;">for</span>(<span style="color: #7f0055; font-weight: bold;">int</span> i=0;i&lt; args.length;i++)
+    {
+    <span style="color: #7f0055; font-weight: bold;">System</span>.out.println(args[i]);
+    }
+  }
+}
+Compile by &gt; javac cmd.java
+Execute by &gt; java cmd 10 20 30
+
+Output :
+
+10
+20
+30</pre>
